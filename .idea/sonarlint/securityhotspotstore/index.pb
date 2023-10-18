@@ -1,3 +1,37 @@
 
 9
-	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+E
+frontend/package.json,3\7\37083060967a471c011a16651e22bdc2ade41759
+F
+frontend/src/index.css,9\1\91e522be11677dbeaea3b85493b4868d2728cb6c
+E
+frontend/src/main.jsx,9\b\9b052d142f6592002016e71918483fea775227d4
+_
+/frontend/src/components/charts/ChartDisplay.jsx,b\7\b7d7e80ffe526b4a0462da813e3bb1ca857e98b5
+T
+$frontend/src/hooks/useD3LineChart.js,6\c\6cb517165c7c991b57b406bb09e8c9b9e1fa0ddb
+^
+.frontend/src/components/tables/TableHeader.jsx,a\2\a2fa5f2fa963c5fc86518e8127424a2bc181300d
+c
+3frontend/src/components/tables/TableBodyContent.jsx,2\f\2fde556d57d2927849bae00e93655f09aceba929
+[
++frontend/src/components/charts/BarChart.jsx,1\6\16a3c16ad26316f8fe29af7e0a9c97234c0c6ca7
+\
+,frontend/src/components/charts/LineChart.jsx,6\d\6d5a845511886ba2999577eaceee66a61a81148d
+D
+frontend/src/App.css,8\a\8a75d7beb1451b6fe9282486fbd897a9a8156b7f
+k
+;frontend/src/components/tables/TablePaginationComponent.jsx,c\7\c7fde95c02b863b0c8edae763fb1195585ee24cb
+U
+%frontend/src/components/DataInput.jsx,5\6\566054ed0d351454b48b3b7ff148a4553bf73f55
+[
++frontend/src/components/charts/PieChart.jsx,0\b\0bc49b40eaf3eb269f2334d096c3dc84a00fb4b1
+S
+#frontend/src/hooks/useD3PieChart.js,2\f\2ffe9d5ad9c72150c7db9c2ae7093e078024f988
+S
+#frontend/src/hooks/useD3BarChart.js,1\1\1185f79ebeab0df2deb9711f3262478ef192d495
+D
+frontend/src/App.jsx,6\c\6c8dac08c2c204c1acf95aea38b2b18900fcb984
+a
+1frontend/src/components/tables/DataInputTable.jsx,9\f\9fadc93ba553dca95f52ae8503f7804fcb5d5faf

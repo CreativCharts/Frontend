@@ -1,22 +1,23 @@
-table {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+/* App.css */
+
+/* Style for TableContainer */
+.TableContainer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }
 
-table, th, td {
-  border: 1px solid black;
+/* Style for Table */
+.Table {
+    width: 100%;
 }
 
-table tr:nth-child(even){background-color: #888888;}
-
-table tr:hover {background-color: #ddd;}
-
-table th {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  text-align: left;
-  background-color: #8aff84;
-  color: white;
+/* Style for TableHeader */
+.TableHeader {
+    background-color: #f1f1f1;
 }
 
+/* Style for TableBody */
+.TableBody {
+    background-color: #ffffff;
+}

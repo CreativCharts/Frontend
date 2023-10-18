@@ -1,0 +1,23 @@
+/* Allgemeine Anpassungen für die AppBar */
+.MuiAppBar-root {
+  top: auto;  /* Abstand nach oben entfernen */
+  background-color: #333;  /* Dunkelgrauer Hintergrund */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);  /* Leichter Schatten */
+}
+
+/* Anpassungen für die Toolbar */
+.MuiToolbar-root {
+  display: flex;
+  justify-content: space-between;  /* Elemente gleichmäßig verteilen */
+}
+
+/* Anpassungen für die Buttons */
+.MuiButton-root {
+  font-size: 1.1rem;  /* Schriftgröße erhöhen */
+  text-transform: none;  /* Text nicht in Großbuchstaben umwandeln */
+}
+
+/* Hover-Effekt für die Buttons */
+.MuiButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.1);  /* Leichter Hover-Effekt */
+}
