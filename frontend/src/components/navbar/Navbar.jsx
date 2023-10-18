@@ -4,7 +4,7 @@ import '../styles/Navbar.css';
 
 const Navbar = () => {
     return (
-        <AppBar position="static">
+        <AppBar className={"navbar-root"} position="relative">
             <Toolbar>
                 <Button color="inherit" component={Link} to="/">Home</Button>
                 <Button color="inherit" component={Link} to="/dashboard">Dashboard</Button>

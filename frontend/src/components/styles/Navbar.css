@@ -1,15 +1,19 @@
-/* Allgemeine Anpassungen für die AppBar */
-.MuiAppBar-root {
-  top: auto;  /* Abstand nach oben entfernen */
-  background-color: #333;  /* Dunkelgrauer Hintergrund */
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);  /* Leichter Schatten */
+/* WI kann ich die navbar-root ganz oben platzieren? */
+.navbar-root{
+    display: flex;
+    justify-content: space-between;
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Anpassungen für die Toolbar */
+/* WI kann ich die MuiToolbar-root ganz oben platzieren? */
 .MuiToolbar-root {
   display: flex;
-  justify-content: space-between;  /* Elemente gleichmäßig verteilen */
+  justify-content: space-between;
 }
+
 
 /* Anpassungen für die Buttons */
 .MuiButton-root {
