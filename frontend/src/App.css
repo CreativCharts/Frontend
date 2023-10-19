@@ -1,23 +1,77 @@
-/* App.css */
-
-/* Style for TableContainer */
-.TableContainer {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
+/* Allgemeine Einstellungen */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #333333;
 }
 
-/* Style for Table */
-.Table {
-    width: 100%;
+/* Navbar */
+.navbar-root {
+    background-color: #333;
+    color: white;
 }
 
-/* Style for TableHeader */
-.TableHeader {
-    background-color: #f1f1f1;
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
 }
 
-/* Style for TableBody */
-.TableBody {
-    background-color: #ffffff;
+/* Dashboard */
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #444;
+    color: white;
+    padding: 20px;
+}
+
+/* Main Content */
+.main-content {
+    padding: 20px;
+}
+
+/* Chart Container */
+.chart-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Editor */
+.editor-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+.landing-button {
+    margin-left: 10px;
+}
+
+/* Avatar */
+.avatar {
+    background-color: #666;
+}
+
+/* Tooltip */
+.tooltip {
+    background-color: #333;
+    color: white;
+}
+
+/* 404 Page */
+.not-found {
+    text-align: center;
+    font-size: 2em;
+    padding: 50px;
 }
