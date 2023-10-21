@@ -1,11 +1,11 @@
-import ResponsiveAppBar from "../components/layout/ResponsiveAppBar.jsx";
+import Header from "../components/layout/header/Header.jsx";
 import {Button, Typography, Container} from '@mui/material';
 import {Link} from "react-router-dom";
 
 const LandingPage = () => {
     return (
         <div className="landing-root">
-            <ResponsiveAppBar/>
+            <Header/>
             <Container>
                 <Typography variant="h1" className="landing-title">
                     Creativ Charts App

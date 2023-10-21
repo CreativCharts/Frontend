@@ -1,10 +1,14 @@
-import {useState} from 'react';
-import {Select, MenuItem, FormControl, InputLabel} from '@mui/material';
+import React, { useState } from 'react';
+import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 import BarChart from '../charts/bar/BarChart.jsx';
-import BasicArea from "../charts/line/LineChart.jsx";
+import LineChart from '../charts/line/LineChart.jsx';
+
+// import CustomPieChart from "../charts/pie/PieChart.jsx";
+// import {LineChart} from "@mui/x-charts/LineChart";
 
 const ChartDisplay = () => {
     const [chartType, setChartType] = useState('bar');
+
 
     const handleChange = (event) => {
         setChartType(event.target.value);
@@ -12,11 +16,11 @@ const ChartDisplay = () => {
 
     return (
         <div>
+            {chartType === 'bar' && <><h1>Bar Chart</h1><BarChart /></>}
+            {chartType === 'line' && <><h1>Line Chart</h1><LineChart/></>}
+            {chartType === 'pie' && <><h1>Pie Chart</h1></>}
             <FormControl>
                 <InputLabel id="chart-type-label">Chart Type</InputLabel>
-                {chartType === 'bar' && <h1>Bar Chart</h1>}
-                {chartType === 'line' && <h1>Line Chart</h1>}
-                {chartType === 'pie' && <h1>Pie Chart</h1>}
                 <Select
                     labelId="chart-type-label"
                     id="chart-type-select"
@@ -24,20 +28,13 @@ const ChartDisplay = () => {
                     label="Chart Type"
                     onChange={handleChange}
                 >
-                    <MenuItem value="bar">
-                        <BarChart/>
-                    </MenuItem>
-                    <MenuItem value="line">
-                        <BasicArea/>
-                    </MenuItem>
-                    <MenuItem value="pie">
-                        Pie Chart
-                    </MenuItem>
+                    <MenuItem value="bar">Bar Chart</MenuItem>
+                    <MenuItem value="line">Line Chart</MenuItem>
+                    <MenuItem value="pie">Pie Chart</MenuItem>
                 </Select>
             </FormControl>
         </div>
     );
 }
-
 
 export default ChartDisplay;

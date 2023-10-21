@@ -6,8 +6,8 @@ import {
 import Dashboard from './pages/Dashboard.jsx';
 import Editor from './pages/Editor.jsx';
 import LandingPage from "./pages/LandingPage.jsx";
-import {MainLayout, SidebarLayout, ContentLayout} from './components/layout/MainLayout.jsx';
-import ResponsiveAppBar from "./components/layout/ResponsiveAppBar.jsx";
+import {MainLayout} from './components/layout/MainLayout.jsx';
+import Header from "./components/layout/header/Header.jsx";
 
 
 const NotFound = () => {
@@ -17,20 +17,14 @@ const NotFound = () => {
 const App = () => {
     return (
         <Router>
+            <Header/>
             <MainLayout>
-                <SidebarLayout>
-                    {/* Sidebar content */}
-
-                </SidebarLayout>
-                <ContentLayout>
-                    <ResponsiveAppBar/>
                     <Routes>
                         <Route path="/" element={<LandingPage/>}/>
                         <Route path="/dashboard" element={<Dashboard/>}/>
                         <Route path="/editor" element={<Editor/>}/>
                         <Route path="*" element={<NotFound/>}/>
                     </Routes>
-                </ContentLayout>
             </MainLayout>
         </Router>
     );
