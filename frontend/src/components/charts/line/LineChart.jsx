@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { LineChart } from '@mui/x-charts/LineChart';
 
 const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
@@ -19,8 +18,8 @@ export default function DashedLineChart() {
       width={1280}
       height={600}
       series={[
-        { data: pData, label: 'pv', id: 'pvId' },
-        { data: uData, label: 'uv', id: 'uvId' },
+        { data: pData, label: '', id: '0' },
+        { data: uData, label: '', id: '1' },
       ]}
       xAxis={[{ scaleType: 'point', data: xLabels }]}
       sx={{

@@ -62,3 +62,4 @@ export const getHeadersFromData = (data) => {
     }
     return headers;
 };
+

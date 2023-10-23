@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import ChartDisplay from '../components/charts/ChartDisplay';
-import {Container, Grid, Paper, Typography, Alert, CircularProgress} from '@mui/material';
+import {Container, Grid, Paper, Typography, Alert, CircularProgress, CardContent, CardHeader} from '@mui/material';
 
 const API_URL = 'http://localhost:5030/dashboard';
 
@@ -44,16 +44,15 @@ export default function Dashboard() {
             <Grid container spacing={3}>
                 {charts.filter(chart => chart?.data?.length).map(chart => (
                     <Grid item xs={12} sm={6} md={4} key={chart.id || chart.name}>
-                        <Paper sx={{
-                            padding: 2,
-                            textAlign: 'center',
-                            color: (theme) => theme.palette.text.secondary,
-                        }}>
+                        <CardHeader title={chart.name}
+                                    subheader={chart.description}/>
+                        <CardContent>
                             <ChartDisplay chartData={chart}/>
-                        </Paper>
+                        </CardContent>
                     </Grid>
                 ))}
             </Grid>
         </Container>
     );
 }
+

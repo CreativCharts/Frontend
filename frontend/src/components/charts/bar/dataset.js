@@ -1,10 +1,6 @@
 const dataset = [
     {
-        london: 59,
-        paris: 57,
-        newYork: 86,
-        seoul: 21,
-        month: 'Jan',
+
     },
     {
         london: 50,

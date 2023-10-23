@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 import BarChart from '../charts/bar/BarChart.jsx';
 import LineChart from '../charts/line/LineChart.jsx';
+import ParentComponent from "./bar/ParentComponent.jsx";
 
-// import CustomPieChart from "../charts/pie/PieChart.jsx";
-// import {LineChart} from "@mui/x-charts/LineChart";
+
 
 const ChartDisplay = () => {
     const [chartType, setChartType] = useState('bar');
@@ -13,6 +13,7 @@ const ChartDisplay = () => {
     const handleChange = (event) => {
         setChartType(event.target.value);
     };
+
 
     return (
         <div>

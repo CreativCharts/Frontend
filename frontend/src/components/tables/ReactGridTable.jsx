@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {ReactGrid} from "@silevis/reactgrid";
 import ExcelReader from "../excel/ExcelReader.jsx";
 import '../styles/ReactGridTable.css';
@@ -18,19 +18,24 @@ export default function ReactGridTable() {
     const [gridKey, setGridKey] = React.useState(0);
 
     const handleRowsChange = (changes) => {
-        setRows((prevRows) => {
-            const newRows = [...prevRows];
-            changes.forEach((change) => {
-                const rowIndex = newRows.findIndex(row => row.rowId === change.rowId);
-                if (rowIndex !== -1) {
-                    newRows[rowIndex] = {
-                        ...newRows[rowIndex],
-                        cells: change.cells.map(cell => ({...cell, readOnly: false}))
-                    };
+        console.log("Changes:", changes);
+
+        const newRows = JSON.parse(JSON.stringify(rows));
+        changes.forEach((change) => {
+            const row = newRows.find(row => row.rowId === change.rowId);
+            if (row) {
+                // newRows[rowIndex] = {
+                //     ...newRows[rowIndex],
+                //     cells: change.cells.map(cell => ({...cell, readOnly: false}))
+                // };
+                const cell = row.cells.find((cell, i) => `col${i}` === change.columnId);
+                if (cell) {
+                    cell.text = change.newCell.text;
                 }
-            });
-            return newRows;
+            }
         });
+
+        setRows(newRows);
     };
 
     const handleFileChange = async (e) => {
@@ -50,6 +55,7 @@ export default function ReactGridTable() {
         }
     };
 
+
     return (
         <div className="react-grid-container">
             <input type="file" onChange={handleFileChange}/>
@@ -59,8 +65,10 @@ export default function ReactGridTable() {
                 rows={rows}
                 columns={columns}
                 headers={headers}
-                onRowsChange={handleRowsChange}
+                onCellsChanged={handleRowsChange}
             />
         </div>
     );
 }
+
+
