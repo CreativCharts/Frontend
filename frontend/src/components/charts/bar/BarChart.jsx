@@ -1,11 +1,7 @@
-import {useState} from "react";
+import * as React from 'react';
 import {BarChart} from '@mui/x-charts/BarChart';
 import {axisClasses} from '@mui/x-charts';
 import dataset from "./dataset.js";
-
-
-const [setTableData, setChartData] = useState([dataset.values()]);
-
 
 const chartSetting = {
     yAxis: [
@@ -21,23 +17,19 @@ const chartSetting = {
         },
     },
 };
+
 const valueFormatter = (value) => `${value}mm`;
 
 export default function BarsDataset() {
     return (
         <BarChart
             dataset={dataset}
-            data={setTableData}
-            chartSetting={chartSetting}
-            valueFormatter={valueFormatter}
-
-
-            xAxis={[{scaleType: 'band', dataKey: ''}]}
+            xAxis={[{scaleType: 'band', dataKey: 'month'}]}
             series={[
-                {dataKey: '', label: '', valueFormatter},
-                {dataKey: '', label: '', valueFormatter},
-                {dataKey: '', label: '', valueFormatter},
-                {dataKey: '', label: '', valueFormatter},
+                {dataKey: 'london', label: 'London', valueFormatter},
+                {dataKey: 'paris', label: 'Paris', valueFormatter},
+                {dataKey: 'newYork', label: 'New York', valueFormatter},
+                {dataKey: 'seoul', label: 'Seoul', valueFormatter},
             ]}
             {...chartSetting}
         />

@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {ReactGrid} from "@silevis/reactgrid";
 import ExcelReader from "../excel/ExcelReader.jsx";
 import '../styles/ReactGridTable.css';
