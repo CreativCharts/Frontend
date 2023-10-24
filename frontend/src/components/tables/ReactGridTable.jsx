@@ -24,17 +24,12 @@ export default function ReactGridTable() {
         changes.forEach((change) => {
             const row = newRows.find(row => row.rowId === change.rowId);
             if (row) {
-                // newRows[rowIndex] = {
-                //     ...newRows[rowIndex],
-                //     cells: change.cells.map(cell => ({...cell, readOnly: false}))
-                // };
                 const cell = row.cells.find((cell, i) => `col${i}` === change.columnId);
                 if (cell) {
                     cell.text = change.newCell.text;
                 }
             }
         });
-
         setRows(newRows);
     };
 
@@ -47,7 +42,7 @@ export default function ReactGridTable() {
                     setRows(getRowsFromData(readData));
                     setColumns(getColumnsFromData(readData));
                     setHeaders(getHeadersFromData(readData));
-                    setGridKey(prevKey => prevKey + 1);  // Neu hinzugefügt
+                    setGridKey(prevKey => prevKey + 1);
                 }
             } catch (error) {
                 console.error("Error reading Excel file:", error);

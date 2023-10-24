@@ -1,4 +1,5 @@
 @import '@silevis/reactgrid/styles.css';
+/*
 
 .react-grid-container {
     position: fixed;
@@ -7,8 +8,9 @@
     right: 0;
     width: 100%;
     height: calc(3 * 3.0rem);
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #333333;
     overflow-x: auto;
+    color: #333333;
 }
 
 .react-grid {
@@ -19,14 +21,17 @@
 .react-grid-cell {
     width: calc(100% / 13);
     height: 100%;
-    border-right: 1px solid #ccc;
+    border-right: 1px solid #333333;
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .react-grid-cell:last-child {
     border-right: none;
+    text-align: center;
+    color: #333333;
 }
 
 .react-grid-cell:hover {
@@ -34,3 +39,4 @@
     cursor: pointer;
 }
 
+*/

@@ -1,36 +1,19 @@
-import * as React from 'react';
 import {BarChart} from '@mui/x-charts/BarChart';
-import {axisClasses} from '@mui/x-charts';
 import dataset from "./dataset.js";
+import chartSetting from "./chartSetting.js";
+import ContextProvider from "../ContextProvider.jsx";
 
-const chartSetting = {
-    yAxis: [
-        {
-            label: 'rainfall (mm)',
-        },
-    ],
-    width: 1280,
-    height: 600,
-    sx: {
-        [`.${axisClasses.left} .${axisClasses.label}`]: {
-            transform: 'translate(10px, 0)',
-        },
-    },
-};
+/* Wie kann ich die daten vom Table direkt im chart angezeigt bekommen?*/
+const data = ContextProvider();
+console.log(data);
 
-const valueFormatter = (value) => `${value}mm`;
+
 
 export default function BarsDataset() {
     return (
         <BarChart
+
             dataset={dataset}
-            xAxis={[{scaleType: 'band', dataKey: 'month'}]}
-            series={[
-                {dataKey: 'london', label: 'London', valueFormatter},
-                {dataKey: 'paris', label: 'Paris', valueFormatter},
-                {dataKey: 'newYork', label: 'New York', valueFormatter},
-                {dataKey: 'seoul', label: 'Seoul', valueFormatter},
-            ]}
             {...chartSetting}
         />
     );

@@ -11,7 +11,7 @@ export const getRows = () => {
     for (let i = 1; i <= 3; i++) {
         const cells = [];
         for (let j = 1; j <= 12; j++) {
-            cells.push({type: "text", text: "", className: `react-grid-cell react-grid-col${j}-cell`});
+            cells.push({type: "text", text: "te", className: `react-grid-cell react-grid-col${j}-cell`});
         }
         rows.push({rowId: `row${i}`, cells});
     }
