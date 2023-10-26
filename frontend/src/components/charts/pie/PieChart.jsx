@@ -8,7 +8,7 @@ export default function PieChartComponent() {
 
     return (
         <PieChart
-            dataset={transformedData.series[0].data}
+            // dataset={transformedData.series[0].data}
             {...chartSetting}
             series={transformedData.series}
         />
