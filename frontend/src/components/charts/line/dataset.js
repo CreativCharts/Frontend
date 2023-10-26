@@ -1,7 +1,7 @@
-export const pData = [2400, 1398, 9800, 3908, 4800, 3800, 4300];
-export const uData = [1398, 2400, 3800, 3908, 4800, 4300, 9800];
+const pData = [2400, 1398, 9800, 3908, 4800, 3800, 4300];
+const uData = [1398, 2400, 3800, 3908, 4800, 4300, 9800];
 
-export const xLabels = [
+const xLabels = [
     'Page A',
     'Page B',
     'Page C',

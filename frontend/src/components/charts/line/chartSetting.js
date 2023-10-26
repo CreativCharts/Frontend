@@ -1,32 +1,21 @@
-import {pData, uData, xLabels} from './dataset.js';
-
-const chartSetting = {
+export const chartSetting = {
   width: 1500,
   height: 520,
+  xAxis: [{ data: [1, 2, 3, 5, 8, 10] }],
   series: [
-    {data: pData, label: 'pData', id: '0'},
-    {data: uData, label: 'uData', id: '1'},
-    {data: pData, label: 'pvId', id: 'pvId'},
-
-  ],
-  xAxis: [{scaleType: 'point', data: xLabels}],
-  sx: {
-    '.MuiLineElement-root, .MuiMarkElement-root': {
-      strokeWidth: 1,
+    {
+      data: [2, 5.5, 2, 8.5, 1.5, 5],
     },
-    '.MuiLineElement-series-pvId': {
-      strokeDasharray: '5 5',
-    },
-    '.MuiLineElement-series-uvId': {
-      strokeDasharray: '3 4 5 2',
-    },
-    '.MuiMarkElement-root:not(.MuiMarkElement-highlighted)': {
-      fill: '#fff',
-    },
-    '& .MuiMarkElement-highlighted': {
-      stroke: 'none',
-    },
-  },
+  ]
 };
 
-export default chartSetting;
+export const transformRowsToLineChartData = (rows) => {
+  const xAxisData = rows.map(row => `Row ${row.rowId}`);
+  const seriesData = rows.map(row => row.cells.map(cell => parseInt(cell.text) || 0));
+
+  return {
+    xAxis: [{ data: xAxisData }],
+    series: seriesData.map(data => ({ data }))
+  };
+};
+

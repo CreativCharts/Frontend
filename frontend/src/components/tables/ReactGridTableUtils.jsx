@@ -1,6 +1,6 @@
 export const getColumns = () => {
     const columns = [];
-    for (let i = 1; i <= 13; i++) {
+    for (let i = 1; i <= 12; i++) {
         columns.push({columnId: `col${i}`, title: `Col ${i}`});
     }
     return columns;
@@ -11,7 +11,7 @@ export const getRows = () => {
     for (let i = 1; i <= 3; i++) {
         const cells = [];
         for (let j = 1; j <= 12; j++) {
-            cells.push({type: "text", text: "te", className: `react-grid-cell react-grid-col${j}-cell`});
+            cells.push({type: "text", text: '', className: `react-grid-cell react-grid-col${j}-cell`});
         }
         rows.push({rowId: `row${i}`, cells});
     }
@@ -35,7 +35,7 @@ export const getRowsFromData = (data) => {
                 type: "text",
                 text: String(data[i][j]),
                 className: `react-grid-cell react-grid-col${j}-cell`,
-                readOnly: false  // Setzt die Zelle auf bearbeitbar
+                readOnly: false
             });
         }
 

@@ -1,9 +1,8 @@
-import { useState } from 'react';
-import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';
-import BarChart from '../charts/bar/BarChart.jsx';
-import LineChart from '../charts/line/LineChart.jsx';
-
-
+import {useState} from 'react';
+import {Select, MenuItem, FormControl, InputLabel} from '@mui/material';
+import BarChartComponent from '../charts/bar/BarChart.jsx';
+import LineChartComponent from './line/LineChartComponent.jsx';
+import PieChartComponent from '../charts/pie/PieChart.jsx';
 
 
 const ChartDisplay = () => {
@@ -17,9 +16,9 @@ const ChartDisplay = () => {
 
     return (
         <div>
-            {chartType === 'bar' && <><h1>Bar Chart</h1><BarChart /></>}
-            {chartType === 'line' && <><h1>Line Chart</h1><LineChart/></>}
-            {chartType === 'pie' && <><h1>Pie Chart</h1></>}
+            {chartType === 'bar' && <><h1>Bar Chart</h1><BarChartComponent/></>}
+            {chartType === 'line' && <><h1>Line Chart</h1><LineChartComponent/></>}
+            {chartType === 'pie' && <><h1>Pie Chart</h1><PieChartComponent/></>}
             <FormControl>
                 <InputLabel id="chart-type-label">Chart Type</InputLabel>
                 <Select

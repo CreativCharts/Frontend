@@ -1,20 +1,27 @@
-import {BarChart} from '@mui/x-charts/BarChart';
-import dataset from "./dataset.js";
-import chartSetting from "./chartSetting.js";
-import ContextProvider from "../ContextProvider.jsx";
+import { BarPlot } from '@mui/x-charts';
 
-/* Wie kann ich die daten vom Table direkt im chart angezeigt bekommen?*/
-const data = ContextProvider();
-console.log(data);
+import { BarChart } from '@mui/x-charts/BarChart';
+import { chartSettings, transformRowsToBarChartData } from './chartSetting';
+import { useData } from "../DataContext.jsx";
 
+export default function BarChartComponent() {
+    const {
+        width,
+        height
+    } = chartSettings;
 
+    const { chartData } = useData();
+    const transformedData = transformRowsToBarChartData(chartData);
+    console.log("Transformed Data:", transformedData);
 
-export default function BarsDataset() {
     return (
         <BarChart
-
-            dataset={dataset}
-            {...chartSetting}
+            // width={width}
+            // height={height}
+            // series={transformedData.series}
+            // xAxis={transformedData.xAxis}
+            {...chartSettings}
+            {...transformedData}
         />
     );
 }

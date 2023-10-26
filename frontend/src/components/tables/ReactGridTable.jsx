@@ -1,5 +1,5 @@
 import React from "react";
-import {ReactGrid} from "@silevis/reactgrid";
+import { ReactGrid } from "@silevis/reactgrid";
 import ExcelReader from "../excel/ExcelReader.jsx";
 import '../styles/ReactGridTable.css';
 import {
@@ -10,27 +10,38 @@ import {
     getRowsFromData,
     getColumnsFromData
 } from './ReactGridTableUtils';
+import { useData } from '../charts/DataContext.jsx';
 
 export default function ReactGridTable() {
     const [rows, setRows] = React.useState(getRows());
     const [columns, setColumns] = React.useState(getColumns());
     const [headers, setHeaders] = React.useState(getHeaders());
     const [gridKey, setGridKey] = React.useState(0);
+    const { setChartData } = useData();
+
 
     const handleRowsChange = (changes) => {
-        console.log("Changes:", changes);
 
+        console.log('changes', changes, rows);
         const newRows = JSON.parse(JSON.stringify(rows));
         changes.forEach((change) => {
             const row = newRows.find(row => row.rowId === change.rowId);
             if (row) {
-                const cell = row.cells.find((cell, i) => `col${i}` === change.columnId);
+                const cell = row.cells.find((_, i) => `col${i + 1}` === change.columnId);
+                row.cells.forEach((_, i) => {
+                    console.log(`col${i + 1}`, change.columnId);
+                });
                 if (cell) {
                     cell.text = change.newCell.text;
                 }
             }
+            // cell.text = change.newCell.text;
+
         });
+
         setRows(newRows);
+        setChartData(newRows);
+        console.log('New Rows:', newRows);
     };
 
     const handleFileChange = async (e) => {
@@ -52,8 +63,8 @@ export default function ReactGridTable() {
 
 
     return (
-        <div className="react-grid-container">
-            <input type="file" onChange={handleFileChange}/>
+        <div className="react-grid-container" style={{ backgroundColor: "darkgrey" }}>
+            <input type="file" onChange={handleFileChange} />
             <ReactGrid
                 key={gridKey}
                 className="react-grid"
