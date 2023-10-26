@@ -10,9 +10,10 @@ export default function LineChartComponent() {
     const transformedData = transformRowsToLineChartData(chartData);
     return (
         <LineChart
-            dataset={transformedData}
-            series={transformedData.series}
+            // dataset={transformedData}
             {...chartSetting}
+            {...transformedData}
+            // series={transformedData.series}
         />
     );
 }

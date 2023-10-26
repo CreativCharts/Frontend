@@ -24,7 +24,7 @@ export const transformRowsToBarChartData = (rows) => {
         const maxRowCell = row.cells.findLastIndex(cell => cell.text.trim() !== '');
         maxCells = Math.max(maxCells, maxRowCell);
         if (maxRowCell >= 0) maxRow = i;
-    })
+    });
     rows.forEach((row, rowIndex) => {
         if (rowIndex > maxRow) return;
         row.cells.forEach((cell, cellIndex) => {

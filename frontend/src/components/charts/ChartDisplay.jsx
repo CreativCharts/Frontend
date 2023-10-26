@@ -6,7 +6,7 @@ import PieChartComponent from '../charts/pie/PieChart.jsx';
 
 
 const ChartDisplay = () => {
-    const [chartType, setChartType] = useState('pie');
+    const [chartType, setChartType] = useState('line');
 
 
     const handleChange = (event) => {
