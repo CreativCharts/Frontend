@@ -1,20 +1,12 @@
 export const chartSettings = {
-    // uData: [4000, 3000, 2000, 2780, 1890, 2390, 3490],
-    // xLabels: ['Page A', 'Page B', 'Page C', 'Page D', 'Page E', 'Page F', 'Page G'],
     width: 1500,
     height: 500,
     series: [{ data: [4, 3, 5] }, { data: [1, 6, 3] }, { data: [2, 5, 6] }],
     xAxis: [{ scaleType: 'band', data: ['group A', 'group B', 'group C'] }]
 };
 
-/*
-Title Group A, value 1, value 2, ..., value x
-Title Group B, value 1, value 2, ..., value x
-*/
-
-
 export const transformRowsToBarChartData = (rows) => {
-    // const dataset = [];
+
     const xAxisData = [];
     const seriesData = [];
 
@@ -37,15 +29,12 @@ export const transformRowsToBarChartData = (rows) => {
                     seriesData[cellIndex - 1] = { data: [] };
                 }
                 seriesData[cellIndex - 1].data[rowIndex] = value;
-                // dataset.push({x: `Row ${rowIndex} Col ${cellIndex}`, y: value});
-                // xAxisData.push(`Row ${rowIndex} Col ${cellIndex}`);
-
             }
         });
     });
 
     return {
-        // dataset,
+        
         series: seriesData,
         xAxis: [{ scaleType: 'band', data: xAxisData}],
     };
