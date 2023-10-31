@@ -1,3 +1,4 @@
+
 export const transformRowsToLineChartData = (rows) => {
   const series = [];
   const xLabels = [];

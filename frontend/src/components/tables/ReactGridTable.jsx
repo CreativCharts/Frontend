@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {ReactGrid} from "@silevis/reactgrid";
+import React from "react";
+import { ReactGrid } from "@silevis/reactgrid";
 import ExcelReader from "../excel/ExcelReader.jsx";
 import '../styles/ReactGridTable.css';
 import {
@@ -10,20 +10,17 @@ import {
     getRowsFromData,
     getColumnsFromData
 } from './ReactGridTableUtils';
-import {useData} from '../charts/DataContext.jsx';
-import {saveChartDataToServer} from "../../api/api.js";
-import {convertTableToChartData} from "../../data/chartData.js";
+import { useData } from '../charts/DataContext.jsx';
 
 export default function ReactGridTable() {
     const [rows, setRows] = React.useState(getRows());
     const [columns, setColumns] = React.useState(getColumns());
     const [headers, setHeaders] = React.useState(getHeaders());
     const [gridKey, setGridKey] = React.useState(0);
-    const {setChartData} = useData();
-    const [selectedChartType, setSelectedChartType] = useState('line');
+    const { setChartData } = useData();
 
 
-    const handleRowsChange = async (changes) => {
+    const handleRowsChange = (changes) => {
 
         console.log('changes', changes, rows);
         const newRows = JSON.parse(JSON.stringify(rows));
@@ -41,14 +38,8 @@ export default function ReactGridTable() {
         });
 
         setRows(newRows);
-        const newChartData = convertTableToChartData(newRows, selectedChartType);
-        setChartData(newRows, newChartData);
-        console.log('New ChartData:', newChartData);
-        try {
-            await saveChartDataToServer(newChartData);
-        } catch (error) {
-            console.error("Failed to save chart data:", error);
-        }
+        setChartData(newRows);
+        console.log('New Rows:', newRows);
     };
 
     const handleFileChange = async (e) => {
@@ -70,8 +61,8 @@ export default function ReactGridTable() {
 
 
     return (
-        <div className="react-grid-container" style={{backgroundColor: "darkgrey"}}>
-            <input type="file" onChange={handleFileChange}/>
+        <div className="react-grid-container" style={{ backgroundColor: "darkgrey" }}>
+            <input type="file" onChange={handleFileChange} />
             <ReactGrid
                 key={gridKey}
                 className="react-grid"

@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_URL = 'http://localhost:5030/dashboard';
 const ENDPOINTS = {CREATE_CHART: '/create-chart', ALL_CHARTS: '/allCharts'};
 
-
+// chartData als Parameter hinzugefügt
 export const saveChart = async (chartData) => {
     try {
         const response = await axios.post(`${API_URL}${ENDPOINTS.CREATE_CHART}`, chartData);

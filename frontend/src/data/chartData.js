@@ -1,7 +1,7 @@
 export const convertTableToChartData = (tableData, selectedChartType) => {
     return {
         data: "data",
-        type: selectedChartType,
+        type: tableData.length > 0 ? selectedChartType : "",
         gridData: tableData.map((row, rowIndex) => ({
             rowId: `row${rowIndex + 1}`,
             cells: row.cells.map((cell, cellIndex) => ({
