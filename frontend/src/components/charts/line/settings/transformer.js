@@ -37,4 +37,3 @@ export const transformRowsToLineChartData = (rows) => {
     xAxis: [{ scaleType: 'point', data: xLabels }],
   };
 };
-
