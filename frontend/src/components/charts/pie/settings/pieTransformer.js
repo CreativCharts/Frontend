@@ -1,14 +1,15 @@
-import {chartSetting, dashPieChartSetting} from "./chartSetting.js";
+import {chartSetting} from "./chartSetting.js";
 
-const pieSize =
-    Math.min(
-        chartSetting.width,
-        chartSetting.height
-    ) * 0.9;
+// const pieSize =
+//     Math.min(
+//         chartSetting.width,
+//         chartSetting.height
+//     ) * 0.9;
+const pieSize = 50;
 
 export const transformRowsToPieChartData = (rows) => {
     if (!rows || !Array.isArray(rows) || rows.length === 0) {
-        return {series: [{data: []}], ...chartSetting};
+        return { ...chartSetting, series: [{data: []}] };
     }
 
     const series = [];
@@ -43,13 +44,16 @@ export const transformRowsToPieChartData = (rows) => {
         s.outerRadius = Math.floor((i + 1) * spacePerSeries);
     });
 
+    console.log('SERIES', series);
+
     return {
-        series,
         ...chartSetting,
+        series: series.filter(entry => !!entry), // filter empty entries
 
     };
 }
 
+/*
 
 export const transformDashPie = (gridData) => {
     if (!gridData || !Array.isArray(gridData) || gridData.length === 0) {
@@ -66,7 +70,7 @@ export const transformDashPie = (gridData) => {
             });
 
             return {
-                label: `Series ${index + 1}`, // Oder eine benutzerdefinierte Beschriftung
+                label: `Series ${index + 1}`,
                 data: dataPoints
             };
         }
@@ -78,3 +82,4 @@ export const transformDashPie = (gridData) => {
         height: dashPieChartSetting.height
     };
 }
+*/

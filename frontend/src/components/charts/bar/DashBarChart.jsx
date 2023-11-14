@@ -1,7 +1,8 @@
 import {useData} from "../DataContext.jsx";
-import {transformDashBar} from './settings/barTransformer';
+// import {transformDashBar} from './settings/barTransformer';
 import {BarChart} from '@mui/x-charts/BarChart';
-import {dashBarChartSetting} from "./settings/chartSetting.js";
+// import {dashBarChartSetting} from "./settings/chartSetting.js";
+/*
 
 export default function DashBarChart() {
     const {chartData} = useData();
@@ -19,3 +20,4 @@ export default function DashBarChart() {
             {...transformedData} />
     );
 }
+*/

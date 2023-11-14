@@ -1,4 +1,4 @@
-import {chartSetting, dashBarChartSetting} from "./chartSetting.js";
+import {chartSetting} from "./chartSetting.js";
 
 export const transformRowsToBarChartData = (rows) => {
 
@@ -46,10 +46,11 @@ export const transformRowsToBarChartData = (rows) => {
 
         xAxis: [{scaleType: 'band', data: xAxisData}],
 
-        width: chartSetting.width,
-        height: chartSetting.height
+        // width: chartSetting.width,
+        // height: chartSetting.height
     };
 }
+/*
 
 export const transformDashBar = (gridData) => {
     if (
@@ -75,3 +76,4 @@ export const transformDashBar = (gridData) => {
         height: dashBarChartSetting.height
     };
 };
+*/

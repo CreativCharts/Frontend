@@ -1,4 +1,4 @@
-import {chartSetting, dashLineChartSetting} from "./chartSetting.js";
+import {chartSetting} from "./chartSetting.js";
 
 export const transformRowsToLineChartData = (rows) => {
     const series = [];
@@ -36,10 +36,11 @@ export const transformRowsToLineChartData = (rows) => {
     return {
         series,
         xAxis: [{scaleType: 'point', data: xLabels}],
-        width: chartSetting.width,
-        height: chartSetting.height
+        // width: chartSetting.width,
+        // height: chartSetting.height
     };
 };
+/*
 
 
 export const transformDashLine = (gridData) => {
@@ -60,3 +61,4 @@ export const transformDashLine = (gridData) => {
         ...dashLineChartSetting
     };
 };
+*/

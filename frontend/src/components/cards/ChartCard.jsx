@@ -9,9 +9,11 @@ const ChartCard = ({ children }) => {
                 flexGrow: 1,
                 display: 'flex',
                 justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
+                position: 'relative',
             }}>
-                <div style={{ width: '100%', height: 'auto', overflow: 'hidden' }}>
+                <div style={{ width: '100%', paddingTop: '56.25%' }} />
+                <div style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, overflow: 'hidden' }}>
                     {children}
                 </div>
             </CardContent>

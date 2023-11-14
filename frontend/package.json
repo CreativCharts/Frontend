@@ -15,15 +15,15 @@
     "@mui/material": "^5.14.13",
     "@mui/styled-engine": "^5.14.13",
     "@mui/x-charts": "^6.0.0-alpha.15",
+    "@react-buddy/ide-toolbox": "^2.4.0",
+    "@react-buddy/palette-mui": "^5.0.2",
     "@silevis/reactgrid": "^4.1.1",
     "axios": "^1.5.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0",
-    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.0/xlsx-0.20.0.tgz",
-    "@react-buddy/ide-toolbox": "^2.4.0",
-    "@react-buddy/palette-mui": "^5.0.1"
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.0/xlsx-0.20.0.tgz"
   },
   "devDependencies": {
     "@mui/icons-material": "^5.14.13",

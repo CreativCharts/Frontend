@@ -3,29 +3,22 @@ import BarChartComponent from '../charts/bar/BarChart.jsx';
 import LineChartComponent from '../charts/line/LineChart.jsx';
 import PieChartComponent from '../charts/pie/PieChart.jsx';
 import {useData} from './DataContext.jsx';
-import {useEffect, useState} from "react";
 
 
-const ChartDisplay = () => {
-    const {chartType: contextChartType, setChartType: setContextChartType} = useData();
-    const [chartType, setChartType] = useState(contextChartType);
+const ChartDisplay = ({ isEditor }) => {
+    const {chartType, setChartType} = useData();
 
 
-    useEffect(() => {
-        try {
-            setContextChartType(chartType);
-        } catch (error) {
-            console.error('Error setting chart type:', error);
-
-        }
-    }, [chartType, setContextChartType]);
+    console.log('ChartDisplay', chartType);
 
     return (
-        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-            {chartType === 'bar' && <BarChartComponent/>}
-            {chartType === 'line' && <LineChartComponent/>}
-            {chartType === 'pie' && <PieChartComponent/>}
-            <FormControl>
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100%', width: '100%' }}>
+            <div style={{ width: '100%', flexGrow: 1 }}>
+                {chartType === 'bar' && <BarChartComponent/>}
+                {chartType === 'line' && <LineChartComponent/>}
+                {chartType === 'pie' && <PieChartComponent/>}
+            </div>
+            { isEditor && <FormControl>
                 <InputLabel id="chart-type-label">Chart Type</InputLabel>
                 <Select
                     labelId="chart-type-label"
@@ -38,9 +31,13 @@ const ChartDisplay = () => {
                     <MenuItem value="line">Line Chart</MenuItem>
                     <MenuItem value="pie">Pie Chart</MenuItem>
                 </Select>
-            </FormControl>
+            </FormControl>}
         </div>
     );
+}
+
+ChartDisplay.defaultProps = {
+    isEditor: false
 }
 
 export default ChartDisplay;
