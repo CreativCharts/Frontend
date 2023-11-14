@@ -1,16 +1,18 @@
 import {useData} from '../DataContext';
 import {PieChart} from '@mui/x-charts/PieChart';
-import {chartSetting} from './settings/chartSetting';
-import {transformRowsToPieChartData} from './settings/transformer.js'
+import {transformRowsToPieChartData} from './settings/pieTransformer.js';
+import {chartSetting} from "../line/settings/chartSetting.js";
 
 export default function PieChartComponent() {
+
     const {chartData} = useData();
-    const transformedData = transformRowsToPieChartData(chartData);
+    const transformedData =
+        transformRowsToPieChartData(chartData);
 
     return (
         <PieChart
-            {...chartSetting}
-            series={transformedData.series}
+
+            {...transformedData}
         />
     );
 }

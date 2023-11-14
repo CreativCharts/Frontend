@@ -1,17 +1,22 @@
-import React from 'react';
-import { DataProvider, useData } from '../components/charts/DataContext.jsx';
+import {DataProvider, useData} from '../components/charts/DataContext.jsx';
 import ReactGridTable from '../components/tables/ReactGridTable.jsx';
 import ChartDisplay from '../components/charts/ChartDisplay.jsx';
-import { saveChart } from '../api/api';
+import {saveChart} from '../api/api';
 import SaveButtonComponent from '../components/buttons/SaveButtonComponent.jsx';
 import '../components/styles/Editor.css';
 
 const Editor = () => {
-    const { chartData } = useData();
+    const {chartData, chartType} = useData();
 
     const saveToDatabase = async () => {
+        const dataToSave = {
+            data: chartData.data,
+            type: chartType,
+        };
+
+        console.log('Sending this data to server:', dataToSave);
         try {
-            const response = await saveChart(chartData);
+            const response = await saveChart(dataToSave);
             if (response) {
                 console.log('Chart saved successfully:', response);
             }
@@ -21,13 +26,11 @@ const Editor = () => {
     };
 
     return (
-        <>
-            <DataProvider>
-                <ChartDisplay className='chart-display' isEditor={true} />
-                <ReactGridTable className='table-display' />
-                <SaveButtonComponent onClick={saveToDatabase} />
-            </DataProvider>
-        </>
+        <DataProvider>
+            <ChartDisplay className='chart-display' isEditor={true}/>
+            <ReactGridTable className='table-display'/>
+            <SaveButtonComponent className='save-button' onClick={saveToDatabase}/>
+        </DataProvider>
     );
 }
 

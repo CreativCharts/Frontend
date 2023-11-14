@@ -1,0 +1,12 @@
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+}
+
+
+.card {
+    flex: 1 1 auto;
+    max-width: 300px;
+}

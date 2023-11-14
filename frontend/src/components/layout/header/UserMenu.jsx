@@ -4,6 +4,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Avatar from '@mui/material/Avatar';
 import {Logout, Settings} from "@mui/icons-material";
+import {Link} from "react-router-dom";
 
 const UserMenu = () => {
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -30,8 +31,19 @@ const UserMenu = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
             >
-                <MenuItem onClick={handleCloseUserMenu}>Settings<Settings/></MenuItem>
-                <MenuItem onClick={handleCloseUserMenu}>Logout<Logout/></MenuItem>
+                <MenuItem
+                    onClick={handleCloseUserMenu}
+                          component={Link}
+                          to="/settings">
+                    Settings
+                    <Settings/>
+                </MenuItem>
+                <MenuItem onClick={handleCloseUserMenu}
+                          component={Link}
+                          to="/logout">
+                    Logout
+                    <Logout/>
+                </MenuItem>
             </Menu>
         </>
     );

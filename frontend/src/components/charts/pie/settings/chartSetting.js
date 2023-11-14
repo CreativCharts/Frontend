@@ -1,6 +1,12 @@
 export const chartSetting = {
     width: 1500,
-    height: 500,
+    height: 720,
+    series: []
+};
+
+export const dashPieChartSetting = {
+    width: 1500,
+    height: 720,
     series: [
         {
             data: [

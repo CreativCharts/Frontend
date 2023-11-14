@@ -1,20 +1,19 @@
-import React from 'react';
+import {useState} from 'react';
 import IconButton from '@mui/material/IconButton';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
-import {createTheme} from '@mui/material/styles';
-import {ThemeProvider} from '@mui/material/styles';
+import {createTheme, ThemeProvider} from '@mui/material/styles';
 
-
-function DarkModeToggle({darkMode, setDarkMode}) {
+function DarkModeToggle() {
+    const [darkMode, setDarkMode] = useState(false);
     const theme = createTheme({
         palette: {
-            mode: darkMode ? 'dark' : 'light',
+            mode: darkMode ? 'light' : 'dark',
         },
     });
 
     return (
-        <ThemeProvider theme={theme} children={null}>
-            <IconButton color="inherit" onClick={() => setDarkMode(!darkMode)}>
+        <ThemeProvider theme={theme}>
+            <IconButton color="inherit" onClick={() => setDarkMode(darkMode)}>
                 <Brightness4Icon/>
             </IconButton>
         </ThemeProvider>

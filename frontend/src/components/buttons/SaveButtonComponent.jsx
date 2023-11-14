@@ -1,11 +1,12 @@
 import {useData} from '../charts/DataContext';
 import {saveChart} from '../../api/api';
 
-export default function SaveButtonComponent() {
-    const {chartData} = useData();
+const SaveButtonComponent = () => {
+    const { chartData, chartType} = useData();
+
 
     const saveToDatabase = async () => {
-        const dataToSave = { gridData: chartData };
+        const dataToSave = {type: chartType, gridData: chartData};
         console.log('Sending this data to server:', dataToSave);
         try {
             const response = await saveChart(dataToSave);
@@ -17,8 +18,11 @@ export default function SaveButtonComponent() {
         }
     };
 
+    /*das alle daten richtig gespeichert werden*/
     return (
-        <button onClick={saveToDatabase}>Speichern</button>
+        <button onClick={saveToDatabase}>Save</button>
     );
 }
 
+
+export default SaveButtonComponent;
