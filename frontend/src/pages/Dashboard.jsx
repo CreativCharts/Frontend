@@ -1,12 +1,8 @@
 import {useState, useEffect} from 'react';
+import {DataProvider} from '../components/charts/DataContext.jsx';
 import {CircularProgress, Container, Grid, Alert} from '@mui/material';
 import ChartCard from '../components/cards/ChartCard';
-import DashBarChart from "../components/charts/bar/DashBarChart.jsx";
-import DashLineChart from "../components/charts/line/DashLineChart.jsx";
-import DashPieChart from "../components/charts/pie/DashPieChart.jsx";
-import {transformDashBar} from '../components/charts/bar/settings/barTransformer';
-import {transformDashLine} from '../components/charts/line/settings/lineTransformer';
-import {transformDashPie} from '../components/charts/pie/settings/pieTransformer';
+import {DashboardDisplay} from "../components/charts/DashboardDisplay.jsx";
 import {fetchAll} from '../api/api.js';
 
 
@@ -18,18 +14,7 @@ export default function Dashboard() {
         fetchAll().then(response => {
             if (response.data && Array.isArray(response.data)) {
                 console.log('response', response.data);
-                setCharts(response.data.map(chart => {
-                    switch (chart.type) {
-                        case 'pie':
-                            return {...chart, data: transformDashPie(chart.gridData)};
-                        case 'line':
-                            return {...chart, data: transformDashLine(chart.gridData)};
-                        case 'bar':
-                            return {...chart, data: transformDashBar(chart.gridData)};
-                        default:
-                            throw new Error('Unknown chart type');
-                    }
-                }));
+                setCharts(response.data);
             }
         }).catch(error => {
             console.error('Error fetching data:', error);
@@ -39,16 +24,12 @@ export default function Dashboard() {
 
 
     const renderChartComponent = (charts) => {
-        switch (charts.type) {
-            case 'pie':
-                return <DashPieChart data={charts.data} series={charts.series}/>;
-            case 'line':
-                return <DashLineChart data={charts.data} series={charts.series}/>;
-            case 'bar':
-                return <DashBarChart data={charts.data} series={charts.series}/>;
-            default:
-                throw new Error('Unknown chart type');
-        }
+        console.log('Charts', charts);
+        return (
+            <DataProvider>
+                <DashboardDisplay data={charts}/>
+            </DataProvider>
+        )
     };
 
     return (

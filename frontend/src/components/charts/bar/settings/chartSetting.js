@@ -16,6 +16,7 @@ export const chartSetting = {
         }
     ]
 };
+/*
 
 export const dashBarChartSetting = {
     width: 300,
@@ -35,3 +36,4 @@ export const dashBarChartSetting = {
         }
     ]
 };
+*/
