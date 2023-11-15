@@ -3,9 +3,3 @@ export const chartSetting = {
   height: 720
 };
 
-/*
-export const dashLineChartSetting = {
-    width: 300,
-    height: 150,
-};
-*/

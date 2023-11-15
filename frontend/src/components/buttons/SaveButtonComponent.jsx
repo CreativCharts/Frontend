@@ -1,28 +1,28 @@
-import {useData} from '../charts/DataContext';
-import {saveChart} from '../../api/api';
+import {saveChart, updateChart} from '../../api/api';
+import {useData} from "../../context/UseData.jsx";
 
 const SaveButtonComponent = () => {
-    const { chartData, chartType} = useData();
+    const {chartData, chartType, chartId} = useData();
 
 
     const saveToDatabase = async () => {
-        const dataToSave = {type: chartType, gridData: chartData};
-        console.log('Sending this data to server:', dataToSave);
+        const dataToSave = {_id: chartId, type: chartType, gridData: chartData};
+
+
         try {
-            const response = await saveChart(dataToSave);
-            if (response) {
-                console.log('Chart saved successfully:', response);
+            if (chartId) {
+                await updateChart(dataToSave);
+            } else {
+                await saveChart(dataToSave);
             }
         } catch (error) {
             console.error('Error saving chart:', error);
         }
     };
 
-    /*das alle daten richtig gespeichert werden*/
     return (
         <button onClick={saveToDatabase}>Save</button>
     );
 }
-
 
 export default SaveButtonComponent;

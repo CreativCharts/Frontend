@@ -4,7 +4,8 @@ import Editor from './pages/Editor.jsx';
 import LandingPage from "./pages/LandingPage.jsx";
 import {MainLayout} from './components/layout/MainLayout.jsx';
 import Header from "./components/layout/header/Header.jsx";
-import {DataProvider} from './components/charts/DataContext.jsx';
+
+import {DataProvider} from "./context/ProviderValue.jsx";
 
 
 const NotFound = () => (
@@ -17,7 +18,6 @@ const App = () => {
     return (
         <Router>
             <Header/>
-
             <DataProvider>
                 <MainLayout>
                     <Routes>

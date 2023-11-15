@@ -1,7 +1,6 @@
 import {BarChart} from '@mui/x-charts/BarChart';
-import {useData} from "../DataContext";
-import {transformRowsToBarChartData} from './settings/barTransformer.js';
-// import {chartSetting} from "../line/settings/chartSetting.js";
+import {transformRowsToBarChartData} from './settings/transformer.js';
+import {useData} from "../../../context/UseData.jsx";
 
 
 export default function BarChartComponent() {

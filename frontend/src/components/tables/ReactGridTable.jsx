@@ -10,7 +10,8 @@ import {
     getRowsFromData,
     getColumnsFromData
 } from './ReactGridTableUtils';
-import { useData } from '../charts/DataContext.jsx';
+
+import {useData} from "../../context/UseData.jsx";
 
 export default function ReactGridTable() {
     const [rows, setRows] = React.useState(getRows());

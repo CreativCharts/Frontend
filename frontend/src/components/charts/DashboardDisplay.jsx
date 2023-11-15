@@ -1,13 +1,19 @@
-import {useData} from './DataContext.jsx';
 import ChartDisplay from './ChartDisplay.jsx';
-
+import {useData} from "../../context/UseData.jsx";
+import PropTypes from "prop-types";
+import {useEffect} from "react";
 
 
 export const DashboardDisplay = ({data}) => {
-    const {setChartData, setChartType} = useData();
+    const {setChartData, setChartType, setChartId} = useData();
 
-    setChartData(data.gridData);
-    setChartType(data.type);
+    useEffect(() => {
+        if (data) {
+            setChartData(data.gridData);
+            setChartType(data.type);
+            setChartId(data.id);
+        }
+    }, [data, setChartData, setChartType, setChartId]);
 
 
     return (
@@ -15,7 +21,6 @@ export const DashboardDisplay = ({data}) => {
     );
 };
 
-
-
-
-
+DashboardDisplay.propTypes = {
+    data: PropTypes.object.isRequired,
+};

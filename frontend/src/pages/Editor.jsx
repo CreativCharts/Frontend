@@ -1,29 +1,41 @@
-import {DataProvider, useData} from '../components/charts/DataContext.jsx';
+import {useEffect} from "react";
 import ReactGridTable from '../components/tables/ReactGridTable.jsx';
 import ChartDisplay from '../components/charts/ChartDisplay.jsx';
-import {saveChart} from '../api/api';
 import SaveButtonComponent from '../components/buttons/SaveButtonComponent.jsx';
+import {saveChart, fetchChartById} from '../api/api';
 import '../components/styles/Editor.css';
+import {useData} from "../context/UseData.jsx";
+import {DataProvider} from "../context/ProviderValue.jsx";
 
 const Editor = () => {
-    const {chartData, chartType} = useData();
+    const {chartData, chartType, setChartData, chartId} = useData();
+
+    useEffect(() => {
+        if (!chartId) {
+            console.error('Chart ID nicht übergeben!');
+            return;
+        }
+        
+        if (chartId) {
+            fetchChartById(chartId).then(response => {
+                    setChartData(response.data.gridData);
+                }
+            ).catch(error => {
+                console.error('Error fetching data:', error);
+            });
+        }
+    }, [chartId, setChartData]);
 
     const saveToDatabase = async () => {
-        const dataToSave = {
-            data: chartData.data,
-            type: chartType,
-        };
 
-        console.log('Sending this data to server:', dataToSave);
-        try {
-            const response = await saveChart(dataToSave);
-            if (response) {
-                console.log('Chart saved successfully:', response);
-            }
-        } catch (error) {
-            console.error('Error saving chart:', error);
+        const dataToSave = {
+            id: chartId,
+            type: chartType,
+            data: chartData,
         }
-    };
+        console.log('Daten an den Server: ', dataToSave);
+        await saveChart(dataToSave);
+    }
 
     return (
         <DataProvider>

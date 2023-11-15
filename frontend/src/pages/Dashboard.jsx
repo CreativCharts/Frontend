@@ -1,9 +1,9 @@
 import {useState, useEffect} from 'react';
-import {DataProvider} from '../components/charts/DataContext.jsx';
 import {CircularProgress, Container, Grid, Alert} from '@mui/material';
 import ChartCard from '../components/cards/ChartCard';
 import {DashboardDisplay} from "../components/charts/DashboardDisplay.jsx";
 import {fetchAll} from '../api/api.js';
+import {DataProvider} from "../context/ProviderValue.jsx";
 
 
 export default function Dashboard() {
@@ -40,7 +40,7 @@ export default function Dashboard() {
                 <Grid container spacing={3}>
                     {charts.map((chart) => (
                         <Grid item xs={12} sm={6} md={4} lg={3} key={chart._id}>
-                            <ChartCard title={chart.title} subtitle={chart.subtitle}>
+                            <ChartCard id={chart._id.toString()}>
                                 {renderChartComponent(chart)}
                             </ChartCard>
                         </Grid>

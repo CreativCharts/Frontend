@@ -1,6 +1,6 @@
-import {useData} from '../DataContext';
 import {PieChart} from '@mui/x-charts/PieChart';
-import {transformRowsToPieChartData} from './settings/pieTransformer.js';
+import {transformRowsToPieChartData} from './settings/transformer.js';
+import {useData} from "../../../context/UseData.jsx";
 
 export default function PieChartComponent() {
 
