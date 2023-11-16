@@ -4,13 +4,17 @@ import LineChartComponent from '../charts/line/LineChart.jsx';
 import PieChartComponent from '../charts/pie/PieChart.jsx';
 
 import {useData} from "../../context/UseData.jsx";
+import {useRef} from "react";
 
 
 const ChartDisplay = ({isEditor}) => {
     const {chartType, setChartType} = useData();
+    const chartContainerEl = useRef(null);
 
+    console.log('ChartDisplay chartType geändert: ', chartType);
 
-    console.log('ChartDisplay', chartType);
+    const containerWidth = chartContainerEl.current?.clientWidth || 100;
+    const containerHeight = chartContainerEl.current?.clientHeight || 100;
 
     return (
         <div style={{
@@ -20,10 +24,13 @@ const ChartDisplay = ({isEditor}) => {
             height: '100%',
             width: '100%'
         }}>
-            <div style={{width: '100%', flexGrow: 1}}>
+            <div
+                style={{width: '100%', flexGrow: 1}}
+                ref={chartContainerEl}
+            >
                 {chartType === 'bar' && <BarChartComponent/>}
                 {chartType === 'line' && <LineChartComponent/>}
-                {chartType === 'pie' && <PieChartComponent/>}
+                {chartType === 'pie' && <PieChartComponent width={containerWidth} height={containerHeight} />}
             </div>
             {isEditor && <FormControl>
                 <InputLabel id="chart-type-label">Chart Type</InputLabel>

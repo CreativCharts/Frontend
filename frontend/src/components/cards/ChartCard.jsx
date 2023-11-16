@@ -10,22 +10,23 @@ const ChartCard = ({id, children}) => {
     const navigate = useNavigate();
 
     const handleClick = async () => {
-        console.log("ChartCard ID:", id);
-        if (!id) {
-            console.error('Chart ID nicht übergeben!');
-            return;
-        }
-        try {
-            const response = await fetchChartById(id);
-            if (response?.data) {
-                setChartData(response.gridData);
-                setChartType(response.type);
-                setChartId(id);
-                navigate('/editor');
-            }
-        } catch (error) {
-            console.error('Fehler beim Abrufen der Chart-Daten:', error);
-        }
+        // console.log("ChartCard ID:", id);
+        // if (!id) {
+        //     console.error('Chart ID nicht übergeben!');
+        //     return;
+        // }
+        // try {
+        //     const response = await fetchChartById(id);
+        //     if (response?.data) {
+        //         setChartData(response.gridData);
+        //         setChartType(response.type);
+        //         setChartId(id);
+        //         navigate('/editor');
+        //     }
+        // } catch (error) {
+        //     console.error('Fehler beim Abrufen der Chart-Daten:', error);
+        // }
+        navigate(`/editor/${id}`);
     };
 
 

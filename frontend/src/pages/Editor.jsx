@@ -3,28 +3,46 @@ import ReactGridTable from '../components/tables/ReactGridTable.jsx';
 import ChartDisplay from '../components/charts/ChartDisplay.jsx';
 import SaveButtonComponent from '../components/buttons/SaveButtonComponent.jsx';
 import {saveChart, fetchChartById} from '../api/api';
-import '../components/styles/Editor.css';
 import {useData} from "../context/UseData.jsx";
 import {DataProvider} from "../context/ProviderValue.jsx";
+import '../components/styles/Editor.css';
+import {useParams} from "react-router-dom";
+import {getRows} from "../components/tables/ReactGridTableUtils.jsx";
 
 const Editor = () => {
-    const {chartData, chartType, setChartData, chartId} = useData();
+    const {id} = useParams();
+    const {chartData, chartType, setChartData, setChartType, setChartId, chartId} = useData();
 
     useEffect(() => {
-        if (!chartId) {
-            console.error('Chart ID nicht übergeben!');
+        console.log('EDITOR chartData geändert: ', chartData);
+    }, [chartData]);
+
+    useEffect(() => {
+        console.log('EDITOR chartType geändert: ', chartType);
+    }, [chartType]);
+
+    useEffect(() => {
+        console.log('EDITOR chartId geändert: ', chartId);
+    }, [chartId]);
+
+
+    useEffect(() => {
+        if (!id) {
+            setChartData(getRows());
+            setChartType('bar');
+            setChartId(null);
             return;
         }
-        
-        if (chartId) {
-            fetchChartById(chartId).then(response => {
-                    setChartData(response.data.gridData);
-                }
-            ).catch(error => {
-                console.error('Error fetching data:', error);
-            });
+
+        const fetchData = async () => {
+            const data = await fetchChartById(id);
+            console.log('GOT DATA', data);
+            setChartData(data.data.gridData);
+            setChartType(data.data.type);
+            setChartId(data.data._id);
         }
-    }, [chartId, setChartData]);
+        fetchData();
+    }, [id]);
 
     const saveToDatabase = async () => {
 
@@ -38,11 +56,11 @@ const Editor = () => {
     }
 
     return (
-        <DataProvider>
+        <>
             <ChartDisplay className='chart-display' isEditor={true}/>
             <ReactGridTable className='table-display'/>
             <SaveButtonComponent className='save-button' onClick={saveToDatabase}/>
-        </DataProvider>
+        </>
     );
 }
 

@@ -24,6 +24,7 @@ const App = () => {
                         <Route path="/" element={<LandingPage/>}/>
                         <Route path="/dashboard" element={<Dashboard/>}/>
                         <Route path="/editor" element={<Editor/>}/>
+                        <Route path="/editor/:id" element={<Editor/>}/>
                         <Route path="*" element={<NotFound/>}/>
                     </Routes>
                 </MainLayout>

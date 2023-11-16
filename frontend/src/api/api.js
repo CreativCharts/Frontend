@@ -1,6 +1,15 @@
 import axios from 'axios';
 import {API_BASE_URL, API_ENDPOINTS} from './apiSettings';
 
+export const landingpage = async () => {
+    try {
+        const response = await axios.get(
+            `${API_BASE_URL}${API_ENDPOINTS.landingPage}`);
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching landingpage:", error);
+    }
+}
 
 export const saveChart = async (chartData) => {
     try {
@@ -66,10 +75,10 @@ export const updateChart = async (chart) => {
     try {
         const response = await fetch(
             `${API_BASE_URL}${API_ENDPOINTS.updateChart.replace(
-                ':id', chart.id)}`, {
+                ':id', chart._id)}`, {
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(chart.id)
+                body: JSON.stringify(chart)
             });
         return response.json();
 

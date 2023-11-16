@@ -1,8 +1,7 @@
 import {chartSetting} from "./chartSetting.js";
 
-const pieSize = 50;
-
-export const transformRowsToPieChartData = (rows) => {
+export const transformRowsToPieChartData = (rows, width, height) => {
+    const pieSize = Math.min(width, height) * 0.9;
     if (!rows || !Array.isArray(rows) || rows.length === 0) {
         return { ...chartSetting, series: [{data: []}] };
     }

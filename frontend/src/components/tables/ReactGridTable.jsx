@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { ReactGrid } from "@silevis/reactgrid";
 import ExcelReader from "../excel/ExcelReader.jsx";
 import '../styles/ReactGridTable.css';
@@ -12,15 +12,20 @@ import {
 } from './ReactGridTableUtils';
 
 import {useData} from "../../context/UseData.jsx";
+import {fetchChartById} from "../../api/api.js";
 
 export default function ReactGridTable() {
+    const { setChartData, chartData } = useData();
     const [rows, setRows] = React.useState(getRows());
     const [columns, setColumns] = React.useState(getColumns());
     const [headers, setHeaders] = React.useState(getHeaders());
     const [gridKey, setGridKey] = React.useState(0);
-    const { setChartData } = useData();
 
-
+    useEffect(() => {
+        if (chartData !== rows) {
+            setRows(chartData);
+        }
+    }, [chartData]);
     const handleRowsChange = (changes) => {
 
         console.log('changes', changes, rows);
