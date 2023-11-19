@@ -1,0 +1,148 @@
+openapi: 3.0.0
+info:
+  title: CreativeCharts API
+  version: 1.0.0
+servers:
+  - url: http://localhost:5030
+    description: Development server
+paths:
+  /:
+    get:
+      summary: Root Endpoint
+      responses:
+        '200':
+          description: Success
+
+  /create-chart:
+    post:
+      summary: Create a new chart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Chart'
+      responses:
+        '200':
+          description: Chart successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Chart'
+        '500':
+          description: Internal Server Error
+
+  /all-charts:
+    get:
+      summary: Fetch all charts
+      responses:
+        '200':
+          description: List of all charts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Chart'
+        '500':
+          description: Internal Server Error
+
+  /chart/{id}:
+    get:
+      summary: Fetch a specific chart by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Chart details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Chart'
+        '404':
+          description: Chart not found
+        '500':
+          description: Internal Server Error
+
+  /delete-chart/{id}:
+    delete:
+      summary: Delete a specific chart
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Chart successfully deleted
+        '404':
+          description: Chart not found
+        '500':
+          description: Internal Server Error
+
+  /update-chart/{id}:
+    put:
+      summary: Update a specific chart
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Chart'
+      responses:
+        '200':
+          description: Chart successfully updated
+        '404':
+          description: Chart not found
+        '500':
+          description: Internal Server Error
+
+components:
+  schemas:
+    Chart:
+      type: object
+      properties:
+        _id:
+          type: string
+        title:
+          type: string
+        subtitle:
+          type: string
+        type:
+          type: string
+          enum: [bar, line, pie, default-type]
+        gridData:
+          type: array
+          items:
+            $ref: '#/components/schemas/Row'
+
+    Row:
+      type: object
+      properties:
+        rowId:
+          type: string
+        cells:
+          type: array
+          items:
+            $ref: '#/components/schemas/Cell'
+
+    Cell:
+      type: object
+      properties:
+        type:
+          type: string
+        text:
+          type: string
+        className:
+          type: string

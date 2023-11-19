@@ -42,7 +42,7 @@ export const transformRowsToPieChartData = (rows, width, height) => {
 
     return {
         ...chartSetting,
-        series: series.filter(entry => !!entry), // filter empty entries
+        series: series.filter(entry => !!entry),
 
     };
 }

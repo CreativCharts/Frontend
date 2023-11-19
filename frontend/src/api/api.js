@@ -31,24 +31,17 @@ export const saveChart = async (chartData) => {
     }
 }
 
-export const fetchAll = async () => {
+export const fetchAll = async (
+    page = 1,
+    pageSize = 12) => {
     try {
-        const response = await axios.get(
-            `${API_BASE_URL}${API_ENDPOINTS.fetchAll}`);
-
-        if (response.data && Array.isArray(response.data)) {
-
-            console.log("Fetch all aus DB: ", response.data);
-            return {data: response.data};
-        } else {
-            console.error('Unerwartetes Datenformat erhalten:', response.data);
-            return {data: [], error: 'Ungültiges Datenformat'};
-        }
-
+        const response = await axios.get(`${API_BASE_URL}${API_ENDPOINTS.fetchAll}`, {
+            params: { page, pageSize }
+        });
+        return response.data;
     } catch (error) {
-
         console.error('Fehler beim Abrufen der Daten:', error);
-        return {data: [], error: error.message};
+        return { data: [], error: error.message };
     }
 };
 
@@ -73,16 +66,29 @@ export const fetchChartById = async (chartId) => {
 
 export const updateChart = async (chart) => {
     try {
-        const response = await fetch(
+        const response = await axios.put(
             `${API_BASE_URL}${API_ENDPOINTS.updateChart.replace(
-                ':id', chart._id)}`, {
-                method: 'PUT',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(chart)
-            });
-        return response.json();
-
+                ':id', chart._id)}`,
+            chart
+        );
+        console.log("Chart updated:", response.data);
+        return {data: response.data};
     } catch (error) {
         console.error("Error updating chart:", error);
+        return {data: {}, error: error.message};
+    }
+};
+
+export const deleteChart = async (chartId) => {
+    try {
+        const response = await axios.delete(
+            `${API_BASE_URL}${API_ENDPOINTS.deleteChart.replace(
+                ':id', chartId)}`);
+
+        console.log("Chart deleted:", response.data);
+        return {data: response.data};
+    } catch (error) {
+        console.error("Error deleting chart:", error);
+        return {data: {}, error: error.message};
     }
 };

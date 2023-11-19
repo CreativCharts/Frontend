@@ -5,7 +5,7 @@ import UserMenu from './UserMenu';
 
 const Header = () => {
     return (
-        <AppBar position="static">
+        <AppBar position="sticky">
             <Toolbar>
                 <NavigationMenu/>
                 <DarkModeToggle/>

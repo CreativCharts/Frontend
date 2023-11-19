@@ -1,10 +1,10 @@
+import {useRef} from "react";
 import {Select, MenuItem, FormControl, InputLabel} from '@mui/material';
 import BarChartComponent from '../charts/bar/BarChart.jsx';
 import LineChartComponent from '../charts/line/LineChart.jsx';
-import PieChartComponent from '../charts/pie/PieChart.jsx';
 
+import PieChartComponent from '../charts/pie/PieChart.jsx';
 import {useData} from "../../context/UseData.jsx";
-import {useRef} from "react";
 
 
 const ChartDisplay = ({isEditor}) => {
@@ -17,6 +17,7 @@ const ChartDisplay = ({isEditor}) => {
     const containerHeight = chartContainerEl.current?.clientHeight || 100;
 
     return (
+        
         <div style={{
             display: 'flex',
             flexDirection: 'column',
@@ -30,7 +31,7 @@ const ChartDisplay = ({isEditor}) => {
             >
                 {chartType === 'bar' && <BarChartComponent/>}
                 {chartType === 'line' && <LineChartComponent/>}
-                {chartType === 'pie' && <PieChartComponent width={containerWidth} height={containerHeight} />}
+                {chartType === 'pie' && <PieChartComponent width={containerWidth} height={containerHeight}/>}
             </div>
             {isEditor && <FormControl>
                 <InputLabel id="chart-type-label">Chart Type</InputLabel>

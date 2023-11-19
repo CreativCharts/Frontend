@@ -3,18 +3,21 @@ import PropTypes from "prop-types";
 import {DataContext} from "./DataContext.jsx";
 import {getRows} from "../components/tables/ReactGridTableUtils.jsx";
 
+
 export const DataProvider = ({children}) => {
+    const [chartTitle, setChartTitle] = useState('');
+    const [chartDescription, setChartDescription] = useState("");
     const [chartData, setChartData] = useState(getRows());
     const [chartType, setChartType] = useState('bar');
-    const [chartId, setChartId] = useState();
+    const [chartId, setChartId] = useState("");
 
     useEffect(() => {
-        console.log('DataProvider chartData geändert: ', chartData);
-    }, [chartData]);
+        console.log('DataProvider chartTitle geändert: ', chartTitle);
+    }, [chartTitle]);
 
     useEffect(() => {
-        console.log('DataProvider chartType geändert: ', chartType);
-    }, [chartType]);
+        console.log('DataDescription chartType geändert: ', chartDescription);
+    }, [chartDescription]);
 
     useEffect(() => {
         console.log('DataProvider chartId geändert: ', chartId);
@@ -27,7 +30,19 @@ export const DataProvider = ({children}) => {
         setChartType,
         chartId,
         setChartId,
-    }), [chartData, chartType, chartId]);
+        chartTitle,
+        setChartTitle,
+        chartDescription,
+        setChartDescription,
+    }), [
+        chartData,
+        chartType,
+        chartId,
+        chartTitle,
+        setChartTitle,
+        chartDescription,
+        setChartDescription
+    ]);
 
     return (
         <DataContext.Provider value={providerValue}>

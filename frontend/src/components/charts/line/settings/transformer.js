@@ -40,25 +40,4 @@ export const transformRowsToLineChartData = (rows) => {
         // height: chartSetting.height
     };
 };
-/*
 
-
-export const transformDashLine = (gridData) => {
-    if (!gridData || !Array.isArray(gridData) || gridData.length === 0) {
-        return { labels: [], datasets: [] };
-    }
-
-    const labels = gridData[0].cells.slice(1).map(cell => cell.text);
-    const chartData = gridData.slice(1).map(row => ({
-        label: `Series ${row.rowId}`,
-        data: row.cells.slice(1).map(cell => parseFloat(cell.text) || 0)
-    }));
-
-    console.log("Chart data:", chartData);
-    return {
-        labels,
-        datasets: chartData,
-        ...dashLineChartSetting
-    };
-};
-*/

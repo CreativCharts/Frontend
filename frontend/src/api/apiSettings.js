@@ -2,11 +2,11 @@ export const API_BASE_URL = 'http://localhost:5030';
 
 export const API_ENDPOINTS = {
     landingPage: '/',
-    createChart: '/create-chart',
-    fetchAll: '/all-charts',
+    createChart: '/create',
+    fetchAll: '/all',
     fetchChartById: '/chart/:id',
-    deleteChart: '/delete-chart/:id',
-    updateChart: '/update-chart/:id',
+    deleteChart: '/delete/:id',
+    updateChart: '/update/:id',
     export: '/export',
     import: '/import'
 };
