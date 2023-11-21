@@ -1,5 +1,5 @@
 import ChartDisplay from './ChartDisplay.jsx';
-import {useData} from "../../context/UseData.jsx";
+import {useData} from "../context/dataContext/UseData.jsx";
 import PropTypes from "prop-types";
 import {useEffect} from "react";
 

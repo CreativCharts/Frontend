@@ -1,49 +1,40 @@
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import {ThemeProvider, createTheme} from '@mui/material/styles';
-import {DarkModeProvider, useDarkMode} from './context/DarkModeContext.jsx';
-import {MainLayout} from './components/layout/MainLayout.jsx';
-import {DataProvider} from "./context/ProviderValue.jsx";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { DarkModeProvider } from './components/context/darkModeContext/DarkModeContext.jsx';
+import { DataProvider } from "./components/context/dataContext/ProviderValue.jsx";
 import Header from "./components/layout/header/Header.jsx";
-import Dashboard from './pages/Dashboard.jsx';
-import Editor from './pages/Editor.jsx';
-import LandingPage from "./pages/LandingPage.jsx";
-import SettingsPage from "./pages/SettingsPage.jsx";
+import Dashboard from './pages/dashboard/Dashboard.jsx';
+import Editor from './pages/editor/Editor.jsx';
+import Home from "./pages/home/Home.jsx";
+import SettingsPage from "./pages/settings/SettingsPage.jsx";
+import './App.css';
+import '../src/components/styles/theme.css';
 
-const NotFound = () => (
-    <div>
-        <h1>404 - Not Found!</h1>
-    </div>
-);
 
-const App = () => {
-    const {darkMode} = useDarkMode();
-
-    const theme = createTheme({
-        palette: {
-            mode: darkMode ? 'dark' : 'light',
-        },
-    });
-
+const NotFound = () => {
     return (
-        <ThemeProvider theme={theme}>
+        <div>
+            <h1>404</h1>
+            <h2>Page not found</h2>
+        </div>
+    );
+}
+const App = () => {
+    return (
+        <DarkModeProvider>
             <Router>
                 <Header/>
                 <DataProvider>
-                    <DarkModeProvider>
-                        <MainLayout>
-                            <Routes>
-                                <Route path="/" element={<LandingPage/>}/>
-                                <Route path="/dashboard" element={<Dashboard/>}/>
-                                <Route path="/editor" element={<Editor/>}/>
-                                <Route path="/editor/:id" element={<Editor/>}/>
-                                <Route path="/settings" element={<SettingsPage/>}/>
-                                <Route path="*" element={<NotFound/>}/>
-                            </Routes>
-                        </MainLayout>
-                    </DarkModeProvider>
+                    <Routes>
+                        <Route path="/home" element={<Home/>}/>
+                        <Route path="/dashboard" element={<Dashboard/>}/>
+                        <Route path="/editor" element={<Editor/>}/>
+                        <Route path="/editor/:id" element={<Editor/>}/>
+                        <Route path="/settings" element={<SettingsPage/>}/>
+                        <Route path="*" element={<NotFound/>}/>
+                    </Routes>
                 </DataProvider>
             </Router>
-        </ThemeProvider>
+        </DarkModeProvider>
     );
 };
 

@@ -1,5 +1,5 @@
 export const chartSetting = {
-  width: 1500,
+  width: 1280,
   height: 720
 };
 

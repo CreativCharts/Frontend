@@ -16,7 +16,7 @@ export const getRows = () => {
 
     const rows = [];
 
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 4; i++) {
         const cells = [];
 
         for (let j = 1; j <= 10; j++) {

@@ -18,6 +18,7 @@ const UserProfileSettings = () => {
             <form>
                 <label>
                     Benutzername ändern:
+                    <br/>
                     <input
                         type="text"
                         value={username}
@@ -26,6 +27,7 @@ const UserProfileSettings = () => {
                 </label>
                 <label>
                     E-Mail ändern:
+                    <br/>
                     <input
                         type="email"
                         value={email}

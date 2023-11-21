@@ -1,12 +1,12 @@
 import {useMemo, useState, useEffect} from "react";
 import PropTypes from "prop-types";
 import {DataContext} from "./DataContext.jsx";
-import {getRows} from "../components/tables/ReactGridTableUtils.jsx";
+import {getRows} from "../../tables/ReactGridTableUtils.jsx";
 
 
 export const DataProvider = ({children}) => {
     const [chartTitle, setChartTitle] = useState('');
-    const [chartDescription, setChartDescription] = useState("");
+    const [chartDescription, setChartDescription] = useState('');
     const [chartData, setChartData] = useState(getRows());
     const [chartType, setChartType] = useState('bar');
     const [chartId, setChartId] = useState("");

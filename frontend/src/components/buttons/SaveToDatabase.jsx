@@ -1,25 +1,26 @@
 import {saveChart, updateChart} from '../../api/api';
-import {useData} from "../../context/UseData.jsx";
+import {useData} from "../context/dataContext/UseData.jsx";
 import {useNavigate} from "react-router-dom";
+import {Button} from "@mui/material";
 
 const SaveButtonComponent = () => {
-    const {chartId, chartType, chartTitle, chartDescription, chartData } = useData();
+    const {chartId, chartType, chartTitle, chartDescription, chartData} = useData();
     const navigate = useNavigate();
 
 
     const saveToDatabase = async () => {
         const dataToSave = {
-            title: chartTitle,
-            description: chartDescription,
             _id: chartId,
             type: chartType,
+            title: chartTitle,
+            description: chartDescription,
             gridData: chartData
         };
 
         try {
             if (chartId) {
                 await updateChart(dataToSave);
-                
+
             } else {
                 const chart = await saveChart(dataToSave);
 
@@ -33,7 +34,12 @@ const SaveButtonComponent = () => {
     };
 
     return (
-        <button onClick={saveToDatabase}>Save</button>
+        <Button
+            variant="contained"
+            color="primary"
+            onClick={saveToDatabase}>
+            Speichern
+        </Button>
     );
 }
 

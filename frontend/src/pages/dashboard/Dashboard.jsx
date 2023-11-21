@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import {CircularProgress, Container, Grid, Alert} from '@mui/material';
-import ChartCard from '../components/cards/ChartCard';
-import {DashboardDisplay} from "../components/charts/DashboardDisplay.jsx";
-import {fetchAll, deleteChart} from '../api/api.js';
-import {DataProvider} from "../context/ProviderValue.jsx";
-import PaginationComponent from "../components/pagination/PaginationComponent.jsx";
-import ConfirmDialog from '../components/dialogs/ConfirmDialog.jsx';
+import ChartCard from '../../components/cards/ChartCard.jsx';
+import {DashboardDisplay} from "../../components/chartDisplays/DashboardDisplay.jsx";
+import {fetchAll, deleteChart} from '../../api/api.js';
+import {DataProvider} from "../../components/context/dataContext/ProviderValue.jsx";
+import PaginationComponent from "../../components/pagination/PaginationComponent.jsx";
+import ConfirmDialog from '../../components/dialogs/ConfirmDialog.jsx';
 
 export default function Dashboard() {
     const [charts, setCharts] = useState([]);

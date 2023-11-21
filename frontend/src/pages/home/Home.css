@@ -1,0 +1,84 @@
+:root {
+    --background-light: linear-gradient(270deg, #00B4DB, #0083B0, #0052D4);
+    --background-dark: linear-gradient(270deg, #021B79, #0575E6, #021B79);
+    --text-color-light: #000;
+    --text-color-dark: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: var(--background-dark);
+        --text-color: var(--text-color-dark);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --background: var(--background-light);
+        --text-color: var(--text-color-light);
+    }
+}
+
+.home-container {
+    background: var(--background);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 64px);
+    text-align: center;
+    background-size: 600% 600%;
+    animation: Bg-colors 16s ease infinite;
+}
+
+.home-header {
+    margin-bottom: 50px;
+    animation: fadeIn 2s;
+}
+
+.home-title {
+    font-size: 3rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.home-subtitle {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+.home-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.home-button {
+    width: 200px;
+    transition: transform 0.2s;
+}
+
+.home-button:hover {
+    transform: scale(1.05);
+}
+
+@keyframes Bg-colors {
+    0% { background-position: 0 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0 50%; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .home-title { font-size: 2.5rem; }
+    .home-subtitle { font-size: 1.5rem; }
+    .home-button { width: 150px; }
+}

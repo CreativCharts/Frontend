@@ -1,0 +1,67 @@
+/*
+!* NavigationMenu.css *!
+.drawer-container {
+    width: 250px;
+}
+
+.drawer-list {
+    width: 100%;
+    max-width: 360px;
+    background-color: var(--background-paper, #fff); !* Nutzen Sie CSS-Variablen für Farbwerte *!
+}
+
+.drawer-accordion {
+    box-shadow: none;
+}
+
+.drawer-accordionSummary {
+    flex-direction: row-reverse;
+}
+
+.drawer-accordionSummaryExpanded {
+    transform: rotate(90deg);
+}
+
+.drawer-accordionDetails {
+    flex-direction: column;
+}
+
+.drawer-listItem {
+    padding: 0;
+}
+
+.drawer-listItemButton {
+    border-radius: 0;
+}
+
+.drawer-listItemText {
+    font-size: 1rem; !* Ersetzen Sie theme.typography.pxToRem(15) durch den entsprechenden rem-Wert *!
+}
+
+.MuiDrawer-paper {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+}
+
+.MuiAccordion-root {
+    background-color: transparent;
+    color: inherit;
+    border: none;
+}
+
+.MuiAccordionSummary-root {
+    padding: 0;
+}
+
+.MuiAccordionDetails-root {
+    padding: 0.5rem 1rem; !* Ersetzen Sie theme.spacing(1, 2) durch den entsprechenden rem-Wert *!
+}
+
+.drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0.5rem; !* Ersetzen Sie theme.spacing(0, 1) durch den entsprechenden rem-Wert *!
+}
+*/

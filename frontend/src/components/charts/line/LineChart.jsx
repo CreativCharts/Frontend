@@ -1,6 +1,6 @@
 import {LineChart} from '@mui/x-charts/LineChart';
 import {transformRowsToLineChartData} from './settings/transformer.js';
-import {useData} from "../../../context/UseData.jsx";
+import {useData} from "../../context/dataContext/UseData.jsx";
 
 export default function LineChartComponent() {
     const {chartData} = useData();

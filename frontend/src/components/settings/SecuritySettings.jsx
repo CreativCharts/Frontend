@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 
 const SecuritySettings = () => {
     const [password, setPassword] = useState('');
@@ -18,6 +18,7 @@ const SecuritySettings = () => {
             <form>
                 <label>
                     Passwort ändern:
+                    <br/>
                     <input
                         type="password"
                         value={password}
@@ -26,6 +27,7 @@ const SecuritySettings = () => {
                 </label>
                 <label>
                     Zwei-Faktor-Authentifizierung:
+                    <br/>
                     <input
                         type="checkbox"
                         checked={twoFactorAuth}

@@ -1,10 +1,10 @@
 import axios from 'axios';
 import {API_BASE_URL, API_ENDPOINTS} from './apiSettings';
 
-export const landingpage = async () => {
+export const home = async () => {
     try {
         const response = await axios.get(
-            `${API_BASE_URL}${API_ENDPOINTS.landingPage}`);
+            `${API_BASE_URL}${API_ENDPOINTS.home}`);
         return response.data;
     } catch (error) {
         console.error("Error fetching landingpage:", error);

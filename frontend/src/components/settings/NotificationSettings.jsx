@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 
 const NotificationSettings = () => {
     const [notificationsEnabled, setNotificationsEnabled] = useState(true);
@@ -13,37 +13,41 @@ const NotificationSettings = () => {
     };
 
     return (
+
         <section>
             <h2>Benachrichtigungen</h2>
             <form>
                 <label>
                     Benachrichtigungen aktivieren:
-
+                    <br/>
                     <input
-                        type="checkbox"
-                        checked={notificationsEnabled}
-                        onChange={handleToggleChange}
-                    />
+                    type="radio"
+                    checked={notificationsEnabled}
+                    onChange={handleToggleChange}
+                />
                 </label>
 
                 <label>
-
-                    Benachrichtigungstyp:
-                    <select  value={notificationType} onChange={handleTypeChange}
-                            form={"notificationTypeForm"} title={"notificationTypeForm"}
-                             >
+                    Art der Benachrichtigung:
+                    <br/>
+                    <select
+                        value={notificationType}
+                        onChange={handleTypeChange}
+                        form={"notificationTypeForm"}
+                        title={"notificationTypeForm"}
+                    >
 
                         <option value="Email">Email</option>
                         <option value="SMS">SMS</option>
                         <option value="Push">Push</option>
 
-                    
-                        </select>
+
+                    </select>
                 </label>
             </form>
         </section>
+
     );
-};
-    
-        
+}
+
 export default NotificationSettings;

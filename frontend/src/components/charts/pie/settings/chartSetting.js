@@ -1,6 +1,5 @@
 export const chartSetting = {
-    
+
     series: []
 };
-
 

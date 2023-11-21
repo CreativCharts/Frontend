@@ -1,5 +1,6 @@
-import {createContext, useState, useContext, useEffect} from 'react';
+import {createContext, useState, useContext, useEffect, useMemo} from 'react';
 import {createTheme, ThemeProvider as MUIThemeProvider} from '@mui/material/styles';
+import PropTypes from "prop-types";
 
 const DarkModeContext = createContext({
     darkMode: false,
@@ -7,16 +8,17 @@ const DarkModeContext = createContext({
     },
 });
 
-export const useDarkMode = () => useContext(DarkModeContext);
+export const useDarkMode = () =>
+    useContext(DarkModeContext);
 
 export const DarkModeProvider = ({children}) => {
     const [darkMode, setDarkMode] = useState(false);
 
     useEffect(() => {
-        console.log('Aktueller Theme-Modus:', darkMode ? 'dark' : 'light');
+        document.body.setAttribute('data-theme', darkMode ? 'dark' : 'light');
     }, [darkMode]);
+
     const toggleDarkMode = () => {
-        console.log('Toggling Dark Mode:', !darkMode);
         setDarkMode(!darkMode);
     };
 
@@ -26,11 +28,20 @@ export const DarkModeProvider = ({children}) => {
         },
     });
 
+    const contextValue = useMemo(() => ({
+        darkMode,
+        toggleDarkMode
+    }), [darkMode, toggleDarkMode]);
+
     return (
-        <DarkModeContext.Provider value={{darkMode, toggleDarkMode}}>
+        <DarkModeContext.Provider value={contextValue}>
             <MUIThemeProvider theme={theme}>
                 {children}
             </MUIThemeProvider>
         </DarkModeContext.Provider>
     );
-};
+}
+
+DarkModeProvider.propTypes = {
+    children: PropTypes.node.isRequired,
+}

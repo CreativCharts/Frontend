@@ -1,7 +1,6 @@
 import React, {useEffect} from "react";
-import { ReactGrid } from "@silevis/reactgrid";
+import {ReactGrid} from "@silevis/reactgrid";
 import ExcelReader from "../excel/ExcelReader.jsx";
-import '../styles/ReactGridTable.css';
 import {
     getHeaders,
     getColumns,
@@ -10,11 +9,12 @@ import {
     getRowsFromData,
     getColumnsFromData
 } from './ReactGridTableUtils';
-import {useData} from "../../context/UseData.jsx";
+import {useData} from "../context/dataContext/UseData.jsx";
+import './ReactGridTable.css';
 
 
 export default function ReactGridTable() {
-    const { setChartData, chartData } = useData();
+    const {setChartData, chartData} = useData();
     const [rows, setRows] = React.useState(getRows());
     const [columns, setColumns] = React.useState(getColumns());
     const [headers, setHeaders] = React.useState(getHeaders());
@@ -65,17 +65,22 @@ export default function ReactGridTable() {
     };
 
 
-    return (
-        <div className="react-grid-container" style={{ backgroundColor: "darkgrey" }}>
-            <input type="file" onChange={handleFileChange} />
-            <ReactGrid
-                key={gridKey}
-                className="react-grid"
-                rows={rows}
-                columns={columns}
-                headers={headers}
-                onCellsChanged={handleRowsChange}
-            />
+    return (/*
+        <div className="react-grid-container" style={{ backgroundColor: "darkgrey" }}>*/
+        <div className="react-grid-container"
+             style={{backgroundColor: "darkgrey", height: '100%', width: '100%', overflow: 'hidden'}}>
+            <div style={{display: 'flex', alignItems: 'center'}}>
+                <input type="file" onChange={handleFileChange}/>
+                <ReactGrid
+                    key={gridKey}
+                    className="react-grid"
+                    rows={rows}
+                    columns={columns}
+                    headers={headers}
+                    onCellsChanged={handleRowsChange}
+                />
+            </div>
         </div>
     );
 }
+
