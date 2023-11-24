@@ -1,5 +1,5 @@
-import ChartDisplay from './ChartDisplay.jsx';
-import {useData} from "../context/dataContext/UseData.jsx";
+import ChartDisplay from '../chartDisplay/ChartDisplay.jsx';
+import {useData} from "../../context/dataContext/UseData.jsx";
 import PropTypes from "prop-types";
 import {useEffect} from "react";
 
@@ -15,7 +15,6 @@ export const DashboardDisplay = ({data}) => {
         }
     }, [data, setChartData, setChartType, setChartId]);
 
-
     return (
         <ChartDisplay className='chart-display'/>
     );
@@ -24,3 +23,4 @@ export const DashboardDisplay = ({data}) => {
 DashboardDisplay.propTypes = {
     data: PropTypes.object.isRequired,
 };
+

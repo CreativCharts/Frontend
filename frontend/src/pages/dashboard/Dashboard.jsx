@@ -1,11 +1,12 @@
 import {useState, useEffect} from 'react';
 import {CircularProgress, Container, Grid, Alert} from '@mui/material';
 import ChartCard from '../../components/cards/ChartCard.jsx';
-import {DashboardDisplay} from "../../components/chartDisplays/DashboardDisplay.jsx";
+import {DashboardDisplay} from "../../components/displays/dashboardDisplay/DashboardDisplay.jsx";
 import {fetchAll, deleteChart} from '../../api/api.js';
-import {DataProvider} from "../../components/context/dataContext/ProviderValue.jsx";
 import PaginationComponent from "../../components/pagination/PaginationComponent.jsx";
 import ConfirmDialog from '../../components/dialogs/ConfirmDialog.jsx';
+import {DataProvider} from "../../components/context/dataContext/ProviderValue.jsx";
+import './Dashboard.css';
 
 export default function Dashboard() {
     const [charts, setCharts] = useState([]);
@@ -53,37 +54,34 @@ export default function Dashboard() {
     };
 
     return (
-        <Container maxWidth="lg" sx={{mt: 4, mb: 4}}>
+        <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             {error && <Alert severity="error">{error}</Alert>}
-            {charts.length === 0 && !error && <CircularProgress/>}
+            {charts.length === 0 && !error && <CircularProgress />}
             {charts.length > 0 && (
-                <>
-                    <Grid container spacing={3}>
-                        {charts.map((chart) => (
-                            <Grid item xs={12} sm={6} md={4} lg={3} key={chart._id}>
-                                <ChartCard
-                                    id={chart._id.toString()}
-                                    title={chart.title}
-                                    description={chart.description}
-                                    onDelete={() => handleDeleteConfirm(chart._id)}
-                                >
-                                    <DataProvider>
-                                        <DashboardDisplay data={chart}/>
-                                    </DataProvider>
-                                </ChartCard>
-                            </Grid>
-                        ))}
-                    </Grid>
-                    {totalPages > 0 && (
-                        <PaginationComponent
-                            total={totalPages}
-                            page={currentPage}
-                            onChange={(event, newPage) => setCurrentPage(newPage)}
-                        />
-                    )}
-                </>
+                <Grid container spacing={3} className="dashboard-chart-grid">
+                    {charts.map((chart) => (
+                        <Grid item xs={12} sm={6} md={4} lg={3} key={chart._id}>
+                            <ChartCard
+                                id={chart._id.toString()}
+                                title={chart.title}
+                                description={chart.description}
+                                onDelete={() => handleDeleteConfirm(chart._id)}
+                            >
+                                <DataProvider>
+                                    <DashboardDisplay data={chart} />
+                                </DataProvider>
+                            </ChartCard>
+                        </Grid>
+                    ))}
+                </Grid>
             )}
-
+            {totalPages > 0 && (
+                <PaginationComponent
+                    total={totalPages}
+                    page={currentPage}
+                    onChange={(event, newPage) => setCurrentPage(newPage)}
+                />
+            )}
             <ConfirmDialog
                 open={confirmDialogOpen}
                 title="Chart löschen"

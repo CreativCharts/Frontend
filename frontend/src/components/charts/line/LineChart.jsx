@@ -2,7 +2,7 @@ import {LineChart} from '@mui/x-charts/LineChart';
 import {transformRowsToLineChartData} from './settings/transformer.js';
 import {useData} from "../../context/dataContext/UseData.jsx";
 
-export default function LineChartComponent() {
+export default function LineChartComponent(margin) {
     const {chartData} = useData();
 
     const transformedData =
@@ -11,6 +11,7 @@ export default function LineChartComponent() {
     return (
         <LineChart
             {...transformedData}
+            margin={margin}
         />
     );
 }

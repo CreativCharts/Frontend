@@ -2,29 +2,35 @@ import PropTypes from 'prop-types';
 import {useNavigate} from "react-router-dom";
 import {Card, CardActionArea, CardContent, CardHeader, IconButton} from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import {useData} from "../context/dataContext/UseData.jsx";
 
-const ChartCard = ({id, title, description, onDelete, children}) => {
+
+const ChartCard = ({id, children, title, description}) => {
     const navigate = useNavigate();
+    const {deleteChart} = useData();
 
-    const handleClick = () => {
+    const handleClick = async () => {
         navigate(`/editor/${id}`);
     };
 
+    const handleDelete = (event) => {
+        event.stopPropagation();
+        deleteChart(id);
+    };
+
     return (
-        <Card sx={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-            <CardActionArea onClick={handleClick}>
-                <CardHeader
-                    title={title}
-                    subheader={description}
-                    action={
-                        <IconButton onClick={(e) => {
-                            e.stopPropagation();
-                            onDelete();
-                        }}>
-                            <DeleteIcon/>
-                        </IconButton>
-                    }
-                    sx={{textAlign: 'center'}}
+        <Card sx={{height: '100%', display: 'flex', flexDirection: 'column'}} onClick={handleClick}>
+            <CardActionArea>
+                <CardHeader sx={{textAlign: 'center'}}
+                            action={
+                                <IconButton aria-label="delete"
+                                            onClick={handleDelete}
+                                >
+                                    <DeleteIcon/>
+                                </IconButton>
+                            }
+                            title={title}
+                            subheader={description}
                 />
                 <CardContent sx={{
                     flexGrow: 1,
@@ -33,6 +39,8 @@ const ChartCard = ({id, title, description, onDelete, children}) => {
                     alignItems: 'center',
                     position: 'relative',
                 }}>
+
+
                     <div style={{width: '100%', paddingTop: '56.25%'}}/>
                     <div style={{
                         width: '100%',
@@ -50,12 +58,14 @@ const ChartCard = ({id, title, description, onDelete, children}) => {
     );
 }
 
+
 ChartCard.propTypes = {
     id: PropTypes.string.isRequired,
+    children: PropTypes.node,
     title: PropTypes.string,
     description: PropTypes.string,
-    onDelete: PropTypes.func.isRequired,
-    children: PropTypes.node
+    onDelete: PropTypes.func,
 };
 
 export default ChartCard;
+

@@ -1,12 +1,30 @@
-.dashboard {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    padding: 16px;
+.dashboard-container {
+    padding: 20px;
 }
 
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Vier Karten pro Reihe */
+    gap: 20px;
+}
 
-.card {
-    flex: 1 1 auto;
-    max-width: 400px;
+@media screen and (max-width: 1200px) {
+    .chart-grid {
+        grid-template-columns: repeat(2, 1fr); /* Zwei Karten pro Reihe für kleinere Bildschirme */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .chart-grid {
+        grid-template-columns: 1fr; /* Eine Karte pro Reihe für sehr kleine Bildschirme */
+    }
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px 0;
 }

@@ -1,83 +1,33 @@
 @import '../../../node_modules/@silevis/reactgrid/styles.css';
 
-:root {
-    --background-light: #ffffff;
-    --background-dark: #121212;
-    --text-color-light: #000000;
-    --text-color-dark: #ffffff;
-    --border-color-light: #e0e0e0;
-    --border-color-dark: #333333;
-}
-@media (prefers-color-scheme: light) {
-    .react-grid-container {
-        background-color: var(--background-light);
-        color: var(--text-color-light);
-        border-color: var(--border-color-light);
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .react-grid-container {
-        background-color: var(--background-dark);
-        color: var(--text-color-dark);
-        border-color: var(--border-color-dark);
-    }
-}
-
-.flex-container {
+.react-grid-table-container {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    align-items: center;
+    padding: var(--padding-medium);
 }
 
-.react-grid-container {
-    flex: 1;
-    overflow-y: hidden;
-    background-color: #f5f5f5;
-}
-/*
-.react-grid {
-    font-family: 'Open Sans', sans-serif;
-    border-collapse: collapse;
+.file-upload-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--margin-small);
     width: 100%;
 }
 
-.react-grid th {
-    background-color: #e9ecef;
-    color: #495057;
-    padding: 12px;
-    font-weight: bold;
+.file-upload-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: var(--margin-small);
 }
 
-.react-grid td {
-    padding: 10px;
-    border-bottom: 1px solid #dee2e6;
-}
-
-.react-grid tr:hover {
-    background-color: #f1f1f1;
-}
-
-.react-grid-cell {
-    font-size: 14px;
-    font-weight: normal;
-    color: #495057;
-}
-
-
-input[type="file"] {
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 4px;
-    border: 1px solid #ced4da;
-    background-color: white;
+.settings-icon-container {
+    display: flex;
+    align-items: center;
     cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
-    .react-grid-container {
-        overflow-x: scroll;
-    }
+.hidden-input {
+    display: none;
 }
-
-*/

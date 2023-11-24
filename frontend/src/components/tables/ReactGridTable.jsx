@@ -1,6 +1,12 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
+import {saveChart} from "../../api/api.js";
 import {ReactGrid} from "@silevis/reactgrid";
 import ExcelReader from "../excel/ExcelReader.jsx";
+import {useData} from "../context/dataContext/UseData.jsx";
+import OptionsDrawer from "../../components/drawer/OptionsDrawer.jsx";
+import {Box} from "@mui/material";
+import UploadButtonComponent from "../../components/buttons/UploadButtonComponent.jsx";
+import SettingsButtonComponent from "../../components/buttons/SettingsButtonComponent.jsx";
 import {
     getHeaders,
     getColumns,
@@ -9,22 +15,53 @@ import {
     getRowsFromData,
     getColumnsFromData
 } from './ReactGridTableUtils';
-import {useData} from "../context/dataContext/UseData.jsx";
 import './ReactGridTable.css';
+import {BarChart} from "@mui/x-charts/BarChart";
+import {LineChart} from "@mui/x-charts/LineChart";
+import {PieChart} from "@mui/x-charts/PieChart";
 
 
 export default function ReactGridTable() {
-    const {setChartData, chartData} = useData();
     const [rows, setRows] = React.useState(getRows());
     const [columns, setColumns] = React.useState(getColumns());
     const [headers, setHeaders] = React.useState(getHeaders());
     const [gridKey, setGridKey] = React.useState(0);
+    const [margins, setMargins] = useState({ top: 80, right: 80, bottom: 80, left: 80 });
+
+    const {
+        chartId,
+        chartData,
+        chartType,
+        chartTitle,
+        chartDescription,
+        setChartData,
+        setChartType,
+        setChartTitle,
+        setChartDescription,
+        setChartId
+    } = useData();
+    const [drawerOpen, setDrawerOpen] = useState(false);
+
+    const saveToDatabase = async () => {
+        const dataToSave = {
+            id: chartId,
+            type: chartType,
+            title: chartTitle,
+            description: chartDescription,
+            data: chartData,
+        };
+
+        console.log('Daten an den Server: ', dataToSave);
+        await saveChart(dataToSave);
+    };
 
     useEffect(() => {
         if (chartData !== rows) {
             setRows(chartData);
         }
-    }, [chartData]);
+    }, [chartData, rows]);
+
+
     const handleRowsChange = (changes) => {
 
         console.log('changes', changes, rows);
@@ -64,23 +101,45 @@ export default function ReactGridTable() {
         }
     };
 
+    const handleDrawerOpen = () => {
+        setDrawerOpen(true);
+    };
 
-    return (/*
-        <div className="react-grid-container" style={{ backgroundColor: "darkgrey" }}>*/
-        <div className="react-grid-container"
-             style={{backgroundColor: "darkgrey", height: '100%', width: '100%', overflow: 'hidden'}}>
-            <div style={{display: 'flex', alignItems: 'center'}}>
-                <input type="file" onChange={handleFileChange}/>
-                <ReactGrid
-                    key={gridKey}
-                    className="react-grid"
-                    rows={rows}
-                    columns={columns}
-                    headers={headers}
-                    onCellsChanged={handleRowsChange}
-                />
-            </div>
-        </div>
+    const handleDrawerClose = () => {
+        setDrawerOpen(false);
+    };
+
+    return (
+        <Box className="react-grid-table-container">
+            <Box className="file-settings-container">
+                <UploadButtonComponent onChange={handleFileChange}/>
+                <SettingsButtonComponent onClick={handleDrawerOpen}/>
+            </Box>
+
+            <OptionsDrawer
+                open={drawerOpen}
+                onClose={handleDrawerClose}
+                setChartId={setChartId}
+                setChartType={setChartType}
+                chartType={chartType}
+                chartTitle={chartTitle}
+                setChartTitle={setChartTitle}
+                chartDescription={chartDescription}
+                setChartDescription={setChartDescription}
+                saveToDatabase={saveToDatabase}
+                margins={margins}
+                setMargins={setMargins}
+            />
+
+            <ReactGrid
+                key={gridKey}
+                className="react-grid"
+                rows={rows}
+                columns={columns}
+                headers={headers}
+                onCellsChanged={handleRowsChange}
+            />
+        </Box>
     );
 }
 

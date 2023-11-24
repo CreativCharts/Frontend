@@ -10,18 +10,12 @@ export const DataProvider = ({children}) => {
     const [chartData, setChartData] = useState(getRows());
     const [chartType, setChartType] = useState('bar');
     const [chartId, setChartId] = useState("");
+    const [margins, setMargins] = useState({top: 80, right: 80, bottom: 80, left: 80});
+
 
     useEffect(() => {
-        console.log('DataProvider chartTitle geändert: ', chartTitle);
-    }, [chartTitle]);
-
-    useEffect(() => {
-        console.log('DataDescription chartType geändert: ', chartDescription);
-    }, [chartDescription]);
-
-    useEffect(() => {
-        console.log('DataProvider chartId geändert: ', chartId);
-    }, [chartId]);
+        console.log('DataProvider margin geändert: ', margins);
+    }, [margins, setMargins]);
 
     const providerValue = useMemo(() => ({
         chartData,
@@ -45,7 +39,14 @@ export const DataProvider = ({children}) => {
     ]);
 
     return (
-        <DataContext.Provider value={providerValue}>
+        <DataContext.Provider
+            value={{
+                ...providerValue,
+                margins,
+                setMargins
+            }}
+
+        >
             {children}
         </DataContext.Provider>
     );

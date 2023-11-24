@@ -1,83 +1,51 @@
-/* Grundlegende Variablen für Light- und Dark-Mode */
-:root {
-    --background-light: #ffffff;
-    --background-dark: #121212;
-    --text-color-light: #000000;
-    --text-color-dark: #ffffff;
-    --border-color-light: #e0e0e0;
-    --border-color-dark: #333333;
-}
-
-/* Stile für den Editor im Light-Mode */
-@media (prefers-color-scheme: light) {
-    .editor-root {
-        background-color: var(--background-light);
-        color: var(--text-color-light);
-    }
-
-    .table-area {
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    }
-}
-
-/* Stile für den Editor im Dark-Mode */
-@media (prefers-color-scheme: dark) {
-    .editor-root {
-        background-color: var(--background-dark);
-        color: var(--text-color-dark);
-    }
-
-    .table-area {
-        box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.1);
-    }
-}
-
-/* Allgemeine Stile für den Editor */
 .editor-root {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: calc(100vh - 128px); /* Abzüglich der Höhe der Navbar */
-    padding: 10px;
+    min-height: 100vh;
+    padding: var(--padding-medium);
+}
+
+.editor-root.dark-mode {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+}
+
+.editor-root.light-mode {
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+}
+
+.editor-root.dark-mode, .editor-root.light-mode {
+    transition: background-color var(--transition-duration), color var(--transition-duration);
 }
 
 .chart-area {
     flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-bottom: 10px;
     overflow: hidden;
-    max-height: 80%;
 }
 
 .table-area {
-    width: 100%;
-    max-height: 90%; /* Maximalhöhe für die Tabelle */
+    display: flex;
+    max-height: 100%;
     overflow: hidden;
-    border-radius: 4px;
-    bottom: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
 }
 
-/* Media Queries für verschiedene Bildschirmgrößen */
+.editor-icon-button {
+    margin: var(--margin-small);
+    border: var(--border-width) var(--border-style) var(--border-color-light);
+    border-radius: var(--border-radius);
+}
+
 @media (max-width: 768px) {
-    .editor-root {
-        flex-direction: column;
-    }
-
-    .chart-area,
-    .table-area {
-        width: 100%;
-        max-height: none;
+    .chart-area, .table-area {
+        margin-bottom: var(--margin-small);
     }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-    .chart-area {
-        max-height: 50%;
-    }
 
-    .table-area {
-        max-height: 30%;
-    }
-}
+

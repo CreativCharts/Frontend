@@ -1,0 +1,44 @@
+
+:root {
+    --drawer-height: 100%;
+    --drawer-width: 100%;
+    --section-padding: 10px;
+    --section-margin-bottom: 15px;
+    --divider-color: #e0e0e0;
+    --drawer-padding: 16px;
+}
+
+.darkMode {
+    --drawer-background: #333;
+    --divider-dark-color: #424242;
+}
+
+.lightMode {
+    --drawer-background: #f4f4f4;
+    --divider-light-color: #e0e0e0;
+}
+
+.drawer {
+    width: var(--drawer-width);
+
+}
+
+.section {
+    padding: var(--section-padding);
+    margin-bottom: var(--section-margin-bottom);
+}
+
+.divider {
+    background-color: var(--divider-color);
+    height: 1px;
+    margin: var(--section-margin-bottom) 0;
+}
+
+.drawer-box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: var(--drawer-padding);
+    background-color: var(--drawer-background);
+    height: var(--drawer-height);
+}

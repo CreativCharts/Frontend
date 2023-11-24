@@ -5,14 +5,19 @@ import {Container, Grid} from '@mui/material';
 export const MainLayout = ({children}) => {
 
     return (
-        <Container maxWidth="lg" sx={{mt: 4, mb: 4}}>
-            <Grid container spacing={3}>
-
-                {children}
+        <Container maxWidth="xl"
+                     sx={{
+                          mt: 4,
+                          mb: 4
+                     }}>
+            <Grid container
+                    spacing={3}>
+                    {children}
             </Grid>
         </Container>
     );
-};
+}
+
 
 MainLayout.propTypes = {
     children: PropTypes.node.isRequired

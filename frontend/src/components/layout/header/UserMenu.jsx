@@ -1,48 +1,32 @@
-import React from 'react';
-import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Avatar from '@mui/material/Avatar';
-import {Logout, Settings} from "@mui/icons-material";
-import {Link} from "react-router-dom";
+import { useState } from 'react';
+import { IconButton, Menu, MenuItem, Avatar } from '@mui/material';
+import { Settings, Logout } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 const UserMenu = () => {
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
 
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
+    const handleMenuOpen = (event) => {
+        setAnchorEl(event.currentTarget);
     };
 
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
+    const handleMenuClose = () => {
+        setAnchorEl(null);
     };
 
     return (
         <>
-            <IconButton color="inherit" onClick={handleOpenUserMenu}>
-                <Avatar alt="User Avatar"/>
+            <IconButton onClick={handleMenuOpen} color="inherit">
+                <Avatar alt="User Avatar" />
             </IconButton>
-            <Menu
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{vertical: 'top', horizontal: 'right'}}
-                keepMounted
-                transformOrigin={{vertical: 'top', horizontal: 'right'}}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-            >
-                <MenuItem
-                    onClick={handleCloseUserMenu}
-                          component={Link}
-                          to="/settings">
+            <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
+                <MenuItem component={Link} to="/settings">
+                    <Settings />
                     Settings
-                    <Settings/>
                 </MenuItem>
-                <MenuItem onClick={handleCloseUserMenu}
-                          component={Link}
-                          to="/logout">
+                <MenuItem component={Link} to="/logout">
+                    <Logout />
                     Logout
-                    <Logout/>
                 </MenuItem>
             </Menu>
         </>

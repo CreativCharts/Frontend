@@ -26,6 +26,7 @@ const UserProfileSettings = () => {
                     />
                 </label>
                 <label>
+                    <br/>
                     E-Mail ändern:
                     <br/>
                     <input

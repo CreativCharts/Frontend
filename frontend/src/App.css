@@ -1,84 +1,131 @@
-/* Global Styles */
-body {
-  margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  background: var(--background-color);
-  color: var(--text-color);
+.app-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    max-width: var(--max-container-width);
+    margin: 0 auto;
+    padding: var(--padding-medium);
+    background-color: var(--background-color);
+    font-family: var(--font-family-fallback);
 }
 
-/* Theme Provider */
-.MuiThemeProvider-root {
-  background-color: inherit;
+.appbar {
+    z-index: 1000; /* Sicherstellung, dass AppBar über allem anderen liegt */
 }
 
-/* Navbar */
-.navbar-root {
-  background-color: var(--navbar-bg-color);
-  color: white;
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--padding-medium);
+    background-color: var(--navbar-bg-color);
+    box-shadow: var(--box-shadow);
+    width: 100%;
 }
 
-/* Container */
-.container {
-  max-width: 1920px;
-  margin: auto;
-  padding: 0 20px;
+.app-title {
+    font-size: var(--font-size-large);
+    font-weight: bold;
 }
 
-/* Dashboard */
-.dashboard {
-  display: grid;
-  width: 100%;
-  grid-template-columns: 1fr 3fr;
-  gap: 20px;
+.app-menu-item {
+    padding: var(--padding-small);
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-duration) var(--transition-timing-function);
 }
 
-/* sidebar */
-.sidebar {
-  background-color: var(--sidebar-bg-color);
-  color: white;
-  padding: 20px;
+.app-menu-item:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color-light);
+    transform: scale(1.05);
+    box-shadow: var(--box-shadow-hover);
 }
 
-/* Main Content */
-.main-content {
-  padding: 20px;
+.app-content {
+    padding: var(--padding-large);
+    text-align: center;
 }
 
-/* Editor */
-.editor-container {
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.app-button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--button-border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow-light);
+    width: var(--button-width);
+    height: var(--button-height);
 }
 
-/* Chart Container */
-.chart-container {
-  background-color: white;
-  border-radius: 1px;
-  padding: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.app-button:active {
+    transform: scale(0.98);
 }
 
-/* Buttons */
-.landing-button {
-  margin-left: 10px;
+.app-button:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Avatar */
-.avatar {
-  background-color: #666;
+.app-button:hover {
+    background-color: var(--button-hover-bg-color);
+    color: var(--button-hover-text-color);
 }
 
-/* Tooltip */
-.tooltip {
-  background-color: #333;
-  color: white;
+
+.app-input {
+    background-color: var(--input-bg-color);
+    color: var(--input-text-color);
+    border: var(--border-width) var(--border-style) var(--input-border-color);
+    border-radius: var(--input-border-radius);
+    padding: 10px;
+    transition: var(--transition);
 }
 
-/* 404 Page */
-.not-found {
-  text-align: center;
-  font-size: 2em;
-  padding: 50px;
+.app-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: var(--box-shadow);
+}
+
+.pagination-container {
+    padding: var(--padding-small);
+    background-color: var(--background-color);
+    box-shadow: var(--box-shadow);
+}
+
+/* Responsive Menü */
+@media (max-width: 768px) {
+    .app-menu {
+        flex-direction: column;
+    }
+
+    .app-menu-item {
+        flex-grow: 1;
+        text-align: center;
+        margin-bottom: var(--margin-small);
+    }
+}
+
+/* Zusätzliche Media Queries */
+@media (max-width: 1024px) {
+    .app-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .app-title {
+        margin-bottom: var(--margin-small);
+    }
+}
+
+@media (min-width: 1025px) {
+    .app-content {
+        padding: var(--padding-large);
+    }
 }

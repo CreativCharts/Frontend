@@ -1,7 +1,7 @@
 import {useCallback, useState} from "react";
 import ExcelReader from "./ExcelReader.jsx";
 import PropTypes from "prop-types";
-import ChartDisplay from "../chartDisplays/ChartDisplay.jsx";
+import ChartDisplay from "../displays/chartDisplay/ChartDisplay.jsx";
 
 const ExcelViewer = () => {
     const [file, setFile] = useState(null);

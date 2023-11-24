@@ -1,14 +1,11 @@
 import Pagination from '@mui/material/Pagination';
 import PropTypes from 'prop-types';
-import {useDarkMode} from "../context/darkModeContext/DarkModeContext.jsx";
+// import {useDarkMode} from "../context/darkModeContext/DarkModeContext.jsx";
 
 const PaginationComponent = ({ total, page, onChange }) => {
-    const {darkMode} = useDarkMode();
 
-    const paginationStyles = {
-        backgroundColor: darkMode ? '#303030' : '#fff',
-        color: darkMode ? '#fff' : '#303030'
-    }
+
+
 
     return (
         <Pagination
@@ -19,9 +16,8 @@ const PaginationComponent = ({ total, page, onChange }) => {
             size="large"
             showFirstButton
             showLastButton
-            style={paginationStyles}
             sx={{
-                marginTop: 2,
+                marginBottom: 0,
                 justifyContent: 'center',
                 display: 'flex',
                 '.MuiPaginationItem-root': {

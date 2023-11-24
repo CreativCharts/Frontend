@@ -2,7 +2,7 @@ import {createContext, useState, useContext, useEffect, useMemo} from 'react';
 import {createTheme, ThemeProvider as MUIThemeProvider} from '@mui/material/styles';
 import PropTypes from "prop-types";
 
-const DarkModeContext = createContext({
+export const DarkModeContext = createContext({
     darkMode: false,
     toggleDarkMode: () => {
     },
@@ -41,6 +41,7 @@ export const DarkModeProvider = ({children}) => {
         </DarkModeContext.Provider>
     );
 }
+
 
 DarkModeProvider.propTypes = {
     children: PropTypes.node.isRequired,
