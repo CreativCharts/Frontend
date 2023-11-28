@@ -100,6 +100,12 @@
 }
 
 /* Responsive Menü */
+@media (max-width: 480px) {
+    .app-menu-item {
+        margin-bottom: var(--margin-small);
+    }
+}
+
 @media (max-width: 768px) {
     .app-menu {
         flex-direction: column;
@@ -126,6 +132,24 @@
 
 @media (min-width: 1025px) {
     .app-content {
+        padding: var(--padding-large);
+    }
+}
+
+@media (max-width: 1280px) {
+    .app-container {
+        padding: var(--padding-large);
+    }
+}
+
+@media (min-width: 1440px) {
+    .app-container {
+        padding: var(--padding-large);
+    }
+}
+
+@media (max-width: 1920px) {
+    .app-container {
         padding: var(--padding-large);
     }
 }

@@ -16,7 +16,17 @@ export const DashboardDisplay = ({data}) => {
     }, [data, setChartData, setChartType, setChartId]);
 
     return (
-        <ChartDisplay className='chart-display'/>
+        <ChartDisplay className='chart-display'
+                      isEditor={false}
+                      height={'calc(100vh - 64px)'}
+                      margins={{
+                          top: 10,
+                          right: 10,
+                          bottom: 10,
+                          left: 10,
+                      }}
+
+        />
     );
 };
 

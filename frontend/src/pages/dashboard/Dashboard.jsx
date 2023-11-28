@@ -54,11 +54,11 @@ export default function Dashboard() {
     };
 
     return (
-        <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+        <Container className={"dashboard-container"}>
             {error && <Alert severity="error">{error}</Alert>}
             {charts.length === 0 && !error && <CircularProgress />}
             {charts.length > 0 && (
-                <Grid container spacing={3} className="dashboard-chart-grid">
+                <Grid className={"charts-grid"} container spacing={2}>
                     {charts.map((chart) => (
                         <Grid item xs={12} sm={6} md={4} lg={3} key={chart._id}>
                             <ChartCard

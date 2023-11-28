@@ -1,0 +1,9 @@
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: calc(100vh - var(--appbar-height) - var(--margin-xlarge));
+    height: 100%;
+    width: 100%;
+}

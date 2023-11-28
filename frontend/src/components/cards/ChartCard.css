@@ -1,46 +1,34 @@
-.chart-card-root {
-    height: 300px;
-    width: 300px;
+.card {
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.chart-card {
-    aspect-ratio: 1; /* Stellt sicher, dass die Karten quadratisch sind */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    border-radius: 8px;
-    overflow: hidden; /* Verhindert Überlaufen des Inhalts */
-}
-.chart-card-header {
+.card-action-area {
     text-align: center;
 }
 
-.chart-card-content {
+.card-content {
     flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    height: 250px;
     overflow: hidden;
-    width: 80%;
-}
-
-.chart-placeholder {
+    height: 100%;
     width: 100%;
-    padding-top: 56.25%; /* Verhältnis 16:9 */
-    position: relative;
 }
 
-.chart-card-inner-content {
+.card-content div:first-child {
+    width: 100%;
+    padding-top: 56.25%;
+}
+
+.card-content div:last-child {
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
-    left: 20%;
+    left: 0;
     overflow: hidden;
 }

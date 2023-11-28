@@ -1,9 +1,15 @@
 .editor-root {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 100vh;
-    padding: var(--padding-medium);
+    height: 100vh;
+}
+
+.editor-container {
+    margin-top: var(--appbar-height);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
 }
 
 .editor-root.dark-mode {
@@ -24,6 +30,7 @@
     flex-grow: 1;
     margin-bottom: 10px;
     overflow: hidden;
+    border-radius: var(--border-radius);
 }
 
 .table-area {

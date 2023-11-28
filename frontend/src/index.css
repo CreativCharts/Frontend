@@ -42,7 +42,6 @@
     /* Navbar */
     --appbar-height: 64px;
 
-
     /* Buttons */
     --button-bg-color: #0275d8;
     --button-text-color: #ffffff;
@@ -64,7 +63,6 @@
     --margin-large: 2rem;
     --margin-xlarge: 2.5rem;
 
-
     /* Padding */
     --padding-small: 0.5rem;
     --padding-medium: 1rem;
@@ -77,12 +75,19 @@
     --container-padding-large: 20px 20px 20px 20px;
     --container-padding-xlarge: 40px 40px 40px 40px;
 
+    /* Chart Card Padding */
+    --chart-card-padding: 10px 10px 10px 10px;
+    --chart-card-padding-small: 5px 5px 5px 5px;
+    --chart-card-padding-medium: 10px 10px 10px 10px;
+    --chart-card-padding-large: 20px 20px 20px 20px;
+    --chart-card-padding-xlarge: 40px 40px 40px 40px;
+
     /* padding-horizontal und padding-vertical */
     --padding-horizontal: 10%;
     --padding-vertical: 5%;
 
     /* Responsive Design */
-    --max-container-width: 1200px;
+    --max-container-width: 1280px;
 
     /* Transition */
     --transition: all 0.3s ease-in-out;

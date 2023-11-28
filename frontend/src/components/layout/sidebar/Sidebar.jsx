@@ -7,7 +7,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
 
-const drawerWidth = 200;
+const drawerWidth = 240;
 
 const Sidebar = ({ drawerOpen, toggleDrawer }) => {
     const menuItems = [

@@ -1,23 +1,17 @@
 .dashboard-container {
-    padding: 20px;
+    margin-top: calc(var(--appbar-height) - var(--margin-small));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .chart-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Vier Karten pro Reihe */
-    gap: 20px;
-}
-
-@media screen and (max-width: 1200px) {
-    .chart-grid {
-        grid-template-columns: repeat(2, 1fr); /* Zwei Karten pro Reihe für kleinere Bildschirme */
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .chart-grid {
-        grid-template-columns: 1fr; /* Eine Karte pro Reihe für sehr kleine Bildschirme */
-    }
+    grid-template-columns: repeat(4, 1fr); /* Vier Karten pro Reihe für sehr große Bildschirme */
+    grid-gap: 20px;
+    width: 100%;
+    padding: 10px 0;
 }
 
 .pagination-container {
@@ -27,4 +21,35 @@
     margin-top: 20px;
     width: 100%;
     padding: 10px 0;
+}
+
+@media screen and (max-width: 480px) {
+    .chart-grid {
+        grid-template-columns: 1fr; /* Eine Karte pro Reihe für sehr kleine Bildschirme */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .chart-grid {
+        grid-template-columns: 1fr; /* Eine Karte pro Reihe für sehr kleine Bildschirme */
+    }
+}
+
+
+@media screen and (max-width: 1280px) {
+    .chart-grid {
+        grid-template-columns: repeat(2, 1fr); /* Zwei Karten pro Reihe für kleinere Bildschirme */
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .chart-grid {
+        grid-template-columns: repeat(3, 1fr); /* Drei Karten pro Reihe für mittlere Bildschirme */
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .chart-grid {
+        grid-template-columns: repeat(4, 1fr); /* Fünf Karten pro Reihe für große Bildschirme */
+    }
 }

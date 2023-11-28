@@ -6,6 +6,7 @@ import {useData} from "../../components/context/dataContext/UseData.jsx";
 import {useParams} from "react-router-dom";
 import {getRows} from "../../components/tables/ReactGridTableUtils.jsx";
 import {useDarkMode} from "../../components/context/darkModeContext/DarkModeContext.jsx";
+import './Editor.css';
 
 const Editor = () => {
     const {id} = useParams();
@@ -41,22 +42,10 @@ const Editor = () => {
     }, [id, setChartData, setChartType, setChartTitle, setChartDescription, setChartId]);
 
     return (
-        <div style={{ display: 'flex', height: 'calc(100vh - 130px)' }}>
-                <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'flex-start',
-                alignItems: 'center',
-                padding: '10px',
-                backgroundColor: darkMode ? 'var(--background-color-dark)' : 'var(--background-color-light)',
-                borderRight: '1px solid var(--border-color-light)',
-                height: 'fit-content'
-            }}>
-            </div>
-
-            <div style={{ flex: 1, padding: '10px', height: '100%' }}>
-                <ChartDisplay isEditor={true} />
-                <ReactGridTable />
+        <div className={`editor-root ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+            <div className='editor-container'>
+                <ChartDisplay isEditor={true}/>
+                <ReactGridTable/>
             </div>
         </div>
     );
