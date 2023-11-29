@@ -2,12 +2,11 @@ import PropTypes from 'prop-types';
 import {useNavigate} from "react-router-dom";
 import {Card, CardActionArea, CardContent, CardHeader, IconButton} from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import {useData} from "../context/dataContext/UseData.jsx";
 
 
-const ChartCard = ({id, children, title, description}) => {
+
+const ChartCard = ({id, children, title, onDelete}) => {
     const navigate = useNavigate();
-    const {deleteChart} = useData();
 
     const handleClick = async () => {
         navigate(`/editor/${id}`);
@@ -15,7 +14,7 @@ const ChartCard = ({id, children, title, description}) => {
 
     const handleDelete = (event) => {
         event.stopPropagation();
-        deleteChart(id);
+        onDelete(id);
     };
 
     return (
@@ -30,7 +29,6 @@ const ChartCard = ({id, children, title, description}) => {
                                 </IconButton>
                             }
                             title={title}
-                            subheader={description}
                 />
                 <CardContent sx={{
                     flexGrow: 1,

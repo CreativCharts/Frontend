@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 
 const drawerWidth = 240;
 
-const Sidebar = ({ drawerOpen, toggleDrawer }) => {
+const SideDrawer = ({ drawerOpen, toggleDrawer }) => {
     const menuItems = [
         { text: 'Home', icon: <HomeIcon />, link: '/home' },
         { text: 'Dashboard', icon: <DashboardIcon />, link: '/dashboard' },
@@ -43,9 +43,9 @@ const Sidebar = ({ drawerOpen, toggleDrawer }) => {
     );
 };
 
-Sidebar.propTypes = {
+SideDrawer.propTypes = {
     drawerOpen: PropTypes.bool.isRequired,
     toggleDrawer: PropTypes.func.isRequired,
 }
 
-export default Sidebar;
+export default SideDrawer;

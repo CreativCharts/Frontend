@@ -3,7 +3,7 @@ import {saveChart} from "../../api/api.js";
 import {ReactGrid} from "@silevis/reactgrid";
 import ExcelReader from "../excel/ExcelReader.jsx";
 import {useData} from "../context/dataContext/UseData.jsx";
-import OptionsDrawer from "../../components/drawer/OptionsDrawer.jsx";
+import OptionsDrawer from "../drawer/OptionsDrawer/OptionsDrawer.jsx";
 import {Box} from "@mui/material";
 import UploadButtonComponent from "../../components/buttons/UploadButtonComponent.jsx";
 import SettingsButtonComponent from "../../components/buttons/SettingsButtonComponent.jsx";
@@ -16,17 +16,16 @@ import {
     getColumnsFromData
 } from './ReactGridTableUtils';
 import './ReactGridTable.css';
-import {BarChart} from "@mui/x-charts/BarChart";
-import {LineChart} from "@mui/x-charts/LineChart";
-import {PieChart} from "@mui/x-charts/PieChart";
+import {useDarkMode} from "../context/darkModeContext/DarkModeContext.jsx";
 
 
 export default function ReactGridTable() {
-    const [rows, setRows] = React.useState(getRows());
-    const [columns, setColumns] = React.useState(getColumns());
-    const [headers, setHeaders] = React.useState(getHeaders());
-    const [gridKey, setGridKey] = React.useState(0);
-    const [margins, setMargins] = useState({ top: 80, right: 80, bottom: 80, left: 80 });
+    const [rows, setRows] = useState(getRows());
+    const [columns, setColumns] = useState(getColumns());
+    const [headers, setHeaders] = useState(getHeaders());
+    const [gridKey, setGridKey] = useState(0);
+    const {darkMode} = useDarkMode();
+
 
     const {
         chartId,
@@ -39,6 +38,7 @@ export default function ReactGridTable() {
         setChartTitle,
         setChartDescription,
         setChartId
+
     } = useData();
     const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -110,8 +110,9 @@ export default function ReactGridTable() {
     };
 
     return (
-        <Box className="react-grid-table-container">
-            <Box className="file-settings-container">
+        <Box className={`react-grid-table-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+            <Box
+                className="file-settings-container">
                 <UploadButtonComponent onChange={handleFileChange}/>
                 <SettingsButtonComponent onClick={handleDrawerOpen}/>
             </Box>
@@ -127,13 +128,11 @@ export default function ReactGridTable() {
                 chartDescription={chartDescription}
                 setChartDescription={setChartDescription}
                 saveToDatabase={saveToDatabase}
-                margins={margins}
-                setMargins={setMargins}
             />
 
             <ReactGrid
                 key={gridKey}
-                className="react-grid"
+                className={`react-grid ${darkMode ? 'dark-mode' : 'light-mode'}`}
                 rows={rows}
                 columns={columns}
                 headers={headers}

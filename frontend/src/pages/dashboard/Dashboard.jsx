@@ -7,6 +7,7 @@ import PaginationComponent from "../../components/pagination/PaginationComponent
 import ConfirmDialog from '../../components/dialogs/ConfirmDialog.jsx';
 import {DataProvider} from "../../components/context/dataContext/ProviderValue.jsx";
 import './Dashboard.css';
+import {auto} from "@popperjs/core";
 
 export default function Dashboard() {
     const [charts, setCharts] = useState([]);
@@ -17,7 +18,7 @@ export default function Dashboard() {
     const [selectedChartId, setSelectedChartId] = useState(null);
 
     const fetchUpdatedCharts = () => {
-        fetchAll(currentPage, 12).then(response => {
+        fetchAll(currentPage, 16).then(response => {
             if (response.charts && Array.isArray(response.charts)) {
                 setCharts(response.charts);
                 setTotalPages(response.totalPages);
@@ -42,6 +43,7 @@ export default function Dashboard() {
     };
 
     const handleDelete = () => {
+        setConfirmDialogOpen(false);
         if (selectedChartId) {
             deleteChart(selectedChartId).then(() => {
                 fetchUpdatedCharts();
@@ -49,22 +51,19 @@ export default function Dashboard() {
                 setError(error.message);
             });
         }
-        setConfirmDialogOpen(false);
-        setSelectedChartId(null);
-    };
+    }
 
     return (
         <Container className={"dashboard-container"}>
             {error && <Alert severity="error">{error}</Alert>}
             {charts.length === 0 && !error && <CircularProgress />}
             {charts.length > 0 && (
-                <Grid className={"charts-grid"} container spacing={2}>
+                <Grid container spacing={2} width={'100%'} height={'100%'} className='dashboard-grid-container'>
                     {charts.map((chart) => (
-                        <Grid item xs={12} sm={6} md={4} lg={3} key={chart._id}>
+                        <Grid item xs={12} sm={6} md={6} lg={6} key={chart._id}>
                             <ChartCard
                                 id={chart._id.toString()}
                                 title={chart.title}
-                                description={chart.description}
                                 onDelete={() => handleDeleteConfirm(chart._id)}
                             >
                                 <DataProvider>

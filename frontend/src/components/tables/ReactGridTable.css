@@ -1,8 +1,27 @@
 @import '../../../node_modules/@silevis/reactgrid/styles.css';
+:root {
+    --text-color-light: #000000; /* Schwarz für Light Mode */
+    --background-color-light: #FFFFFF; /* Weiß für Light Mode */
+
+    --text-color-dark: #FFFFFF; /* Weiß für Dark Mode */
+    --background-color-dark: #333333; /* Dunkelgrau für Dark Mode */
+}
+
+.react-grid-table-container.light-mode {
+    color: var(--text-color-light);
+    background-color: var(--background-color-light);
+}
+
+.react-grid-table-container.dark-mode {
+    color: var(--text-color-dark);
+    background-color: var(--background-color-dark);
+}
 
 .react-grid-table-container {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    color: var(--text-color);
     align-items: center;
     padding: var(--padding-medium);
 }
@@ -31,3 +50,48 @@
 .hidden-input {
     display: none;
 }
+
+.react-grid-table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--margin-medium) -10px;
+}
+
+/* 480px */
+@media screen and (max-width: 480px) {
+    .react-grid-table {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .react-grid-table {
+        width: 100%;
+    }
+}
+
+/* 1280px */
+@media screen and (max-width: 1280px) {
+    .react-grid-table {
+        width: 100%;
+    }
+}
+
+/* 1440px */
+@media screen and (max-width: 1440px) {
+    .react-grid-table {
+        width: 100%;
+    }
+}
+
+/* 1920px */
+@media screen and (min-width: 1920px) {
+    .react-grid-table {
+        width: 100%;
+
+    }
+}
+

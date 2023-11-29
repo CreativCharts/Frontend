@@ -18,19 +18,20 @@ export const DashboardDisplay = ({data}) => {
     return (
         <ChartDisplay className='chart-display'
                       isEditor={false}
-                      height={'calc(100vh - 64px)'}
-                      margins={{
-                          top: 10,
-                          right: 10,
-                          bottom: 10,
-                          left: 10,
-                      }}
 
         />
     );
-};
+}
 
 DashboardDisplay.propTypes = {
-    data: PropTypes.object.isRequired,
+    data: PropTypes.shape({
+        id: PropTypes.string,
+        title: PropTypes.string,
+        description: PropTypes.string,
+        type: PropTypes.string,
+        gridData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape({
+            x: PropTypes.string,
+            y: PropTypes.number,
+        }))),
+    }),
 };
-
