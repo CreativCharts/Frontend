@@ -47,12 +47,3 @@
     border: var(--border-width) var(--border-style) var(--border-color-light);
     border-radius: var(--border-radius);
 }
-
-@media (max-width: 768px) {
-    .chart-area, .table-area {
-        margin-bottom: var(--margin-small);
-    }
-}
-
-
-

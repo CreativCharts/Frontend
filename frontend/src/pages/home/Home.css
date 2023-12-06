@@ -33,12 +33,6 @@
     animation: fadeIn 5s;
 }
 
-.home-button-dark {
-    background-color: var(--primary-color-dark);
-    color: var(--background-color-light);
-    box-shadow: var(--box-shadow-dark);
-}
-
 .home-buttons {
     display: flex;
     justify-content: center;
@@ -57,33 +51,14 @@
     cursor: pointer;
     width: var(--button-width);
     box-shadow: var(--box-shadow);
-    transition: transform var(--transition), background-color var(--transition);
+    transition: transform var(--transition), background-color var(--transition), box-shadow var(--transition);
 }
 
 .home-button:hover {
     transform: scale(1.1);
     background-color: var(--primary-color-dark);
-    box-shadow: var(--box-shadow-dark);
+    box-shadow: var(--box-shadow-hover);
     color: var(--background-color-light);
 }
 
-/* Responsive Anpassungen */
-@media (max-width: 768px) {
-    .home-header {
-        font-size: var(--font-size-medium);
-    }
 
-    .home-title {
-        font-size: var(--font-size-large);
-    }
-
-    .home-subtitle {
-        font-size: var(--font-size-medium);
-    }
-
-    .home-button {
-        padding: var(--padding-small) var(--padding-medium);
-        font-size: var(--font-size-small);
-        width: var(--button-width);
-    }
-}

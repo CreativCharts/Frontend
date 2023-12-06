@@ -3,7 +3,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-height: calc(100vh - var(--appbar-height) - var(--margin-xlarge));
+    max-height: calc(87vh - var(--appbar-height) - var(--margin-xlarge) - var(--padding-medium));
+    padding-left: var(--padding-medium);
+    padding-right: var(--padding-medium);
     height: 100%;
     width: 100%;
+}
+
+.chart-container .chart {
+    width: 100%;
+    height: 100%;
 }

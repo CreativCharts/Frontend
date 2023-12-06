@@ -114,6 +114,21 @@
     --border-color-light: #000000;
 
 
+    /*Global Hover Effect*/
+    .global-hover-effect {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: var(--border-radius);
+    }
+
+    .global-hover-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    .dark-mode .global-hover-effect:hover {
+        box-shadow: 0 10px 30px -5px rgba(255, 255, 255, 0.3);
+    }
+
     /* Box Shadow */
     --box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.5);
     --box-shadow-light: 0 0 5px 0 rgba(255, 255, 255, 0.5);
@@ -123,6 +138,14 @@
     --box-shadow-hover: 0 0 10px 0 rgba(255, 255, 255, 0.5);
     --box-shadow-hover-light: 0 0 10px 0 rgba(255, 255, 255, 0.5);
     --box-shadow-hover-dark: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+
+    /* Hover Color */
+    --hover-bg-color: rgba(42, 59, 70, 0.1);
+    --hover-text-color: #0056b3;
+    --hover-bg-color-dark: rgba(255, 255, 255, 0.1);
+    --hover-text-color-dark: #ffffff;
+    --hover-bg-color-light: rgba(4, 29, 47, 0.1);
+    --hover-text-color-light: rgba(255, 255, 255, 0.1);
 }
 
 /* Globale Stile */
@@ -144,6 +167,8 @@ body {
     --navbar-bg-color: var(--navbar-bg-color-dark);
     --sidebar-bg-color: var(--sidebar-bg-color-dark);
     --border-color: var(--border-color-dark);
+    --box-shadow: var(--box-shadow-dark);
+    --box-shadow-hover: var(--box-shadow-hover-dark);
 }
 
 .light-mode {
@@ -152,18 +177,31 @@ body {
     --navbar-bg-color: var(--navbar-bg-color-light);
     --sidebar-bg-color: var(--sidebar-bg-color-light);
     --border-color: var(--border-color-light);
+    --box-shadow: var(--box-shadow-light);
+    --box-shadow-hover: var(--box-shadow-hover-light);
 }
 
-/* Media Queries */
-@media (max-width: 480px) {
+
+@media (min-width: 0px) and (max-width: 480px) {
     :root {
         --font-size-large: 0.9rem;
         --font-size-xlarge: 1.2rem;
+    }
 
+    .settings-page-root {
+        padding: var(--padding-small);
+    }
+
+    .user-profile-settings-container,
+    .notification-settings,
+    .security-settings {
+        flex-direction: column;
+        align-items: stretch;
     }
 }
 
-@media (max-width: 768px) {
+
+@media (min-width: 481px) and (max-width: 767px) {
     :root {
         --button-width: 130px;
         --font-size-large: 1.1rem;
@@ -171,16 +209,40 @@ body {
         --padding-horizontal: 2%;
         --padding-vertical: 2%;
     }
+
+    .settings-page-root {
+        padding: var(--padding-medium);
+    }
+
+    .user-profile-settings-container,
+    .notification-settings,
+    .security-settings {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+
+@media (min-width: 768px) and (max-width: 1024px) {
     :root {
         --padding-horizontal: 3%;
         --padding-vertical: 3%;
     }
+
+    .settings-page-root {
+        padding: var(--padding-large);
+    }
+
+    .user-profile-settings-container,
+    .notification-settings,
+    .security-settings {
+        flex-direction: row;
+        justify-content: space-around;
+    }
 }
 
-@media (min-width: 1025px) {
+
+@media (min-width: 1025px) and (max-width: 1280px) {
     :root {
         --button-width: 160px;
         --font-size-large: 1.4rem;
@@ -188,14 +250,37 @@ body {
         --padding-horizontal: 5%;
         --padding-vertical: 5%;
     }
+
+    .settings-page-root {
+        padding: var(--padding-xlarge);
+    }
+
+    .user-profile-settings-container,
+    .notification-settings,
+    .security-settings {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
 }
 
-@media (min-width: 1920px) {
+
+@media (min-width: 1281px) and (max-width: 1920px) {
     :root {
         --button-width: 200px;
         --font-size-large: 1.6rem;
         --font-size-xlarge: 2rem;
         --padding-horizontal: 10%;
         --padding-vertical: 10%;
+    }
+
+    .settings-page-root {
+        margin: var(--margin-xlarge) auto;
+    }
+
+    .user-profile-settings-container,
+    .notification-settings,
+    .security-settings {
+        flex-direction: row;
+        justify-content: flex-start;
     }
 }

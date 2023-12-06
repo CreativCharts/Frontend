@@ -7,7 +7,6 @@ import PaginationComponent from "../../components/pagination/PaginationComponent
 import DeleteDialog from '../../components/dialogs/DeleteDialog.jsx';
 import {DataProvider} from "../../components/context/dataContext/ProviderValue.jsx";
 import './Dashboard.css';
-import {auto} from "@popperjs/core";
 
 export default function Dashboard() {
     const [charts, setCharts] = useState([]);
@@ -65,6 +64,7 @@ export default function Dashboard() {
                                 id={chart._id.toString()}
                                 title={chart.title}
                                 onDelete={() => handleDeleteConfirm(chart._id)}
+                                className="chart-card"
                             >
                                 <DataProvider>
                                     <DashboardDisplay data={chart} />

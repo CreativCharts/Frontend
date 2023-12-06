@@ -1,34 +1,32 @@
+import {Container, Typography, Paper} from "@mui/material";
+import {useDarkMode} from '../../components/context/darkModeContext/DarkModeContext.jsx';
 import UserProfileSettings from '../../components/settings/UserProfileSettings.jsx';
 import NotificationSettings from '../../components/settings/NotificationSettings.jsx';
 import SecuritySettings from '../../components/settings/SecuritySettings.jsx';
 import './SettingsPage.css';
-import {Box} from "@mui/material";
 
 const SettingsPage = () => {
+    const {darkMode} = useDarkMode();
+
     return (
-        <div className="settings-page-root">
-            <h1>Einstellungen</h1>
+        <Container className={`settings-page-root ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+            <Typography variant="h4" gutterBottom>Einstellungen</Typography>
 
-            <Box>
-                <div className='user-profile-settings-header'>
-                    <UserProfileSettings className="user-profile-settings"/>
-                </div>
-            </Box>
+            <Paper className="settings-section">
+                <Typography variant="h6" gutterBottom>Benutzerprofil</Typography>
+                <UserProfileSettings/>
+            </Paper>
 
-            <Box>
-                <div className='notification-settings-header'>
-                    <NotificationSettings className="notification-settings"/>
-                </div>
-            </Box>
+            <Paper className="settings-section">
+                <Typography variant="h6" gutterBottom>Benachrichtigungen</Typography>
+                <NotificationSettings/>
+            </Paper>
 
-            <Box>
-                <div className='security-settings-header'>
-                    <SecuritySettings className="security-settings"/>
-                </div>
-            </Box>
-
-
-        </div>
+            <Paper className="settings-section">
+                <Typography variant="h6" gutterBottom>Sicherheit</Typography>
+                <SecuritySettings/>
+            </Paper>
+        </Container>
     );
 };
 

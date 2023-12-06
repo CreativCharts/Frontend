@@ -48,8 +48,4 @@ HomeButton.propTypes = {
     text: PropTypes.string.isRequired,
 };
 
-Home.propTypes = {
-    children: PropTypes.node,
-}
-
 export default Home;

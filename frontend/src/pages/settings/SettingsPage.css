@@ -1,52 +1,37 @@
 .settings-page-root {
-    font: var(--font-size-large) var(--font-family);
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: 100%;
-    min-height: calc(100vh - var(--appbar-height) - var(--margin-xlarge));
-
+    margin-top: calc(var(--appbar-height) - var(--margin-large));
+    max-width: 800px;
 }
 
-.user-profile-settings-container {
+.settings-section {
     display: flex;
-    flex-direction: column;
+    margin-top: calc(var(--appbar-height));
+    padding: var(--padding-medium);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    transition: box-shadow 0.3s ease;
+}
+
+.settings-section:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.user-profile-settings-container,
+.notification-settings,
+.security-settings {
+    display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
-.user-profile-settings {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.notification-settings-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
+.user-profile-settings-container,
 .notification-settings {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.security-settings-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+    flex-direction: row;
 }
 
 .security-settings {
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
 }

@@ -25,33 +25,16 @@
     grid-template-columns: repeat(4, 1fr);
 }
 
-@media screen and (max-width: 480px) {
-    .chart-grid {
-        grid-template-columns: 1fr; /* Eine Karte pro Reihe für sehr kleine Bildschirme */
-    }
+.chart-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: var(--border-radius);
 }
 
-@media screen and (max-width: 768px) {
-    .chart-grid {
-        grid-template-columns: 1fr; /* Eine Karte pro Reihe für kleine Bildschirme */
-    }
+.chart-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
 }
 
-
-@media screen and (max-width: 1280px) {
-    .chart-grid {
-        grid-template-columns: repeat(3, 1fr); /* Zwei Karten pro Reihe für kleinere Bildschirme */
-    }
-}
-
-@media screen and (max-width: 1440px) {
-    .chart-grid {
-        grid-template-columns: repeat(4, 1fr); /* Drei Karten pro Reihe für mittlere Bildschirme */
-    }
-}
-
-@media screen and (min-width: 1920px) {
-    .chart-grid {
-        grid-template-columns: repeat(4, 1fr); /* Fünf Karten pro Reihe für große Bildschirme */
-    }
+.dark-mode .chart-card:hover {
+    box-shadow: 0 10px 30px -5px rgba(255, 255, 255, 0.3);
 }

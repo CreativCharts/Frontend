@@ -2,8 +2,7 @@ import PropTypes from 'prop-types';
 import {useNavigate} from "react-router-dom";
 import {Card, CardActionArea, CardContent, CardHeader, IconButton} from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-
-
+import './ChartCard.css';
 
 const ChartCard = ({id, children, title, onDelete}) => {
     const navigate = useNavigate();
@@ -18,7 +17,9 @@ const ChartCard = ({id, children, title, onDelete}) => {
     };
 
     return (
-        <Card sx={{height: '100%', display: 'flex', flexDirection: 'column'}} onClick={handleClick}>
+        <Card sx={{height: '100%', display: 'flex', flexDirection: 'column'}}
+              className="global-hover-effect"
+              onClick={handleClick}>
             <CardActionArea>
                 <CardHeader sx={{textAlign: 'center'}}
                             action={
