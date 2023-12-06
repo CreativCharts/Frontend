@@ -1,11 +1,7 @@
 import Pagination from '@mui/material/Pagination';
 import PropTypes from 'prop-types';
-// import {useDarkMode} from "../context/darkModeContext/DarkModeContext.jsx";
 
-const PaginationComponent = ({ total, page, onChange }) => {
-
-
-
+const PaginationComponent = ({total, page, onChange}) => {
 
     return (
         <Pagination

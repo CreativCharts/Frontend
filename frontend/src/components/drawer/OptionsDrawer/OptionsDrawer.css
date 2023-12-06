@@ -5,6 +5,8 @@
     --section-margin-bottom: 15px;
     --divider-color: #e0e0e0;
     --drawer-padding: 16px;
+    --drawer-background-dark: #333; 
+    --drawer-background-light: #f4f4f4;
 }
 
 .darkMode {
@@ -25,6 +27,7 @@
     left: 0;
     width: 20%;
 }
+
 .section {
     padding: var(--section-padding);
     margin-bottom: var(--section-margin-bottom);

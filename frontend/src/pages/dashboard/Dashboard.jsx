@@ -4,7 +4,7 @@ import ChartCard from '../../components/cards/ChartCard.jsx';
 import {DashboardDisplay} from "../../components/displays/dashboardDisplay/DashboardDisplay.jsx";
 import {fetchAll, deleteChart} from '../../api/api.js';
 import PaginationComponent from "../../components/pagination/PaginationComponent.jsx";
-import ConfirmDialog from '../../components/dialogs/ConfirmDialog.jsx';
+import DeleteDialog from '../../components/dialogs/DeleteDialog.jsx';
 import {DataProvider} from "../../components/context/dataContext/ProviderValue.jsx";
 import './Dashboard.css';
 import {auto} from "@popperjs/core";
@@ -18,7 +18,7 @@ export default function Dashboard() {
     const [selectedChartId, setSelectedChartId] = useState(null);
 
     const fetchUpdatedCharts = () => {
-        fetchAll(currentPage, 16).then(response => {
+        fetchAll(currentPage, 8).then(response => {
             if (response.charts && Array.isArray(response.charts)) {
                 setCharts(response.charts);
                 setTotalPages(response.totalPages);
@@ -81,7 +81,7 @@ export default function Dashboard() {
                     onChange={(event, newPage) => setCurrentPage(newPage)}
                 />
             )}
-            <ConfirmDialog
+            <DeleteDialog
                 open={confirmDialogOpen}
                 title="Chart löschen"
                 message="Möchten Sie dieses Chart wirklich löschen?"

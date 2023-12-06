@@ -1,22 +1,30 @@
-import React from 'react';
+import PropTypes from "prop-types";
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from '@mui/material';
 
-const SaveDialog = ({ open, onClose }) => {
+const SaveDialog = ({ open, title, message, onClose, onConfirm }) => {
     return (
         <Dialog open={open} onClose={onClose}>
-            <DialogTitle>Speichern abgeschlossen</DialogTitle>
+            <DialogTitle>{title}</DialogTitle>
             <DialogContent>
                 <DialogContentText>
-                    Die Änderungen wurden erfolgreich gespeichert.
+                    {message}
                 </DialogContentText>
             </DialogContent>
             <DialogActions>
-                <Button onClick={onClose} color="primary">
-                    Schließen
+                <Button onClick={onConfirm} color="primary" autoFocus>
+                    OK
                 </Button>
             </DialogActions>
         </Dialog>
     );
 }
+
+SaveDialog.propTypes = {
+    open: PropTypes.bool.isRequired,
+    title: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
+    onClose: PropTypes.func.isRequired,
+    onConfirm: PropTypes.func.isRequired,
+};
 
 export default SaveDialog;

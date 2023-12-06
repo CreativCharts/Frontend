@@ -18,7 +18,6 @@ export const DashboardDisplay = ({data}) => {
     return (
         <ChartDisplay className='chart-display'
                       isEditor={false}
-
         />
     );
 }

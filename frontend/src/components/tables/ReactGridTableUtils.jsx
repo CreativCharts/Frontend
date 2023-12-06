@@ -2,7 +2,7 @@ export const getColumns = () => {
 
     const columns = [];
 
-    for (let i = 1; i <= 11; i++) {
+    for (let i = 1; i <= 10; i++) {
 
         columns.push({
             columnId: `col${i}`,
@@ -19,7 +19,7 @@ export const getRows = () => {
     for (let i = 1; i <= 4; i++) {
         const cells = [];
 
-        for (let j = 1; j <= 11; j++) {
+        for (let j = 1; j <= 10; j++) {
             cells.push({
                 type: "text",
                 text: '',
@@ -37,7 +37,7 @@ export const getRows = () => {
 
 export const getHeaders = () => {
     const headers = [];
-    for (let i = 1; i <= 11; i++) {
+    for (let i = 1; i <= 10; i++) {
         headers.push(`Col ${i}`);
     }
     return headers;

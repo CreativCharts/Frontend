@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button } from '@mui/material';
 
-const ConfirmDialog = ({ open, title, message, onClose, onConfirm }) => {
+const DeleteDialog = ({ open, title, message, onClose, onConfirm }) => {
     return (
         <Dialog open={open} onClose={onClose}>
             <DialogTitle>{title}</DialogTitle>
@@ -22,7 +22,7 @@ const ConfirmDialog = ({ open, title, message, onClose, onConfirm }) => {
     );
 };
 
-ConfirmDialog.propTypes = {
+DeleteDialog.propTypes = {
     open: PropTypes.bool.isRequired,
     title: PropTypes.string.isRequired,
     message: PropTypes.string.isRequired,
@@ -30,4 +30,4 @@ ConfirmDialog.propTypes = {
     onConfirm: PropTypes.func.isRequired,
 };
 
-export default ConfirmDialog;
+export default DeleteDialog;
