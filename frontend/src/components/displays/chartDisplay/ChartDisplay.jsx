@@ -7,10 +7,21 @@ import {useDarkMode} from "../../context/darkModeContext/DarkModeContext.jsx";
 import './ChartDisplay.css';
 
 const ChartDisplay = () => {
-    const {chartType, margins} = useData();
+    const {chartType} = useData();
     const {darkMode} = useDarkMode();
     const chartContainerEl = useRef(null);
-    const [containerSize, setContainerSize] = useState({width: '100%', height: '100%'});
+    const [containerSize, setContainerSize] =
+        useState({
+            width: '100%',
+            height: '100%'
+        });
+
+    const margin = {
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+    }
 
     const updateContainerSize = () => {
         if (chartContainerEl.current) {
@@ -20,6 +31,7 @@ const ChartDisplay = () => {
             });
         }
     };
+
     useEffect(() => {
         updateContainerSize();
         window.addEventListener('resize', updateContainerSize);
@@ -29,18 +41,18 @@ const ChartDisplay = () => {
     }, []);
 
     return (
-            <div className={`chart-container ${darkMode ? 'dark-mode' : 'light-mode'}`}
-                 ref={chartContainerEl}
-            >
-                {chartType === 'bar' && <BarChartComponent margins={margins}/>}
-                {chartType === 'line' && <LineChartComponent margins={margins}/>}
-                {chartType === 'pie' && <PieChartComponent
-                    width={containerSize.width}
-                    height={containerSize.height}
-                    margins={margins}
-                />
-                }
-            </div>
+        <div className={`chart-container ${darkMode ? 'dark-mode' : 'light-mode'}`}
+             ref={chartContainerEl}
+        >
+            {chartType === 'bar' && <BarChartComponent margin={margin}/>}
+            {chartType === 'line' && <LineChartComponent margin={margin}/>}
+            {chartType === 'pie' && <PieChartComponent
+                width={containerSize.width}
+                height={containerSize.height}
+                margin={margin}
+            />
+            }
+        </div>
     );
 }
 

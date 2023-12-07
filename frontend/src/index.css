@@ -42,6 +42,11 @@
     /* Navbar */
     --appbar-height: 64px;
 
+    /* Sidebar */
+    --side-drawer-width: 250px;
+    --side-drawer-height: 100vh;
+
+
     /* Buttons */
     --button-bg-color: #0275d8;
     --button-text-color: #ffffff;
@@ -87,7 +92,12 @@
     --padding-vertical: 5%;
 
     /* Responsive Design */
+    --max-width: 100%;
+    --max-height: 100%;
+    --min-width: 0;
+    --min-height: 0;
     --max-container-width: 1280px;
+
 
     /* Transition */
     --transition: all 0.3s ease-in-out;

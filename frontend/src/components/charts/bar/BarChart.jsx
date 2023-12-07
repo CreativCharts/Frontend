@@ -3,7 +3,7 @@ import {transformRowsToBarChartData} from './settings/transformer.js';
 import {useData} from "../../context/dataContext/UseData.jsx";
 
 
-export default function BarChartComponent(margins) {
+export default function BarChartComponent(margin) {
 
     const {chartData} = useData();
     const transformedData = transformRowsToBarChartData(chartData);
@@ -12,7 +12,7 @@ export default function BarChartComponent(margins) {
     return (
         <BarChart
             {...transformedData}
-            margins={margins}
+            margin={{bottom: 30, left: 100}}
         />
     );
 }

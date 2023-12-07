@@ -12,7 +12,8 @@ export const chartSetting = {
             scaleType: 'band', data: [
                 'group A',
                 'group B',
-                'group C']
+                'group C'
+            ]
         }
     ]
 };

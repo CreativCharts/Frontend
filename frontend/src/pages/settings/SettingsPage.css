@@ -1,8 +1,8 @@
 .settings-page-root {
     display: flex;
-    width: 100%;
     margin-top: calc(var(--appbar-height) - var(--margin-large));
     max-width: 800px;
+    width: 100%;
 }
 
 .settings-section {
