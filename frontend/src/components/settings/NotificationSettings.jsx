@@ -1,4 +1,6 @@
 import {useState} from 'react';
+import {Button} from "@mui/material";
+import SaveIcon from "@mui/icons-material/Save";
 
 const NotificationSettings = () => {
     const [notificationsEnabled, setNotificationsEnabled] = useState(true);
@@ -13,18 +15,18 @@ const NotificationSettings = () => {
     };
 
     return (
-
         <section>
-            <h2>Benachrichtigungen</h2>
+            <h4>Benachrichtigungen</h4>
             <form>
                 <label>
                     Benachrichtigungen aktivieren:
-                    <br/>
                     <input
-                    type="radio"
-                    checked={notificationsEnabled}
-                    onChange={handleToggleChange}
-                />
+                        type="checkbox"
+                        checked={notificationsEnabled}
+                        onChange={handleToggleChange}
+                    />
+                    <br/>
+                    <br/>
                 </label>
 
                 <label>
@@ -40,10 +42,14 @@ const NotificationSettings = () => {
                         <option value="Email">Email</option>
                         <option value="SMS">SMS</option>
                         <option value="Push">Push</option>
-
-
                     </select>
                 </label>
+                <Button
+                    form={"notificationTypeForm"}
+                    title={"notificationTypeForm"}
+                >
+                    <SaveIcon/>
+                </Button>
             </form>
         </section>
 

@@ -1,14 +1,13 @@
 .settings-page-root {
     display: flex;
-    margin-top: calc(var(--appbar-height) - var(--margin-large));
-    max-width: 800px;
     width: 100%;
+    max-width: 800px;
 }
 
 .settings-section {
     display: flex;
-    margin-top: calc(var(--appbar-height));
-    padding: var(--padding-medium);
+    margin-top: calc(var(--margin-xlarge));
+    padding: var(--padding-small);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: var(--border-radius);
     transition: box-shadow 0.3s ease;
@@ -18,7 +17,7 @@
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-.user-profile-settings-container,
+.profile-settings,
 .notification-settings,
 .security-settings {
     display: flex;
@@ -28,7 +27,7 @@
 }
 
 .user-profile-settings-container,
-.notification-settings {
+.notification-settings-container {
     flex-direction: row;
 }
 

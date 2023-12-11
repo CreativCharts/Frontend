@@ -1,6 +1,12 @@
 export const chartSetting = {
+
     width: 1500,
     height: 720,
+
+    margin: {
+        left: 100,
+        bottom: 30
+    },
 
     series: [
         {data: [4, 3, 5]},

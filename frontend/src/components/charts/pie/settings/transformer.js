@@ -37,10 +37,8 @@ export const transformRowsToPieChartData = (rows, width, height) => {
         s.outerRadius = Math.floor((i + 1) * spacePerSeries);
     });
 
-    console.log('SERIES', series);
-
     return {
         ...chartSetting,
-        series: series.filter(entry => !!entry),
+        series: series.filter(entry => !!entry)
     };
 }

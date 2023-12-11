@@ -1,4 +1,6 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
+import {Button} from "@mui/material";
+import SaveIcon from "@mui/icons-material/Save";
 
 const UserProfileSettings = () => {
     const [username, setUsername] = useState('');
@@ -14,7 +16,7 @@ const UserProfileSettings = () => {
 
     return (
         <section>
-            <h2>Benutzerprofil</h2>
+            <h4>Benutzerprofil</h4>
             <form>
                 <label>
                     Benutzername ändern:
@@ -25,8 +27,14 @@ const UserProfileSettings = () => {
                         onChange={handleUsernameChange}
                     />
                 </label>
+                <Button
+                    form={"usernameForm"}
+                    title={"usernameForm"}
+                >
+                    <SaveIcon/>
+                </Button>
                 <label>
-                    <br/>
+                    <br/><br/>
                     E-Mail ändern:
                     <br/>
                     <input
@@ -35,6 +43,12 @@ const UserProfileSettings = () => {
                         onChange={handleEmailChange}
                     />
                 </label>
+                <Button
+                    form={"emailForm"}
+                    title={"emailForm"}
+                >
+                    <SaveIcon/>
+                </Button>
             </form>
         </section>
     );

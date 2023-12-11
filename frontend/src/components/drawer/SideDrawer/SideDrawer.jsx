@@ -6,7 +6,6 @@ import EditIcon from '@mui/icons-material/Edit';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
-import './SideDrawer.css';
 
 const drawerWidth = 240;
 
@@ -16,6 +15,7 @@ const SideDrawer = ({ drawerOpen, toggleDrawer }) => {
         { text: 'Dashboard', icon: <DashboardIcon />, link: '/dashboard' },
         { text: 'Editor', icon: <EditIcon />, link: '/editor' },
         { text: 'Settings', icon: <SettingsIcon />, link: '/settings' }
+
     ];
 
     return (

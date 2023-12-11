@@ -1,7 +1,10 @@
+import {chartSetting} from "./chartSetting.js";
+
 export const transformRowsToBarChartData = (rows) => {
 
     const xAxisData = [];
     const seriesData = [];
+    const margin = chartSetting.margin;
 
     let maxCells = 1;
     let maxRow = 0;
@@ -41,10 +44,8 @@ export const transformRowsToBarChartData = (rows) => {
 
     return {
         series: seriesData,
-
         xAxis: [{scaleType: 'band', data: xAxisData}],
-
-
+        margin: margin
     };
 }
 
