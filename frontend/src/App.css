@@ -12,7 +12,7 @@
 }
 
 .appbar {
-    z-index: 1000; /* Sicherstellung, dass AppBar über allem anderen liegt */
+    z-index: 1000; /* Sicherstellung, dass AppBarComponent über allem anderen liegt */
 }
 
 .app-header {

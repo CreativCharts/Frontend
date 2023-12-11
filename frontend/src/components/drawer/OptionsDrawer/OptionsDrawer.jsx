@@ -2,6 +2,8 @@ import {useState} from "react";
 import PropTypes from 'prop-types';
 import {Drawer, TextField, Select, MenuItem, FormControl, InputLabel, Box, styled} from '@mui/material';
 import SaveButtonComponent from '../../buttons/SaveButtonComponent.jsx';
+// import DeleteButton  from "../../buttons/DeleteButton.jsx";
+import SaveAsButton from "../../buttons/SaveAsButton.jsx";
 import SaveDialog from "../../dialogs/SaveDialog.jsx";
 import {useDarkMode} from "../../context/darkModeContext/DarkModeContext.jsx";
 import './OptionsDrawer.css';
@@ -112,6 +114,7 @@ const OptionsDrawer = ({
                         </Select>
                     </FormControl>
                     <SaveButtonComponent onSave={handleSaveStatus}/>
+                    <SaveAsButton/>
                     <SaveDialog
                         open={saveDialogOpen}
                         title="Chart speichern"

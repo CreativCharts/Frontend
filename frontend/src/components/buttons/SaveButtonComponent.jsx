@@ -1,9 +1,9 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { saveChart, updateChart } from '../../api/api';
 import { useData } from "../context/dataContext/UseData.jsx";
 import { Button, Container } from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
+import PropTypes from "prop-types";
 
 const SaveButtonComponent = ({ onSave }) => {
     const { chartId, chartType, chartTitle, chartDescription, chartData } = useData();
@@ -39,11 +39,17 @@ const SaveButtonComponent = ({ onSave }) => {
                 variant="contained"
                 startIcon={<SaveIcon />}
                 onClick={handleSave}
+                style={{ fontSize: 15}}
             >
                 Speichern
             </Button>
         </Container>
     );
 }
+
+SaveButtonComponent.propTypes = {
+    onSave: PropTypes.func.isRequired
+}
+
 
 export default SaveButtonComponent;
