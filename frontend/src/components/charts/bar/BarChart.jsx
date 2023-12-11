@@ -4,6 +4,7 @@ import {useData} from "../../context/dataContext/UseData.jsx";
 
 
 export default function BarChartComponent() {
+export default function BarChartComponent(margin) {
 
     const {chartData} = useData();
     const transformedData = transformRowsToBarChartData(chartData);
