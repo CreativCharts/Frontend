@@ -1,12 +1,15 @@
 .settings-page-root {
+
     display: flex;
     width: 100%;
     max-width: 800px;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .settings-section {
     display: flex;
-    margin-top: calc(var(--margin-xlarge));
+    margin-top: calc(var(--margin-small));
     padding: var(--padding-small);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: var(--border-radius);

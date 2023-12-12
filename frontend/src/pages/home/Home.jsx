@@ -31,7 +31,6 @@ export const Home = () => {
             </div>
 
             <div className="home-buttons">
-                <HomeButton to="/home" icon={<HomeIcon/>} text="Home"/>
                 <HomeButton to="/dashboard" icon={<DashboardIcon/>} text="Dashboard"/>
                 <HomeButton to="/editor" icon={<EditIcon/>} text="Editor"/>
                 <HomeButton to="/settings" icon={<SettingsIcon/>} text="Settings"/>

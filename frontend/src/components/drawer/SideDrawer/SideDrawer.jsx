@@ -1,5 +1,5 @@
 import {styled, useTheme} from '@mui/material/styles';
-import {Drawer as MuiDrawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
+import {Drawer as MuiDrawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar} from '@mui/material';
 import {Link} from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import DashboardIcon from '@mui/icons-material/Dashboard';
@@ -8,6 +8,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import RegisterIcon from '@mui/icons-material/PersonAdd';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
+import ImpressumIcon from '@mui/icons-material/Info';
 import PropTypes from "prop-types";
 
 const drawerWidth = 240;
@@ -59,7 +60,8 @@ export default function SideDrawer({open, handleDrawerOpen, handleDrawerClose}) 
         {text: 'Settings', icon: <SettingsIcon/>, link: '/settings'},
         {text: 'Register', icon: <RegisterIcon/>, link: '/register'},
         {text: 'Login', icon: <LoginIcon/>, link: '/login'},
-        {text: 'Logout', icon: <LogoutIcon/>, link: '/logout'}
+        {text: 'Logout', icon: <LogoutIcon/>, link: '/logout'},
+        {text: 'Impressum', icon: <ImpressumIcon/>, link: '/impressum'},
     ];
 
     SideDrawer.propTypes = {
@@ -85,9 +87,14 @@ export default function SideDrawer({open, handleDrawerOpen, handleDrawerClose}) 
                 }),
             }}
         >
+            <Toolbar/>
             <List>
                 {menuItems.map(({text, icon, link}) => (
-                    <ListItem key={text} disablePadding sx={{display: 'block'}}>
+                    <ListItem
+                        key={text}
+                        disablePadding
+                        sx={{display: 'block'}}
+                    >
                         <ListItemButton
                             sx={{
                                 minHeight: 48,
@@ -106,7 +113,10 @@ export default function SideDrawer({open, handleDrawerOpen, handleDrawerClose}) 
                             >
                                 {icon}
                             </ListItemIcon>
-                            <ListItemText primary={text} sx={{opacity: open ? 1 : 0}}/>
+                            <ListItemText
+                                primary={text}
+                                sx={{opacity: open ? 1 : 0}}
+                            />
                         </ListItemButton>
                     </ListItem>
                 ))}

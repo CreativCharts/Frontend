@@ -21,6 +21,7 @@ const NotFound = () => {
 
 export default function App() {
     const [open, setOpen] = useState(false);
+    const [drawerMiniOpen, setDrawerMiniOpen] = useState(false);
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -28,6 +29,11 @@ export default function App() {
 
     const handleDrawerClose = () => {
         setOpen(false);
+        setDrawerMiniOpen(false);
+    };
+
+    const handleDrawerMiniOpen = () => {
+        setDrawerMiniOpen(true);
     };
 
     return (
@@ -36,14 +42,13 @@ export default function App() {
                 <AppBarComponent
                     open={open}
                     handleDrawerOpen={handleDrawerOpen}
+                    handleDrawerMiniOpen={handleDrawerMiniOpen}
                 />
-
                 <SideDrawer
-                    open={open}
+                    open={drawerMiniOpen || open}
                     handleDrawerClose={handleDrawerClose}
                     handleDrawerOpen={handleDrawerOpen}
                 />
-
                 <DataProvider>
                     <Routes>
                         <Route path="*" element={<NotFound/>}/>
