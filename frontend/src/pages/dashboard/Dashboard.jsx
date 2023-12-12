@@ -8,6 +8,8 @@ import DeleteDialog from '../../components/dialogs/DeleteDialog.jsx';
 import {DataProvider} from "../../components/context/dataContext/ProviderValue.jsx";
 import './Dashboard.css';
 
+
+// Implement + für das direkte erstellen von einen neuen chart
 export default function Dashboard() {
     const [charts, setCharts] = useState([]);
     const [error, setError] = useState(null);
