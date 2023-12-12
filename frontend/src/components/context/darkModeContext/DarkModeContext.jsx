@@ -15,7 +15,13 @@ export const DarkModeProvider = ({children}) => {
     const [darkMode, setDarkMode] = useState(false);
 
     useEffect(() => {
-        document.body.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+        if (darkMode) {
+            document.body.classList.add("dark-mode");
+            document.body.classList.remove("light-mode");
+        } else {
+            document.body.classList.add("light-mode");
+            document.body.classList.remove("dark-mode");
+        }
     }, [darkMode]);
 
     const toggleDarkMode = () => {

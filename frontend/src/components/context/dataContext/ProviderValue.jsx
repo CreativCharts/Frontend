@@ -32,7 +32,6 @@ export const DataProvider = ({children}) => {
         setChartTitle,
         chartDescription,
         setChartDescription,
-
     ]);
 
     return (
@@ -42,7 +41,6 @@ export const DataProvider = ({children}) => {
         >
             {children}
         </DataContext.Provider>
-
     );
 };
 

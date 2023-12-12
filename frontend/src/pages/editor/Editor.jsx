@@ -19,6 +19,7 @@ const Editor = () => {
         setChartId
     } = useData();
 
+
     useEffect(() => {
         if (!id) {
             setChartData(getRows());
@@ -31,7 +32,6 @@ const Editor = () => {
 
         const fetchData = async () => {
             const data = await fetchChartById(id);
-            console.log('GOT DATA', data.description);
             setChartData(data.data.gridData);
             setChartType(data.data.type);
             setChartTitle(data.data.title || '');

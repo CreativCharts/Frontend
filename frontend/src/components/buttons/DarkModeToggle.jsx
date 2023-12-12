@@ -12,7 +12,10 @@ function DarkModeToggle() {
     };
 
     return (
-        <IconButton color="inherit" onClick={handleToggle} className="dark-mode-toggle-button">
+        <IconButton
+            color="inherit"
+            onClick={handleToggle}
+            className="dark-mode-toggle-button">
             {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
         </IconButton>
     );
