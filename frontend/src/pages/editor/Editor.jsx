@@ -44,7 +44,9 @@ const Editor = () => {
     return (
         <div className={`editor-root ${darkMode ? 'dark-mode' : 'light-mode'}`}>
             <div className='editor-container'>
-                <ChartDisplay isEditor={true}/>
+                <ChartDisplay
+                    className="chart-area"
+                    isEditor={true}/>
                 <ReactGridTable/>
             </div>
         </div>

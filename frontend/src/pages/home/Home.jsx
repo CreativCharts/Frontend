@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import {Link} from 'react-router-dom';
 import {Button, Typography, Container} from '@mui/material';
-import HomeIcon from '@mui/icons-material/Home';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import EditIcon from '@mui/icons-material/Edit';
 import SettingsIcon from "@mui/icons-material/Settings";

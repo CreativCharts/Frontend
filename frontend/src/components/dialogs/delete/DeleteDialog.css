@@ -1,0 +1,40 @@
+.delete-dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding-small);
+}
+
+.delete-dialog-title {
+    text-align: center;
+    font-size: var(--font-size-large);
+    margin-bottom: var(--margin-medium);
+}
+
+.delete-dialog-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.delete-confirm-button {
+    align-content: center;
+    color: var(--text-color);
+}
+
+.delete-confirm-button:hover {
+    background-color: var(--error-color);
+}
+
+.delete-dialog-title {
+    text-align: center;
+    font-size: var(--font-size-large);
+    margin-bottom: var(--margin-medium);
+}
+
+.delete-dialog-content {
+    justify-content: center;
+}

@@ -6,7 +6,7 @@
     --error-color: #f44336;
     --warning-color: #ff9800;
     --info-color: #2196f3;
-    --success-color: #4caf50;
+    --success-color: rgba(18, 211, 26, 0.56);
 
     /* Light Mode */
     --background-color-light: #ffffff;
@@ -48,7 +48,7 @@
 
 
     /* Buttons */
-    --button-bg-color: #0275d8;
+    --button-bg-color: #69ff00;
     --button-text-color: #ffffff;
     --button-height: 40px;
     --button-width: 150px;
@@ -56,11 +56,17 @@
     --button-hover-bg-color: #0056b3;
     --button-hover-text-color: #ffffff;
 
-    /* Input */
+    /* Input light */
     --input-bg-color: #ffffff;
     --input-text-color: #333333;
     --input-border-color: #cccccc;
     --input-border-radius: 5px;
+
+    /* Input dark */
+    --input-bg-color-dark: #333333;
+    --input-text-color-dark: #ffffff;
+    --input-border-color-dark: #cccccc;
+    --input-border-radius-dark: 5px;
 
     /* Margin */
     --margin-small: 0.5rem;
@@ -108,11 +114,8 @@
     --card-content-padding: 10px;
 
     /* Table */
-    --table-bg-color: #ffffff;
-    --table-text-color: #333333;
     --table-border-color: #cccccc;
     --table-border-radius: 5px;
-
 
     /* Border */
     --border-width: 2px;
@@ -156,6 +159,7 @@
     --hover-text-color-dark: #ffffff;
     --hover-bg-color-light: rgba(4, 29, 47, 0.1);
     --hover-text-color-light: rgba(255, 255, 255, 0.1);
+    --hover-error-color: #ff0000;
 }
 
 /* Globale Stile */
@@ -164,7 +168,7 @@ body {
     padding: 0;
     background-color: var(--background-color);
     color: var(--text-color);
-    font-family: var(--font-family-fallback);
+    font-family: var(--font-family), var(--font-family-fallback);
 }
 
 .main-content {
@@ -190,6 +194,23 @@ body {
     --box-shadow: var(--box-shadow-light);
     --box-shadow-hover: var(--box-shadow-hover-light);
 }
+
+.confirm-button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    height: var(--button-height);
+    width: var(--button-width);
+    border-radius: var(--button-border-radius);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.confirm-button:hover {
+    background-color: var(--success-color);
+    color: var(--button-hover-text-color);
+}
+
 
 
 @media (min-width: 0px) and (max-width: 480px) {

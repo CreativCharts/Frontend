@@ -4,12 +4,13 @@ import ChartCard from '../../components/cards/ChartCard.jsx';
 import {DashboardDisplay} from "../../components/displays/dashboardDisplay/DashboardDisplay.jsx";
 import {fetchAll, deleteChart} from '../../api/api.js';
 import PaginationComponent from "../../components/pagination/PaginationComponent.jsx";
-import DeleteDialog from '../../components/dialogs/DeleteDialog.jsx';
+import DeleteDialog from '../../components/dialogs/delete/DeleteDialog.jsx';
 import {DataProvider} from "../../components/context/dataContext/ProviderValue.jsx";
+import CreateButton from "../../components/buttons/CreateButton.jsx";
+import AddchartIcon from "@mui/icons-material/Addchart";
 import './Dashboard.css';
 
 
-// Implement + für das direkte erstellen von einen neuen chart
 export default function Dashboard() {
     const [charts, setCharts] = useState([]);
     const [error, setError] = useState(null);
@@ -17,6 +18,7 @@ export default function Dashboard() {
     const [totalPages, setTotalPages] = useState(0);
     const [confirmDialogOpen, setConfirmDialogOpen] = useState(false);
     const [selectedChartId, setSelectedChartId] = useState(null);
+
 
     const fetchUpdatedCharts = () => {
         fetchAll(currentPage, 8).then(response => {
@@ -55,9 +57,9 @@ export default function Dashboard() {
     }
 
     return (
-        <Container className={"dashboard-container"}>
+        <Container className="dashboard-container">
             {error && <Alert severity="error">{error}</Alert>}
-            {charts.length === 0 && !error && <CircularProgress />}
+            {charts.length === 0 && !error && <CircularProgress/>}
             {charts.length > 0 && (
                 <Grid container spacing={2} width={'100%'} height={'100%'} className='dashboard-grid-container'>
                     {charts.map((chart) => (
@@ -69,20 +71,33 @@ export default function Dashboard() {
                                 className="chart-card"
                             >
                                 <DataProvider>
-                                    <DashboardDisplay data={chart} />
+                                    <DashboardDisplay data={chart}/>
                                 </DataProvider>
                             </ChartCard>
                         </Grid>
                     ))}
                 </Grid>
             )}
-            {totalPages > 0 && (
-                <PaginationComponent
-                    total={totalPages}
-                    page={currentPage}
-                    onChange={(event, newPage) => setCurrentPage(newPage)}
+            <div className='create-button-fab'>
+                <CreateButton
+
+                    to="/editor"
+                    icon={<AddchartIcon/>}
                 />
-            )}
+            </div>
+
+            {
+                totalPages > 0 && (
+                    <PaginationComponent
+
+                        total={totalPages}
+                        page={currentPage}
+                        onChange={(event, newPage) => setCurrentPage(newPage)}
+                    />
+                )
+            }
+
+
             <DeleteDialog
                 open={confirmDialogOpen}
                 title="Chart löschen"
@@ -91,5 +106,6 @@ export default function Dashboard() {
                 onConfirm={handleDelete}
             />
         </Container>
-    );
+    )
+        ;
 }

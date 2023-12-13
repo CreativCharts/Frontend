@@ -1,9 +1,8 @@
 @import '../../../node_modules/@silevis/reactgrid/styles.css';
 
 :root {
-    --background-color-light: var(--background-color-light);
-
-    --background-color-dark: var(--background-color-dark);
+    --text-color-light: #000; /* Schwarzer Text für den Light-Modus */
+    --text-color-dark: #fff; /* Weißer Text für den Dark-Modus */
 }
 
 .react-grid-table-container.light-mode {
@@ -13,6 +12,16 @@
 
 .react-grid-table-container.dark-mode {
     color: var(--text-color-dark);
+    background-color: var(--background-color-dark);
+}
+
+.react-grid-table-container.light-mode {
+    color: var(--text-color-light); /* Textfarbe für den Light-Modus */
+    background-color: var(--background-color-light);
+}
+
+.react-grid-table-container.dark-mode {
+    color: var(--text-color-dark); /* Textfarbe für den Dark-Modus */
     background-color: var(--background-color-dark);
 }
 

@@ -1,14 +1,15 @@
 .editor-root {
+    margin-top: var(--appbar-height);
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 80px);
-    width: calc(100% - 32px);
 }
 
 .editor-container {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    height: calc(100vh - var(--appbar-height));
+    width: calc(100% - 32px);
 }
 
 .editor-root.dark-mode {

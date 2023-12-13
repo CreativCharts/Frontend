@@ -7,13 +7,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 export default function AppBarComponent({open, handleDrawerOpen, handleDrawerMiniOpen}) {
 
-
     return (
         <Box
             sx={{flexGrow: 1}}
         >
             <AppBar
-                position="sticky"
                 style={{zIndex: 1300}}
             >
                 <Toolbar
@@ -54,6 +52,5 @@ export default function AppBarComponent({open, handleDrawerOpen, handleDrawerMin
                     </div>
                 </Toolbar>
             </AppBar>
-        </Box>
-    );
+        </Box>);
 }

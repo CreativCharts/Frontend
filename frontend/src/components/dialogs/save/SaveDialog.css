@@ -1,0 +1,45 @@
+.save-dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding-small);
+}
+
+.save-dialog-title {
+    text-align: center;
+    font-size: var(--font-size-large);
+    margin-bottom: var(--margin-medium);
+}
+
+.save-dialog-button {
+    align-content: center;
+    right: 50%;
+    transform: translateX(50%);
+    background-color: var(--success-color);
+}
+
+.save-dialog-button:hover {
+    background-color: var(--hover-bg-color);
+    color: var(--hover-text-color-light);
+}
+
+/* Light Mode */
+.light-mode .save-dialog-button {
+    color: var(--success-color);
+}
+
+.light-mode .save-dialog-button:hover {
+    background-color: var(--hover-bg-color-light);
+    color: var(--hover-text-color-light);
+}
+
+/* Dark Mode */
+.dark-mode .save-dialog-button {
+    color: var(--text-color-dark);
+}
+
+.dark-mode .save-dialog-button:hover {
+    background-color: var(--success-color);
+    color: var(--hover-text-color-dark);
+}

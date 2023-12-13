@@ -3,22 +3,23 @@ import PaginationItem from '@mui/material/PaginationItem';
 import PropTypes from 'prop-types';
 import './PaginationComponent.css';
 
-const PaginationComponent = ({ total, page, onChange }) => {
+const PaginationComponent = ({total, page, onChange}) => {
+
     return (
-        <Pagination
-            count={total}
-            page={page}
-            onChange={onChange}
-            size="large"
-            showFirstButton
-            showLastButton
-            className="pagination-root"
-            renderItem={(item) => (
-                <PaginationItem
-                    {...item}
-                    className={`pagination-item ${item.page === page ? 'pagination-item-selected' : ''}`}
-                />
-            )}
+
+        <Pagination className="pagination-root"
+                    count={total}
+                    page={page}
+                    onChange={onChange}
+                    size="large"
+                    showFirstButton
+                    showLastButton
+                    renderItem={(item) => (
+                        <PaginationItem
+                            {...item}
+                            className={`pagination-item ${item.page === page ? 'pagination-item-selected' : ''}`}
+                        />
+                    )}
         />
     );
 };
