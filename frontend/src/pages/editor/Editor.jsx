@@ -16,7 +16,8 @@ const Editor = () => {
         setChartType,
         setChartTitle,
         setChartDescription,
-        setChartId
+        setChartId,
+        chartData,
     } = useData();
 
 
@@ -26,7 +27,7 @@ const Editor = () => {
             setChartType('bar');
             setChartTitle('');
             setChartDescription('');
-            setChartId(null);
+            setChartId('');
             return;
         }
 
@@ -42,14 +43,20 @@ const Editor = () => {
     }, [id, setChartData, setChartType, setChartTitle, setChartDescription, setChartId]);
 
     return (
-        <div className={`editor-root ${darkMode ? 'dark-mode' : 'light-mode'}`}>
-            <div className='editor-container'>
-                <ChartDisplay
-                    className="chart-area"
-                    isEditor={true}/>
-                <ReactGridTable/>
+            <div className={`editor-root ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+                <div className='editor-container'>
+                    <ChartDisplay
+                            className="chart-area"
+                            chartData={chartData}
+                            isEditor={true}/>
+                    <div>
+                        <ReactGridTable
+                                className={`table-area ${darkMode ? 'dark-mode' : 'light-mode'}`}
+                                key={id}
+                        />
+                    </div>
+                </div>
             </div>
-        </div>
     );
 };
 

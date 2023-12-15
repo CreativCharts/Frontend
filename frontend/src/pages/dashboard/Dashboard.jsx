@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useCallback} from 'react';
 import {CircularProgress, Container, Grid, Alert} from '@mui/material';
 import ChartCard from '../../components/cards/ChartCard.jsx';
 import {DashboardDisplay} from "../../components/displays/dashboardDisplay/DashboardDisplay.jsx";
@@ -8,8 +8,8 @@ import DeleteDialog from '../../components/dialogs/delete/DeleteDialog.jsx';
 import {DataProvider} from "../../components/context/dataContext/ProviderValue.jsx";
 import CreateButton from "../../components/buttons/CreateButton.jsx";
 import AddchartIcon from "@mui/icons-material/Addchart";
+import {useDarkMode} from "../../components/context/darkModeContext/DarkModeContext.jsx";
 import './Dashboard.css';
-
 
 export default function Dashboard() {
     const [charts, setCharts] = useState([]);
@@ -18,9 +18,12 @@ export default function Dashboard() {
     const [totalPages, setTotalPages] = useState(0);
     const [confirmDialogOpen, setConfirmDialogOpen] = useState(false);
     const [selectedChartId, setSelectedChartId] = useState(null);
+    const {darkMode} = useDarkMode();
+
+    const itemsPerPage = 8;
 
 
-    const fetchUpdatedCharts = () => {
+    const fetchUpdatedCharts = useCallback(() => {
         fetchAll(currentPage, 8).then(response => {
             if (response.charts && Array.isArray(response.charts)) {
                 setCharts(response.charts);
@@ -29,11 +32,11 @@ export default function Dashboard() {
         }).catch(error => {
             setError(error.message);
         });
-    };
+    }, [currentPage]);
 
     useEffect(() => {
         fetchUpdatedCharts();
-    }, [currentPage]);
+    }, [fetchUpdatedCharts]);
 
     const handleDeleteConfirm = (chartId) => {
         setSelectedChartId(chartId);
@@ -56,56 +59,60 @@ export default function Dashboard() {
         }
     }
 
-    return (
-        <Container className="dashboard-container">
-            {error && <Alert severity="error">{error}</Alert>}
-            {charts.length === 0 && !error && <CircularProgress/>}
-            {charts.length > 0 && (
-                <Grid container spacing={2} width={'100%'} height={'100%'} className='dashboard-grid-container'>
-                    {charts.map((chart) => (
-                        <Grid item xs={12} sm={6} md={6} lg={6} key={chart._id}>
-                            <ChartCard
-                                id={chart._id.toString()}
-                                title={chart.title}
-                                onDelete={() => handleDeleteConfirm(chart._id)}
-                                className="chart-card"
-                            >
-                                <DataProvider>
-                                    <DashboardDisplay data={chart}/>
-                                </DataProvider>
-                            </ChartCard>
-                        </Grid>
-                    ))}
-                </Grid>
-            )}
-            <div className='create-button-fab'>
-                <CreateButton
+    const renderPagination = () => {
+        return totalPages > 0 && (
+                <PaginationComponent
+                        className="pagination-container-dashboard"
+                        totalItems={totalPages * itemsPerPage}
+                        itemsPerPage={itemsPerPage}
+                        currentPage={currentPage}
+                        onPageChange={(event, value) => setCurrentPage(value)}
+                        darkMode={darkMode}
 
-                    to="/editor"
-                    icon={<AddchartIcon/>}
                 />
-            </div>
-
-            {
-                totalPages > 0 && (
-                    <PaginationComponent
-
-                        total={totalPages}
-                        page={currentPage}
-                        onChange={(event, newPage) => setCurrentPage(newPage)}
-                    />
-                )
-            }
+        );
+    };
 
 
-            <DeleteDialog
-                open={confirmDialogOpen}
-                title="Chart löschen"
-                message="Möchten Sie dieses Chart wirklich löschen?"
-                onClose={handleDeleteCancel}
-                onConfirm={handleDelete}
-            />
-        </Container>
-    )
-        ;
+    return (
+            <Container
+                    className="dashboard-container"
+            >
+                {error && <Alert severity="error">{error}</Alert>}
+                {charts.length === 0 && !error && <CircularProgress/>}
+                {charts.length > 0 && (
+                        <Grid container spacing={2}>
+                            {charts.map((chart) => (
+                                    <Grid item xs={12} sm={6} md={6} lg={6} key={chart._id}>
+                                        <ChartCard
+                                                id={chart._id.toString()}
+                                                title={chart.title}
+                                                onDelete={() => handleDeleteConfirm(chart._id)}
+                                        >
+                                            <DataProvider>
+                                                <DashboardDisplay data={chart}/>
+                                            </DataProvider>
+                                        </ChartCard>
+                                    </Grid>
+                            ))}
+                        </Grid>
+
+                )}
+
+                <div>
+                    {renderPagination()}
+                </div>
+
+                <div className="create-button-container">
+                    <CreateButton to="/editor" icon={<AddchartIcon/>}/>
+                </div>
+                <DeleteDialog
+                        open={confirmDialogOpen}
+                        title="Chart löschen"
+                        message="Möchten Sie dieses Chart wirklich löschen?"
+                        onClose={handleDeleteCancel}
+                        onConfirm={handleDelete}
+                />
+            </Container>
+    );
 }

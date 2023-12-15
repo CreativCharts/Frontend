@@ -14,9 +14,9 @@ import {
     getHeadersFromData,
     getRowsFromData,
     getColumnsFromData
-} from './ReactGridTableUtils';
-import './ReactGridTable.css';
+} from './ReactGridTableUtils.jsx';
 import {useDarkMode} from "../context/darkModeContext/DarkModeContext.jsx";
+import './ReactGridTable.scss';
 
 
 export default function ReactGridTable() {
@@ -90,10 +90,14 @@ export default function ReactGridTable() {
             try {
                 const readData = await ExcelReader.readExcel(file);
                 if (readData && readData.length > 0) {
-                    setRows(getRowsFromData(readData));
-                    setColumns(getColumnsFromData(readData));
-                    setHeaders(getHeadersFromData(readData));
-                    setGridKey(prevKey => prevKey + 1);
+               const formattedRows = getRowsFromData(readData);
+                const formattedColumns = getColumnsFromData(readData);
+                const formattedHeaders = getHeadersFromData(readData);
+                setRows(formattedRows);
+                setColumns(formattedColumns);
+                setHeaders(formattedHeaders);
+                setChartData(formattedRows);
+                setGridKey(prevKey => prevKey + 1);
                 }
             } catch (error) {
                 console.error("Error reading Excel file:", error);
@@ -110,35 +114,38 @@ export default function ReactGridTable() {
     };
 
     return (
-        <Box className={`react-grid-table-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
-            <Box
-                className="file-settings-container">
-                <UploadButtonComponent onChange={handleFileChange}/>
-                <SettingsButtonComponent onClick={handleDrawerOpen}/>
+            <Box className={`react-grid-table-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+                <Box className="controls-container">
+                    <label className="file-upload-label">
+                        <UploadButtonComponent onChange={handleFileChange}/>
+                    </label>
+                    <div className="settings-icon-container">
+                        <SettingsButtonComponent onClick={handleDrawerOpen}/>
+                    </div>
+                </Box>
+
+                <OptionsDrawer
+                        open={drawerOpen}
+                        onClose={handleDrawerClose}
+                        setChartId={setChartId}
+                        setChartType={setChartType}
+                        chartType={chartType}
+                        chartTitle={chartTitle}
+                        setChartTitle={setChartTitle}
+                        chartDescription={chartDescription}
+                        setChartDescription={setChartDescription}
+                        saveToDatabase={saveToDatabase}
+                />
+
+                <ReactGrid
+                        key={gridKey}
+                        className={`react-grid-table ${darkMode ? 'dark-mode' : 'light-mode'}`}
+                        rows={rows}
+                        columns={columns}
+                        headers={headers}
+                        onCellsChanged={handleRowsChange}
+                />
             </Box>
-
-            <OptionsDrawer
-                open={drawerOpen}
-                onClose={handleDrawerClose}
-                setChartId={setChartId}
-                setChartType={setChartType}
-                chartType={chartType}
-                chartTitle={chartTitle}
-                setChartTitle={setChartTitle}
-                chartDescription={chartDescription}
-                setChartDescription={setChartDescription}
-                saveToDatabase={saveToDatabase}
-            />
-
-            <ReactGrid
-                key={gridKey}
-                className={`react-grid ${darkMode ? 'dark-mode' : 'light-mode'}`}
-                rows={rows}
-                columns={columns}
-                headers={headers}
-                onCellsChanged={handleRowsChange}
-            />
-        </Box>
     );
 }
 

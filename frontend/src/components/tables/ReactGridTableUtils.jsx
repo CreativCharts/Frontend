@@ -1,19 +1,17 @@
 export const getColumns = () => {
-
     const columns = [];
 
     for (let i = 1; i <= 10; i++) {
-
         columns.push({
             columnId: `col${i}`,
-            title: `Col ${i}`
+            title: `Col ${i}`,
+            className: `react-grid-column react-grid-column-${i}`
         });
     }
     return columns;
 };
 
 export const getRows = () => {
-
     const rows = [];
 
     for (let i = 1; i <= 4; i++) {
@@ -57,17 +55,16 @@ export const getRowsFromData = (data) => {
         }
 
         if (cells.length > 0) {
-            rows.push({rowId: `row${i}`, cells});
+            rows.push({ rowId: `row${i}`, cells });
         }
     }
     return rows;
 };
 
-
 export const getColumnsFromData = (data) => {
     const columns = [];
     for (let i = 0; i < data[0].length; i++) {
-        columns.push({columnId: `col${i}`, title: `Col ${i}`});
+        columns.push({ columnId: `col${i}`, title: `Col ${i}`, className: `react-grid-column react-grid-column-${i}` });
     }
     return columns;
 };
@@ -79,4 +76,3 @@ export const getHeadersFromData = (data) => {
     }
     return headers;
 };
-

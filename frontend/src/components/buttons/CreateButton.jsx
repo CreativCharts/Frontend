@@ -8,15 +8,15 @@ const CreateButton = ({to, icon}) => {
 
     return (
 
-        <Button
-            className="create-button-fab"
-            component={Link}
-            to={to}
-            startIcon={icon}
-            onClick={() => navigate(`/editor/create`)}
-        >
-            Create
-        </Button>
+            <Button
+                    className="create-button-fab-button"
+                    component={Link}
+                    to={to}
+                    startIcon={icon}
+                    onClick={() => navigate(`/editor`)}
+            >
+                Create
+            </Button>
     );
 }
 

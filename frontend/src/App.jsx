@@ -10,13 +10,16 @@ import SettingsPage from "./pages/settings/SettingsPage.jsx";
 import SideDrawer from "./components/drawer/SideDrawer/SideDrawer.jsx";
 import './App.css';
 import Impressions from "./pages/impressions/Impressions.jsx";
+import {AuthProvider} from "./components/context/authContext/AuthContext.jsx";
+import Register from "./components/auth/register/Register.jsx";
+import Login from "./components/auth/login/Login.jsx";
 
 const NotFound = () => {
     return (
-        <div>
-            <h1>404</h1>
-            <h2>Page not found</h2>
-        </div>
+            <div>
+                <h1>404</h1>
+                <h2>Page not found</h2>
+            </div>
     );
 }
 
@@ -38,38 +41,40 @@ export default function App() {
     };
 
     return (
-        <DarkModeProvider>
-            <Router>
-                <div>
-                    <AppBarComponent
-                        open={open}
-                        handleDrawerOpen={handleDrawerOpen}
-                        handleDrawerMiniOpen={handleDrawerMiniOpen}
-                    />
-                </div>
+            <AuthProvider>
+                <DarkModeProvider>
+                    <Router>
+                        <div>
+                            <AppBarComponent
+                                    open={open}
+                                    handleDrawerOpen={handleDrawerOpen}
+                                    handleDrawerMiniOpen={handleDrawerMiniOpen}
+                            />
+                        </div>
 
-                <SideDrawer
-                    open={drawerMiniOpen || open}
-                    handleDrawerClose={handleDrawerClose}
-                    handleDrawerOpen={handleDrawerOpen}
-                />
+                        <SideDrawer
+                                open={drawerMiniOpen || open}
+                                handleDrawerClose={handleDrawerClose}
+                                handleDrawerOpen={handleDrawerOpen}
+                        />
 
-                <DataProvider>
-                    <Routes>
-                        <Route path="*" element={<NotFound/>}/>
-                        <Route path="/" element={<Dashboard/>}/>
-                        <Route path="/login" element={<Home/>}/>
-                        <Route path="/register" element={<Home/>}/>
-                        <Route path="/home" element={<Home/>}/>
-                        <Route path="/dashboard" element={<Dashboard/>}/>
-                        <Route path="/editor" element={<Editor/>}/>
-                        <Route path="/editor/:id" element={<Editor/>}/>
-                        <Route path="/settings" element={<SettingsPage/>}/>
-                        <Route path="/impressum" element={<Impressions/>}/>
-                    </Routes>
-                </DataProvider>
-            </Router>
-        </DarkModeProvider>
+                        <DataProvider>
+                            <Routes>
+                                <Route path="*" element={<NotFound/>}/>
+                                <Route path="/" element={<Dashboard/>}/>
+                                <Route path="/login" element={<Login/>}/>
+                                <Route path="/register" element={<Register/>}/>
+                                <Route path="/home" element={<Home/>}/>
+                                <Route path="/dashboard" element={<Dashboard/>}/>
+                                <Route path="/editor" element={<Editor/>}/>
+                                <Route path="/editor/:id" element={<Editor/>}/>
+                                <Route path="/settings" element={<SettingsPage/>}/>
+                                <Route path="/impressum" element={<Impressions/>}/>
+                            </Routes>
+                        </DataProvider>
+                    </Router>
+                </DarkModeProvider>
+            </AuthProvider>
     );
 }
 

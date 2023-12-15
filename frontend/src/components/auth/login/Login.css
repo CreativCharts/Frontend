@@ -1,0 +1,71 @@
+/* Grundlegende Dialog-Stile */
+.dialog {
+    max-width: 350px;
+    margin: var(--margin-large) auto;
+}
+
+.dialogTitle {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: var(--font-size-large);
+    font-weight: 500;
+}
+
+.dialogContent {
+    padding: var(--padding-large) var(--padding-medium);
+}
+
+.loginForm {
+    padding-top: var(--padding-medium);
+}
+
+/* Input-Feld-Stile für Lightmode und Darkmode */
+.inputField {
+    background: var(--input-bg-color);
+    color: var(--input-text-color);
+    border-radius: var(--input-border-radius);
+    border: 1px solid var(--input-border-color);
+}
+
+.inputField input {
+    color: var(--input-text-color);
+}
+
+/* Dark Mode spezifische Stile */
+.dark-mode .inputField {
+    background: var(--input-bg-color-dark);
+    color: var(--input-text-color-dark);
+    border: 1px solid var(--input-border-color-dark);
+}
+
+.dark-mode .inputField input {
+    color: var(--input-text-color-dark);
+}
+
+/* Submit-Button Stile */
+.submitButton {
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+    border-radius: var(--button-border-radius);
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+/* Fehlermeldung Stile */
+.errorMessage {
+    color: var(--error-color);
+    text-align: center;
+    font-size: var(--font-size-small);
+    margin-top: var(--margin-small);
+    animation: fadeout var(--transition-duration) forwards;
+}
+
+/* Fadeout Animation */
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

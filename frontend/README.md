@@ -1,8 +1,31 @@
-# React + Vite
+# Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Das Frontend von CreativeCharts wurde mit React und JavaScript entwickelt und bietet eine benutzerfreundliche Oberfläche für die Visualisierung und Interaktion mit Diagrammdaten.
 
-Currently, two official plugins are available:
+## Funktionalität
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Das Frontend bietet eine benutzerfreundliche Oberfläche für die Visualisierung und Interaktion mit Diagrammdaten. Zu den Hauptfunktionen gehören:
+
+- Anzeige von Diagrammen in verschiedenen Formaten
+- Benutzerfreundliche Oberfläche für die Datenvisualisierung
+- Integration von Material-UI für das Design
+- Verwendung der X-Charts-Bibliothek von MUI für Diagramme
+
+## Einrichtung
+
+**Voraussetzungen:**
+- [Node.js](https://nodejs.org/) installieren.
+
+**Cli-Kommando zum Herunterladen des Frontend-Repositorys und Starten des Frontend:**
+
+```bash
+git clone [Frontend-Repository-URL]
+```
+```bash
+cd [Frontend-Verzeichnis]
+```
+```bash
+npm install
+```
+```bash
+npm run dev

@@ -6,7 +6,8 @@ import {useData} from "../../context/dataContext/UseData.jsx";
 import {useDarkMode} from "../../context/darkModeContext/DarkModeContext.jsx";
 import './ChartDisplay.css';
 
-const ChartDisplay = () => {
+const ChartDisplay = ({chartData}) => {
+
     const {chartType, margins} = useData();
     const {darkMode} = useDarkMode();
     const chartContainerEl = useRef(null);
@@ -26,6 +27,14 @@ const ChartDisplay = () => {
         return () => {
             window.removeEventListener('resize', updateContainerSize);
         };
+    }, [chartData]);
+
+    useEffect(() => {
+        updateContainerSize();
+        window.addEventListener('resize', updateContainerSize);
+        return () => {
+            window.removeEventListener('resize', updateContainerSize);
+        };
     }, []);
 
     return (
@@ -35,9 +44,9 @@ const ChartDisplay = () => {
                 {chartType === 'bar' && <BarChartComponent margins={margins}/>}
                 {chartType === 'line' && <LineChartComponent margins={margins}/>}
                 {chartType === 'pie' && <PieChartComponent
-                    width={containerSize.width}
-                    height={containerSize.height}
-                    margins={margins}
+                        width={containerSize.width}
+                        height={containerSize.height}
+                        margins={margins}
                 />
                 }
             </div>

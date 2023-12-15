@@ -3,16 +3,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    max-width: var(--max-container-width);
-    margin: 0 auto;
+    min-height: var(--min-height);
+    max-width: var(--max-width);
+    margin-bottom: var(--margin-large);
     padding: var(--padding-medium);
     background-color: var(--background-color);
     font-family: var(--font-family-fallback);
 }
 
 .appbar {
-    z-index: 1000; /* Sicherstellung, dass AppBarComponent über allem anderen liegt */
+    z-index: var(--z-index-appbar); /* Angepasste Z-Index-Variable */
 }
 
 .app-header {
@@ -22,7 +22,7 @@
     padding: var(--padding-medium);
     background-color: var(--navbar-bg-color);
     box-shadow: var(--box-shadow);
-    width: 100%;
+    width: var(--max-width);
 }
 
 .app-title {
@@ -51,8 +51,8 @@
 .app-button {
     background-color: var(--button-bg-color);
     color: var(--button-text-color);
-    padding: 10px 20px;
-    border: none;
+    padding: var(--button-padding);
+    border: var(--button-border);
     border-radius: var(--button-border-radius);
     cursor: pointer;
     transition: var(--transition);
@@ -62,14 +62,14 @@
 }
 
 .app-button:active {
-    transform: scale(0.98);
+    transform: var(--transform-button-active);
 }
 
 .app-button:focus {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
+    outline: var(--outline-button-focus);
+    outline-offset: var(--outline-offset);
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--box-shadow);
 }
 
 .app-button:hover {
@@ -81,9 +81,9 @@
 .app-input {
     background-color: var(--input-bg-color);
     color: var(--input-text-color);
-    border: var(--border-width) var(--border-style) var(--input-border-color);
+    border: var(--input-border);
     border-radius: var(--input-border-radius);
-    padding: 10px;
+    padding: var(--input-padding);
     transition: var(--transition);
 }
 
@@ -93,7 +93,7 @@
     box-shadow: var(--box-shadow);
 }
 
-.pagination-container {
+.pagination-root {
     padding: var(--padding-small);
     background-color: var(--background-color);
     box-shadow: var(--box-shadow);

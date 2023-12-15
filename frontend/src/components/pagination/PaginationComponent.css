@@ -1,27 +1,60 @@
-.pagination-root {
-    display: flex;
-    padding: var(--padding-small);
-    margin-top: var(--margin-large);
-    position: absolute;
+.pagination-container {
+    justify-content: center;
+    align-items: center;
+    position: fixed;
     bottom: 0;
-    right: 50%;
-    transform: translateX(50%);
+    left: 50%; /* Zentriert die Box horizontal */
+    transform: translateX(-50%); /* Korrigiert die Zentrierung */
+    width: calc(var(--max-container-width) + 60px); /* Breite der Cards plus 30px Überstand auf jeder Seite */
+    padding: var(--padding-medium); /* Optional: Abstand innerhalb der Box */
+    background-color: var(--background-color-light);
+    border-radius: var(--border-radius);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Verhindert Überlauf */
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Dark Mode spezifische Stile */
+.dark-mode .pagination-container {
+    background-color: var(--background-color-dark);
+    box-shadow: 0 6px 10px rgba(255, 255, 255, 0.1); /* Hellerer Schatten für dunklen Modus */
+}
+
+/* Light Mode spezifische Stile */
+.light-mode .pagination-container {
+    background-color: var(--background-color-light);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Dunklerer Schatten für hellen Modus */
+}
+
+.pagination-link {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: none;
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.pagination-link:hover, .pagination-link.active {
+    background-color: transparent;
+    color: var(--hover-text-color);
 }
 
 .pagination-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin: 0 5px;
+    padding: 20px 20px;
+    transition: transform 0.3s ease, background-color 0.2s ease, color 0.2s ease;
     cursor: pointer;
-    transition: transform 0.3s ease;
 }
 
 .pagination-item:hover {
-    background-color: var(--hover-bg-color);
     color: var(--hover-text-color);
     transform: scale(1.05);
 }
@@ -32,29 +65,22 @@
     background-color: var(--primary-color-light);
 }
 
-.light-mode .pagination-item {
-    color: var(--primary-color-light);
+.pagination-item:focus, .pagination-item:hover {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-color-light);
 }
 
-.light-mode .pagination-item:hover {
-    background-color: var(--hover-bg-color-light);
-    color: var(--hover-text-color);
+/* Anpassungen für kleinere Bildschirme */
+@media (max-width: 480px), (max-width: 768px) {
+    /* Anpassungen für kleinere Bildschirme */
+    .pagination-container {
+        width: calc(100% - 60px); /* Reduziert die Breite auf 100% minus 30px Überstand auf jeder Seite */
+    }
 }
 
-/* Dark Mode */
-.dark-mode .pagination-item {
-    color: var(--primary-color-dark);
-}
-
-.dark-mode .pagination-item:hover {
-    background-color: var(--hover-bg-color-dark);
-    color: var(--hover-text-color-dark);
-}
-
-.dark-mode .pagination-item {
-    color: var(--text-color-dark);
-}
-
-.dark-mode .pagination-item-selected {
-    color: var(--text-color-dark);
+/* Anpassungen für größere Bildschirme */
+@media (min-width: 768px) {
+    .pagination-container {
+        width: calc(var(--max-container-width) + 60px); /* Breite der Cards plus 30px Überstand auf jeder Seite */
+    }
 }

@@ -1,6 +1,46 @@
 import axios from 'axios';
 import {API_BASE_URL, API_ENDPOINTS} from './apiSettings';
 
+export const register = async (user) => {
+    try {
+        const response = await axios.post(
+            `${API_BASE_URL}${API_ENDPOINTS.register}`, user);
+
+        if (response.data) {
+            console.log("User registered:", response.data);
+            return {data: response.data};
+        } else {
+            console.error('Unerwartetes Datenformat erhalten:', response.data);
+            return {data: {}, error: 'Ungültiges Datenformat'};
+        }
+
+    } catch (error) {
+
+        console.error('Fehler beim Registrieren:', error);
+        return {data: {}, error: error.message};
+    }
+}
+
+export const login = async (user) => {
+    try {
+        const response = await axios.post(
+            `${API_BASE_URL}${API_ENDPOINTS.login}`, user);
+
+        if (response.data) {
+            console.log("User logged in:", response.data);
+            return {data: response.data};
+        } else {
+            console.error('Unerwartetes Datenformat erhalten:', response.data);
+            return {data: {}, error: 'Ungültiges Datenformat'};
+        }
+
+    } catch (error) {
+
+        console.error('Fehler beim Einloggen:', error);
+        return {data: {}, error: error.message};
+    }
+}
+
 export const home = async () => {
     try {
         const response = await axios.get(
@@ -36,12 +76,12 @@ export const fetchAll = async (
     pageSize = 12) => {
     try {
         const response = await axios.get(`${API_BASE_URL}${API_ENDPOINTS.fetchAll}`, {
-            params: { page, pageSize }
+            params: {page, pageSize}
         });
         return response.data;
     } catch (error) {
         console.error('Fehler beim Abrufen der Daten:', error);
-        return { data: [], error: error.message };
+        return {data: [], error: error.message};
     }
 };
 

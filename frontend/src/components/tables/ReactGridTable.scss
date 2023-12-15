@@ -1,0 +1,175 @@
+$text-color-light: var(--text-color-light);
+$text-color-dark: var(--text-color-dark);
+$background-color-light: var(--background-color-light);
+$background-color-dark: var(--background-color-dark);
+$border-color-light: var(--border-color-light);
+$border-color-dark: var(--border-color-dark);
+$hover-bg-color-light: var(--hover-bg-color-light);
+$hover-bg-color-dark: var(--hover-bg-color-dark);
+
+@import '../../../node_modules/@silevis/reactgrid/styles.scss';
+
+.react-grid-table-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--padding-medium);
+
+  &.light-mode {
+    --text-color: $text-color-light;
+    --background-color: $background-color-light;
+    --border-color: $border-color-light;
+    --hover-bg-color: $hover-bg-color-light;
+  }
+
+  &.dark-mode {
+    --text-color: $text-color-dark;
+    --background-color: $background-color-dark;
+    --border-color: $border-color-dark;
+    --hover-bg-color: $hover-bg-color-dark;
+  }
+
+  color: var(--text-color);
+  background-color: var(--background-color);
+
+  .react-grid-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--margin-small);
+
+    th, td {
+      padding: var(--padding-small);
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    tbody tr:hover {
+      background-color: var(--hover-bg-color);
+    }
+  }
+
+  .react-grid-cell {
+    border: 1px solid var(--border-color);
+    text-align: center;
+  }
+
+  .react-grid-column {
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid var(--border-color);
+  }
+
+  .controls-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    .file-upload-label, .settings-icon-container {
+      cursor: pointer;
+    }
+
+    .file-upload-label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .settings-icon-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+      padding: 5px;
+    }
+  }
+
+  .settings-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: var(--padding-medium);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    box-shadow: 0 0 10px var(--border-color);
+    max-height: 80vh;
+    overflow-y: auto;
+    width: 80vw;
+    max-width: 800px;
+
+    .settings-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+
+      .settings-modal-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .settings-modal-close-icon {
+        cursor: pointer;
+      }
+    }
+
+    .settings-modal-content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .settings-modal-content-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+
+        .settings-modal-content-row-label {
+          font-weight: bold;
+        }
+
+        .settings-modal-content-row-input {
+          width: 100%;
+        }
+      }
+    }
+
+    .settings-modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+
+      .settings-modal-footer-button {
+        padding: var(--padding-small);
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        cursor: pointer;
+      }
+    }
+  }
+
+  // Responsive Design (Beispiel)
+  @media (max-width: 600px) {
+    .react-grid-table {
+      font-size: 0.8rem;
+    }
+
+    .react-grid-column, .react-grid-cell {
+      padding: 5px;
+    }
+  }
+}
+
