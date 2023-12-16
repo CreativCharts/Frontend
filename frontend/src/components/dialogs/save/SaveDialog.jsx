@@ -1,40 +1,48 @@
 import PropTypes from "prop-types";
-import {Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button} from '@mui/material';
+import {Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button} from "@mui/material";
 import './SaveDialog.css';
 
 const SaveDialog = ({open, title, message, onClose, onConfirm}) => {
     return (
-        <div>
-            <Dialog
-                className='save-dialog'
-                open={open}
-                onClose={onClose}
-            >
-                <DialogTitle
-                    className='save-dialog-title'
-                >{title}
-                </DialogTitle>
-                <DialogContent>
-                    <DialogContentText>
-                        {message}
-                    </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                    <Button
-                        className='save-dialog-button'
-                        onClick={onConfirm}
-                        autoFocus
-                        justify-content="center"
-                        variant="contained"
-                        color="success"
-                    >
-                        OK
-                    </Button>
-                </DialogActions>
-            </Dialog>
-        </div>
+            <div>
+                <Dialog
+                        className="save-dialog"
+                        open={open}
+                        onClose={onClose}
+                >
+                    <DialogTitle className="save-dialog-title">
+                        {title}
+                    </DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            {message}
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <div className="save-dialog-buttons">
+                            <Button
+                                    className="save-cancel-button"
+                                    onClick={onClose}
+                                    color="primary"
+                            >
+
+                                Abbrechen
+                            </Button>
+                            <Button
+                                    className="save-confirm-button"
+                                    onClick={onConfirm}
+                                    color="success"
+                                    autoFocus
+
+                            >
+                                Bestätigen
+                            </Button>
+                        </div>
+                    </DialogActions>
+                </Dialog>
+            </div>
     );
-}
+};
 
 SaveDialog.propTypes = {
     open: PropTypes.bool.isRequired,

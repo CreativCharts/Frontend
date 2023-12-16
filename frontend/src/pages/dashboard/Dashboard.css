@@ -4,7 +4,7 @@
     flex-grow: 1;
     max-height: calc(100% - var(--appbar-height) - var(--margin-medium) - var(--margin-medium));
     margin-top: calc(var(--margin-medium) + 5%); /* Zusätzlicher Abstand unter der Pagination */
-    margin-bottom: calc(var(--margin-medium) + 5%); /* Zusätzlicher Abstand über der Pagination */
+    margin-bottom: calc(var(--margin-medium) + 2%); /* Zusätzlicher Abstand über der Pagination */
 }
 
 .dashboard-grid-container {

@@ -11,8 +11,7 @@ import SideDrawer from "./components/drawer/SideDrawer/SideDrawer.jsx";
 import './App.css';
 import Impressions from "./pages/impressions/Impressions.jsx";
 import {AuthProvider} from "./components/context/authContext/AuthContext.jsx";
-import Register from "./components/auth/register/Register.jsx";
-import Login from "./components/auth/login/Login.jsx";
+
 
 const NotFound = () => {
     return (
@@ -62,8 +61,6 @@ export default function App() {
                             <Routes>
                                 <Route path="*" element={<NotFound/>}/>
                                 <Route path="/" element={<Dashboard/>}/>
-                                <Route path="/login" element={<Login/>}/>
-                                <Route path="/register" element={<Register/>}/>
                                 <Route path="/home" element={<Home/>}/>
                                 <Route path="/dashboard" element={<Dashboard/>}/>
                                 <Route path="/editor" element={<Editor/>}/>

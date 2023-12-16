@@ -5,12 +5,15 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: calc(100vh - var(--appbar-height));
     width: var(--max-container-width);
-    background-size: cover;
     padding: var(--padding-vertical) var(--padding-horizontal);
-    animation: Bg-colors 16s ease infinite;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
+
 
 .home-header {
     font-size: var(--font-size-large);
@@ -60,5 +63,3 @@
     box-shadow: var(--box-shadow-hover);
     color: var(--background-color-light);
 }
-
-

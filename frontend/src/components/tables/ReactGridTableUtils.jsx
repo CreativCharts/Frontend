@@ -14,7 +14,7 @@ export const getColumns = () => {
 export const getRows = () => {
     const rows = [];
 
-    for (let i = 1; i <= 4; i++) {
+    for (let i = 1; i <= 5; i++) {
         const cells = [];
 
         for (let j = 1; j <= 10; j++) {
@@ -55,7 +55,7 @@ export const getRowsFromData = (data) => {
         }
 
         if (cells.length > 0) {
-            rows.push({ rowId: `row${i}`, cells });
+            rows.push({rowId: `row${i}`, cells});
         }
     }
     return rows;
@@ -64,7 +64,11 @@ export const getRowsFromData = (data) => {
 export const getColumnsFromData = (data) => {
     const columns = [];
     for (let i = 0; i < data[0].length; i++) {
-        columns.push({ columnId: `col${i}`, title: `Col ${i}`, className: `react-grid-column react-grid-column-${i}` });
+        columns.push({
+            columnId: `col${i}`,
+            title: `Col ${i}`,
+            className: `react-grid-column react-grid-column-${i}`
+        });
     }
     return columns;
 };

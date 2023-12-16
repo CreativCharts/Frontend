@@ -1,8 +1,9 @@
 import {useState} from 'react';
-import {Button} from "@mui/material";
+import {Box, FormControl, FormControlLabel, Checkbox, Select, MenuItem, Button, InputLabel} from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
 
 const NotificationSettings = () => {
+
     const [notificationsEnabled, setNotificationsEnabled] = useState(true);
     const [notificationType, setNotificationType] = useState('Email');
 
@@ -15,45 +16,53 @@ const NotificationSettings = () => {
     };
 
     return (
-        <section>
-            <h4>Benachrichtigungen</h4>
-            <form>
-                <label>
-                    Benachrichtigungen aktivieren:
-                    <input
-                        type="checkbox"
-                        checked={notificationsEnabled}
-                        onChange={handleToggleChange}
-                    />
-                    <br/>
-                    <br/>
-                </label>
-
-                <label>
-                    Art der Benachrichtigung:
-                    <br/>
-                    <select
-                        value={notificationType}
-                        onChange={handleTypeChange}
-                        form={"notificationTypeForm"}
-                        title={"notificationTypeForm"}
+            <Box
+                    component="form"
+                    noValidate
+                    autoComplete="off"
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'space-evenly',
+                        gap: 1,
+                        height: '350px'
+                    }}
+            >
+                <FormControlLabel
+                        control={
+                            <Checkbox
+                                    checked={notificationsEnabled}
+                                    onChange={handleToggleChange}
+                            />
+                        }
+                        label="Benachrichtigungen aktivieren"
+                        labelPlacement="top"
+                        sx={{mb: 1, width: '100%'}}
+                />
+                <FormControl variant="outlined" fullWidth>
+                    <InputLabel id="notification-type-label">Art der Benachrichtigung</InputLabel>
+                    <Select
+                            labelId="notification-type"
+                            id="notification-type-select"
+                            value={notificationType}
+                            onChange={handleTypeChange}
+                            label="Art der Benachrichtigung"
                     >
-
-                        <option value="Email">Email</option>
-                        <option value="SMS">SMS</option>
-                        <option value="Push">Push</option>
-                    </select>
-                </label>
+                        <MenuItem value={"Email"}>Email</MenuItem>
+                        <MenuItem value={"SMS"}>SMS</MenuItem>
+                        <MenuItem value={"Push"}>Push</MenuItem>
+                    </Select>
+                </FormControl>
                 <Button
-                    form={"notificationTypeForm"}
-                    title={"notificationTypeForm"}
+                        variant="outlined"
+                        startIcon={<SaveIcon/>}
+                        sx={{mt: 1}}
                 >
-                    <SaveIcon/>
+                    Änderungen speichern
                 </Button>
-            </form>
-        </section>
-
+            </Box>
     );
-}
+};
 
 export default NotificationSettings;

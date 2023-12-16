@@ -1,6 +1,5 @@
 import {useCallback, useState} from "react";
 import ExcelReader from "./ExcelReader.jsx";
-import PropTypes from "prop-types";
 import ChartDisplay from "../displays/chartDisplay/ChartDisplay.jsx";
 
 const ExcelViewer = () => {
@@ -52,9 +51,5 @@ const ExcelViewer = () => {
     );
 };
 
-ExcelViewer.propTypes = {
-    file: PropTypes.object,
-    data: PropTypes.array,
-};
 
 export default ExcelViewer;

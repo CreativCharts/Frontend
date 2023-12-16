@@ -12,34 +12,23 @@
     margin-bottom: var(--margin-medium);
 }
 
-.save-dialog-button {
+.save-dialog-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.save-confirm-button {
     align-content: center;
-    right: 50%;
-    transform: translateX(50%);
+    color: var(--text-color);
+}
+
+.save-confirm-button:hover {
     background-color: var(--success-color);
 }
 
-.save-dialog-button:hover {
-    background-color: var(--hover-bg-color);
-    color: var(--hover-text-color-light);
-}
-
-/* Light Mode */
-.light-mode .save-dialog-button {
-    color: var(--success-color);
-}
-
-.light-mode .save-dialog-button:hover {
-    background-color: var(--hover-bg-color-light);
-    color: var(--hover-text-color-light);
-}
-
-/* Dark Mode */
-.dark-mode .save-dialog-button {
-    color: var(--text-color-dark);
-}
-
-.dark-mode .save-dialog-button:hover {
-    background-color: var(--success-color);
-    color: var(--hover-text-color-dark);
+.save-dialog-content {
+    justify-content: center;
 }

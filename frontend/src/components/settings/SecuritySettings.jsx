@@ -1,5 +1,6 @@
 import {useState} from 'react';
-import {Button} from "@mui/material";
+import {Button, TextField, FormControlLabel, Checkbox, Box} from "@mui/material";
+import SaveIcon from "@mui/icons-material/Save";
 
 const SecuritySettings = () => {
     const [password, setPassword] = useState('');
@@ -24,57 +25,69 @@ const SecuritySettings = () => {
     };
 
     return (
-        <section>
-            <h4>Sicherheit</h4>
-            <form>
-                <label>
-                    Zwei-Faktor-Authentifizierung:
-                    <input
-                        type="checkbox"
-                        checked={twoFactorAuth}
-                        onChange={handleTwoFactorAuthChange}
-                    />
-                </label>
-                <br/><br/>
-                <label>
-                    Aktuelles Passwort:
-                    <br/>
-                    <input
+            <Box
+                    component="form"
+                    noValidate
+                    autoComplete="off"
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'space-evenly',
+                        gap: 1,
+                        height: '350px'
+                    }}
+            >
+                <FormControlLabel
+                        control={
+                            <Checkbox
+                                    checked={twoFactorAuth}
+                                    onChange={handleTwoFactorAuthChange}
+                                    fullWidth
+                            />
+                        }
+                        label="Zwei-Faktor-Authentifizierung"
+                        labelPlacement="top"
+                        sx={{mb: 1, width: '100%'}}
+                />
+                <TextField
+                        id="current-password"
+                        label="Aktuelles Passwort"
                         type="password"
                         value={password}
                         onChange={handlePasswordChange}
-                    />
-                </label>
-                <br/><br/>
-                <label>
-                    Neues Passwort:
-                    <br/>
-                    <input
+                        size="small"
+                        fullWidth
+                        sx={{width: '100%'}}
+                />
+                <TextField
+                        id="new-password"
+                        label="Neues Passwort"
                         type="password"
                         value={newPassword}
                         onChange={handleSetNewPassword}
-                    />
-                </label>
-
-                <label>
-                    <br/><br/>
-                    Neues Passwort bestätigen:
-                    <br/>
-                    <input
+                        size="small"
+                        fullWidth
+                        sx={{width: '100%'}}
+                />
+                <TextField
+                        id="retype-password"
+                        label="Neues Passwort bestätigen"
                         type="password"
                         value={confirmNewPassword}
                         onChange={handleConfirmNewPassword}
-                    />
-                </label>
-                <br/>
+                        size="small"
+                        fullWidth
+                        sx={{width: '100%'}}
+                />
                 <Button
-                    form={"passwordForm"}
-                    title={"passwordForm"}
+                        variant="outlined"
+                        sx={{mt: 1}}
+                        startIcon={<SaveIcon/>}
                 >
                     Passwort ändern
                 </Button>
-            </form>
-        </section>
+            </Box>
     );
 };
 

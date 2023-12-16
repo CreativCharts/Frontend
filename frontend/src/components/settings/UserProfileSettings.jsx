@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {Button} from "@mui/material";
+import {Box, Button, TextField} from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
 
 const UserProfileSettings = () => {
@@ -15,42 +15,48 @@ const UserProfileSettings = () => {
     };
 
     return (
-        <section>
-            <h4>Benutzerprofil</h4>
-            <form>
-                <label>
-                    Benutzername ändern:
-                    <br/>
-                    <input
-                        type="text"
+            <Box
+                    component="form"
+                    noValidate
+                    autoComplete="off"
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'space-evenly',
+                        gap: 1,
+                        height: '350px'
+                    }}
+            >
+                <TextField
+                        id="username"
+                        label="Benutzername ändern"
+                        variant="outlined"
                         value={username}
                         onChange={handleUsernameChange}
-                    />
-                </label>
-                <Button
-                    form={"usernameForm"}
-                    title={"usernameForm"}
-                >
-                    <SaveIcon/>
-                </Button>
-                <label>
-                    <br/><br/>
-                    E-Mail ändern:
-                    <br/>
-                    <input
-                        type="email"
+                        size="small"
+                        fullWidth
+                        sx={{width: '100%'}}    // Set width to 100%
+                />
+                <TextField
+                        id="email"
+                        label="E-Mail ändern"
+                        variant="outlined"
                         value={email}
                         onChange={handleEmailChange}
-                    />
-                </label>
+                        size="small"
+                        fullWidth
+                        sx={{width: '100%'}}    // Set width to 100%
+                />
                 <Button
-                    form={"emailForm"}
-                    title={"emailForm"}
+                        variant="outlined"
+                        startIcon={<SaveIcon/>}
+                        onClick={() => alert('Änderungen gespeichert!')}
+                        sx={{mt: 1}}
                 >
-                    <SaveIcon/>
+                    Änderungen speichern
                 </Button>
-            </form>
-        </section>
+            </Box>
     );
 };
 

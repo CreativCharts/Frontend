@@ -79,7 +79,23 @@ export default function Dashboard() {
                     className="dashboard-container"
             >
                 {error && <Alert severity="error">{error}</Alert>}
-                {charts.length === 0 && !error && <CircularProgress/>}
+
+                {charts.length === 0 && !error &&
+                        <div style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            position: 'fixed',
+                            top: '0',
+                            left: '0',
+                            width: '100%',
+                            height: '100%',
+                            zIndex: '999',
+                            backgroundColor: 'rgba(255, 255, 255, 0.3)', // Optional, provides a semi-transparent background
+                        }}>
+                            <CircularProgress/>
+                        </div>
+                }
                 {charts.length > 0 && (
                         <Grid container spacing={2}>
                             {charts.map((chart) => (

@@ -194,7 +194,6 @@
     --table-input-text-color-light: var(--text-color-light);
 
     /* Global Hover Effect */
-
     .global-hover-effect {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         border-radius: var(--border-radius);
@@ -227,6 +226,7 @@
     --hover-bg-color-light: rgba(4, 29, 47, 0.1);
     --hover-text-color-light: rgba(255, 255, 255, 0.1);
     --hover-error-color: rgba(244, 67, 54, 0.1);
+    --hover-success-color: rgba(18, 211, 26, 0.1);
 }
 
 /* Globale Stile */
