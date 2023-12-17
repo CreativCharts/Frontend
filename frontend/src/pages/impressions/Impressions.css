@@ -1,0 +1,45 @@
+.impressions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.impressions h1 {
+    color: var(--text-color);
+    font-size: 2em;
+}
+
+.impressions h2 {
+    color: var(--text-color);
+    font-size: 1.5em;
+}
+
+.impressions p {
+    color: #999;
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+.impressions a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.github-icon-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 1.5em;
+    margin: 20px;
+    transition: background-color 0.3s ease;
+}

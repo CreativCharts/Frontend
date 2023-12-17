@@ -1,0 +1,54 @@
+.editor-root {
+    margin-top: var(--appbar-height);
+    display: flex;
+    flex-direction: column;
+
+}
+
+.editor-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: calc(98vh - var(--appbar-height));
+    left:calc(var(--side-drawer-width) + var(--margin-small));
+    overflow: hidden;
+}
+
+.editor-root.dark-mode {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+}
+
+.editor-root.light-mode {
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+}
+
+.chart-area {
+    flex-grow: 1;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+
+.table-area.light-mode {
+    background-color: var(--background-color-light);
+    border-color: var(--border-color-light);
+    color: var(--text-color-light);
+}
+.table-area.dark-mode {
+    background-color: var(--background-color-dark);
+    border-color: var(--border-color-dark);
+    color: var(--text-color-dark);
+}
+
+.table-area {
+    flex-grow: 1;
+    overflow: auto;
+    border-radius: 8px;
+}
+
+.editor-icon-button {
+    margin: var(--margin-small);
+    border: var(--border-width) var(--border-style) var(--border-color-light);
+    border-radius: var(--border-radius);
+}

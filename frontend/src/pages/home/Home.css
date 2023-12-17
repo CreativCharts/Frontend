@@ -1,0 +1,65 @@
+.home-container {
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: var(--max-container-width);
+    padding: var(--padding-vertical) var(--padding-horizontal);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+
+.home-header {
+    font-size: var(--font-size-large);
+    margin-top: var(--appbar-height);
+    color: var(--text-color-light);
+    animation: fadeIn 1s;
+}
+
+.home-title {
+    font-size: var(--font-size-xlarge);
+    margin-top: var(--margin-large);
+    color: var(--primary-color);
+    animation: fadeIn 2s;
+}
+
+.home-subtitle {
+    font-size: var(--font-size-large);
+    margin-top: var(--margin-large);
+    color: var(--text-color-light);
+    animation: fadeIn 5s;
+}
+
+.home-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--margin-medium);
+    margin-top: var(--margin-large);
+}
+
+.home-button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border-radius: var(--border-radius);
+    padding: var(--padding-small) var(--padding-medium);
+    border: none;
+    cursor: pointer;
+    width: var(--button-width);
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition), background-color var(--transition), box-shadow var(--transition);
+}
+
+.home-button:hover {
+    transform: scale(1.1);
+    background-color: var(--primary-color-dark);
+    box-shadow: var(--box-shadow-hover);
+    color: var(--background-color-light);
+}

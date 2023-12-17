@@ -1,0 +1,67 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-height: calc(100% - var(--appbar-height) - var(--margin-medium) - var(--margin-medium));
+    margin-top: calc(var(--margin-medium) + 5%); /* Zusätzlicher Abstand unter der Pagination */
+    margin-bottom: calc(var(--margin-medium) + 2%); /* Zusätzlicher Abstand über der Pagination */
+}
+
+.dashboard-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: var(--margin-medium);
+    padding: var(--margin-medium);
+    max-width: var(--max-container-width);
+}
+
+.charts-grid {
+    display: grid;
+    max-width: var(--max-container-width);
+    padding: var(--chart-card-padding);
+    max-height: calc(100vh - var(--appbar-height) - var(--margin-medium) - var(--margin-medium));
+    margin-bottom: 30px; /* Zusätzlicher Abstand über der Pagination */
+}
+
+.create-button-container {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    color: var(--create-button-fab-text-color);
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+}
+
+.dark-mode .create-button-fab {
+    background-color: var(--create-button-fab-bg-color-dark);
+    color: var(--create-button-fab-text-color-dark);
+}
+
+.light-mode .create-button-fab {
+    background-color: var(--create-button-fab-bg-color-light);
+    color: var(--create-button-fab-text-color-light);
+}
+
+.pagination-container-dashboard {
+    bottom: 0;
+    left: 50%; /* Zentrierung der Box auf der Seite */
+    transform: translateX(-50%); /* Verschiebung der Box, um sie korrekt zu zentrieren */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100vw; /* Maximale Breite der Box */
+    width: calc(var(--max-container-width) + 60px);
+    box-sizing: border-box;
+    padding: var(--padding-medium); /* Optional: Abstand innerhalb der Box */
+}
+
+.pagination-container-dashboard.dark-mode {
+    background-color: var(--background-color-dark);
+    box-shadow: 0 6px 10px rgba(255, 255, 255, 0.1);
+}
+
+.pagination-container-dashboard.light-mode {
+    background-color: var(--background-color-light);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\frontend",
+    "\\frontend\\src",
+    "\\frontend\\src\\components",
+    "\\frontend\\src\\components\\styles",
+    "\\frontend\\src\\components\\tables",
+    "\\frontend\\src\\constants",
+    "\\frontend\\src\\hooks",
+    "\\frontend\\src\\pages"
+  ],
+  "SelectedNode": "\\frontend\\src\\pages\\Editor.jsx",
+  "PreviewInSolutionExplorer": false
+}

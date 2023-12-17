@@ -1,0 +1,39 @@
+.settings-page-root {
+
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.settings-section {
+    display: flex;
+    margin-top: calc(var(--margin-small));
+    padding: var(--padding-small);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    transition: box-shadow 0.3s ease;
+}
+
+.settings-section:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.profile-settings,
+.notification-settings,
+.security-settings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.user-profile-settings-container,
+.notification-settings-container {
+    flex-direction: row;
+}
+
+.security-settings {
+    flex-direction: column;
+}

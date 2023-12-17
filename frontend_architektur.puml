@@ -1,0 +1,444 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class node38 as "@emotion/.../css-prop.d.ts"
+class node4 as "@mui/.../Avatar.d.ts"
+class node10 as "@mui/.../BarChart.d.ts" {
+   BarChart:
+}
+class node63 as "@mui/.../IconButton.d.ts"
+class node15 as "@mui/.../LineChart.d.ts" {
+   LineChart:
+}
+class node6 as "@mui/.../Menu.d.ts"
+class node40 as "@mui/.../MenuItem.d.ts"
+class node3 as "@mui/.../SvgIcon.d.ts"
+class node45 as "@mui/.../index.d.ts" {
+   Logout:
+   Settings:
+}
+class node47 as "@mui/.../index.d.ts" {
+   PieChart:
+}
+class node54 as "@mui/.../index.d.ts" {
+   ThemeProvider:
+   createTheme:
+}
+class node55 as "@mui/.../index.d.ts" {
+   AppBar:
+   Button:
+   Container:
+   FormControl:
+   Grid:
+   InputLabel:
+   MenuItem:
+   Select:
+   Toolbar:
+   Typography:
+}
+class node2 as "@silevis/.../reactgrid.d.ts" {
+   ReactGrid:
+}
+class node42 as "@silevis/.../styles.css"
+class node27 as "@types/.../canary.d.ts"
+class node20 as "@types/.../client.d.ts"
+class node18 as "@types/.../experimental.d.ts"
+class node21 as "@types/.../index.d.ts"
+class node29 as "@types/.../index.d.ts" {
+   createContext:
+   useCallback:
+   useEffect:
+   useMemo:
+}
+class node11 as "api/api.js" {
+   API_BASE_URL:
+   API_ENDPOINTS:
+   axios:
+   fetchAll:
+   saveChart:
+}
+class node52 as "api/apiSettings.js" {
+   API_BASE_URL:
+   API_ENDPOINTS:
+}
+class node58 as "axios/index.d.cts"
+class node9 as "axios/index.d.ts"
+class node16 as "bar/BarChart.jsx" {
+   BarChart:
+   chartSettings:
+   transformRowsToBarChartData:
+   useData:
+}
+class node37 as "buttons/SaveButtonComponent.jsx" {
+   React:
+   saveChart:
+   useData:
+}
+class node48 as "cards/ChartCard.jsx" {
+   BarChart:
+   LineChart:
+   PieChart:
+   PropTypes:
+   React:
+   transformRowsToBarChartData:
+   transformRowsToLineChartData:
+   transformRowsToPieChartData:
+}
+class node5 as "charts/ChartDisplay.jsx" {
+   BarChartComponent:
+   FormControl:
+   InputLabel:
+   LineChartComponent:
+   MenuItem:
+   PieChartComponent:
+   Select:
+   useState:
+}
+class node19 as "charts/DataContext.jsx" {
+   DataProvider:
+   PropTypes:
+   createContext:
+   useContext:
+   useData:
+   useMemo:
+   useState:
+}
+class node62 as "error/ErrorBoundary.jsx" {
+   Component:
+}
+class node44 as "excel/ExcelReader.jsx" {
+   XLSX:
+}
+class node1 as "excel/ExcelViewer.jsx" {
+   ChartDisplay:
+   ExcelReader:
+   PropTypes:
+   useCallback:
+   useState:
+}
+class node23 as "header/DarkModeToggle.jsx" {
+   Brightness4Icon:
+   IconButton:
+   React:
+   ThemeProvider:
+   createTheme:
+   useState:
+}
+class node14 as "header/Header.jsx" {
+   AppBar:
+   DarkModeToggle:
+   NavigationMenu:
+   React:
+   Toolbar:
+   UserMenu:
+}
+class node34 as "header/NavigationMenu.jsx" {
+   IconButton:
+   Link:
+   Menu:
+   MenuIcon:
+   MenuItem:
+   React:
+   useState:
+}
+class node43 as "header/UserMenu.jsx" {
+   Avatar:
+   IconButton:
+   Link:
+   Logout:
+   Menu:
+   MenuItem:
+   React:
+   Settings:
+}
+class node12 as "home/index.jsx" {
+   React:
+}
+class node32 as "layout/MainLayout.jsx" {
+   Container:
+   Grid:
+   MainLayout:
+   PropTypes:
+}
+class node60 as "line/LineChart.jsx" {
+   LineChart:
+   React:
+   chartSetting:
+   transformRowsToLineChartData:
+   useData:
+}
+class node28 as "navigation/MenuButton.jsx" {
+   IconButton:
+   MenuIcon:
+   React:
+}
+class node17 as "navigation/NavMenu.jsx" {
+   Menu:
+   NavMenuItem:
+   React:
+}
+class node49 as "navigation/NavMenuItem.jsx" {
+   Link:
+   MenuItem:
+   PropTypes:
+   React:
+}
+class node35 as "navigation/NavigationMenu.jsx" {
+   MenuButton:
+   NavMenu:
+   React:
+}
+class node33 as "navigation/UserMenu.jsx" {
+   Avatar:
+   IconButton:
+   Menu:
+   MenuItem:
+   React:
+}
+class node26 as "pages/Dashboard.jsx" {
+   ChartCard:
+   fetchAll:
+   useEffect:
+   useState:
+}
+class node61 as "pages/Editor.jsx" {
+   ChartDisplay:
+   DataProvider:
+   Editor.css:
+   ReactGridTable:
+   SaveButtonComponent:
+   saveChart:
+   useData:
+}
+class node39 as "pages/LandingPage.jsx" {
+   Button:
+   Container:
+   Header:
+   Link:
+   Typography:
+}
+class node7 as "pie/PieChart.jsx" {
+   PieChart:
+   chartSetting:
+   transformRowsToPieChartData:
+   useData:
+}
+class react {
+   Component:
+   useContext:
+   useState:
+}
+class node24 as "react-router-dom/.../index.d.ts" {
+   BrowserRouter:
+   Link:
+}
+class node41 as "react-router/.../components.d.ts" {
+   Route:
+   Routes:
+}
+class node8 as "settings/chartSetting.js" {
+   chartSetting:
+}
+class node56 as "settings/chartSetting.js" {
+   chartSettings:
+}
+class node59 as "settings/chartSetting.js" {
+   chartSetting:
+}
+class node30 as "settings/transformer.js" {
+   transformRowsToBarChartData:
+}
+class node50 as "settings/transformer.js" {
+   chartSetting:
+   transformRowsToPieChartData:
+}
+class node51 as "settings/transformer.js" {
+   transformRowsToLineChartData:
+}
+class node22 as "src/App.jsx" {
+   Dashboard:
+   DataProvider:
+   Editor:
+   Header:
+   LandingPage:
+   MainLayout:
+   Route:
+   Router:
+   Routes:
+}
+class node31 as "src/index.css"
+class node36 as "src/main.jsx" {
+   App:
+   ReactDOM:
+   index.css:
+}
+class node25 as "styles/Editor.css"
+class node13 as "styles/ReactGridTable.css"
+class node0 as "tables/ReactGridTable.jsx" {
+   ExcelReader:
+   React:
+   ReactGrid:
+   ReactGridTable.css:
+   getColumns:
+   getColumnsFromData:
+   getHeaders:
+   getHeadersFromData:
+   getRows:
+   getRowsFromData:
+   useData:
+}
+class node57 as "tables/ReactGridTableUtils.jsx" {
+   getColumns:
+   getColumnsFromData:
+   getHeaders:
+   getHeadersFromData:
+   getRows:
+   getRowsFromData:
+}
+class node46 as "xlsx/.../index.d.ts"
+
+node11  <-[#595959,plain]-  node52
+node11  <-[#595959,plain]-  node52
+node11  <-[#595959,plain]-  node58
+node11  <-[#595959,plain]-  node9
+node16  <-[#595959,plain]-  node10
+node16  <-[#595959,plain]-  node19
+node16  <-[#595959,plain]-  node56
+node16  <-[#595959,plain]-  node30
+node37  <-[#595959,plain]-  node29
+node37  <-[#595959,plain]-  node11
+node37  <-[#595959,plain]-  node19
+node48  <-[#595959,plain]-  node21
+node48  <-[#595959,plain]-  node29
+node48  <-[#595959,plain]-  node16
+node48  <-[#595959,plain]-  node60
+node48  <-[#595959,plain]-  node7
+node48  <-[#595959,plain]-  node50
+node48  <-[#595959,plain]-  node51
+node48  <-[#595959,plain]-  node30
+node5   <-[#595959,plain]-  node55
+node5   <-[#595959,plain]-  node55
+node5   <-[#595959,plain]-  node55
+node5   <-[#595959,plain]-  node55
+node5   <-[#595959,plain]-  node16
+node5   <-[#595959,plain]-  node60
+node5   <-[#595959,plain]-  node7
+node5   <-[#595959,plain]-  react
+node19  <-[#595959,plain]-  node29
+node19  <-[#595959,plain]-  node21
+node19  <-[#595959,plain]-  node29
+node19  <-[#595959,plain]-  react
+node19  <-[#595959,plain]-  react
+node62  <-[#595959,plain]-  react
+node44  <-[#595959,plain]-  node46
+node1   <-[#595959,plain]-  node29
+node1   <-[#595959,plain]-  node21
+node1   <-[#595959,plain]-  node5
+node1   <-[#595959,plain]-  node44
+node1   <-[#595959,plain]-  react
+node23  <-[#595959,plain]-  node63
+node23  <-[#595959,plain]-  node3
+node23  <-[#595959,plain]-  node54
+node23  <-[#595959,plain]-  node54
+node23  <-[#595959,plain]-  node29
+node23  <-[#595959,plain]-  react
+node14  <-[#595959,plain]-  node55
+node14  <-[#595959,plain]-  node55
+node14  <-[#595959,plain]-  node29
+node14  <-[#595959,plain]-  node23
+node14  <-[#595959,plain]-  node34
+node14  <-[#595959,plain]-  node43
+node34  <-[#595959,plain]-  node63
+node34  <-[#595959,plain]-  node6
+node34  <-[#595959,plain]-  node40
+node34  <-[#595959,plain]-  node3
+node34  <-[#595959,plain]-  node29
+node34  <-[#595959,plain]-  react
+node34  <-[#595959,plain]-  node24
+node43  <-[#595959,plain]-  node4
+node43  <-[#595959,plain]-  node63
+node43  <-[#595959,plain]-  node6
+node43  <-[#595959,plain]-  node40
+node43  <-[#595959,plain]-  node45
+node43  <-[#595959,plain]-  node45
+node43  <-[#595959,plain]-  node29
+node43  <-[#595959,plain]-  node24
+node12  <-[#595959,plain]-  node29
+node32  <-[#595959,plain]-  node55
+node32  <-[#595959,plain]-  node55
+node32  <-[#595959,plain]-  node21
+node60  <-[#595959,plain]-  node38
+node60  <-[#595959,plain]-  node15
+node60  <-[#595959,plain]-  node27
+node60  <-[#595959,plain]-  node18
+node60  <-[#595959,plain]-  node29
+node60  <-[#595959,plain]-  node19
+node60  <-[#595959,plain]-  node59
+node60  <-[#595959,plain]-  node51
+node28  <-[#595959,plain]-  node63
+node28  <-[#595959,plain]-  node3
+node28  <-[#595959,plain]-  node29
+node17  <-[#595959,plain]-  node6
+node17  <-[#595959,plain]-  node29
+node17  <-[#595959,plain]-  node49
+node49  <-[#595959,plain]-  node40
+node49  <-[#595959,plain]-  node21
+node49  <-[#595959,plain]-  node29
+node49  <-[#595959,plain]-  node24
+node35  <-[#595959,plain]-  node29
+node35  <-[#595959,plain]-  node28
+node35  <-[#595959,plain]-  node17
+node33  <-[#595959,plain]-  node4
+node33  <-[#595959,plain]-  node63
+node33  <-[#595959,plain]-  node6
+node33  <-[#595959,plain]-  node40
+node33  <-[#595959,plain]-  node29
+node26  <-[#595959,plain]-  node29
+node26  <-[#595959,plain]-  node11
+node26  <-[#595959,plain]-  node48
+node26  <-[#595959,plain]-  react
+node61  <-[#595959,plain]-  node11
+node61  <-[#595959,plain]-  node37
+node61  <-[#595959,plain]-  node5
+node61  <-[#595959,plain]-  node19
+node61  <-[#595959,plain]-  node19
+node61  <-[#595959,plain]-  node25
+node61  <-[#595959,plain]-  node0
+node39  <-[#595959,plain]-  node55
+node39  <-[#595959,plain]-  node55
+node39  <-[#595959,plain]-  node55
+node39  <-[#595959,plain]-  node14
+node39  <-[#595959,plain]-  node24
+node7   <-[#595959,plain]-  node47
+node7   <-[#595959,plain]-  node19
+node7   <-[#595959,plain]-  node8
+node7   <-[#595959,plain]-  node50
+node50  <-[#595959,plain]-  node8
+node22  <-[#595959,plain]-  node19
+node22  <-[#595959,plain]-  node14
+node22  <-[#595959,plain]-  node32
+node22  <-[#595959,plain]-  node26
+node22  <-[#595959,plain]-  node61
+node22  <-[#595959,plain]-  node39
+node22  <-[#595959,plain]-  node24
+node22  <-[#595959,plain]-  node41
+node22  <-[#595959,plain]-  node41
+node36  <-[#595959,plain]-  node20
+node36  <-[#595959,plain]-  node22
+node36  <-[#595959,plain]-  node31
+node13  <-[#595959,plain]-  node42
+node0   <-[#595959,plain]-  node2
+node0   <-[#595959,plain]-  node29
+node0   <-[#595959,plain]-  node19
+node0   <-[#595959,plain]-  node44
+node0   <-[#595959,plain]-  node13
+node0   <-[#595959,plain]-  node57
+node0   <-[#595959,plain]-  node57
+node0   <-[#595959,plain]-  node57
+node0   <-[#595959,plain]-  node57
+node0   <-[#595959,plain]-  node57
+node0   <-[#595959,plain]-  node57
+@enduml

@@ -1,0 +1,34 @@
+.save-dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding-small);
+}
+
+.save-dialog-title {
+    text-align: center;
+    font-size: var(--font-size-large);
+    margin-bottom: var(--margin-medium);
+}
+
+.save-dialog-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.save-confirm-button {
+    align-content: center;
+    color: var(--text-color);
+}
+
+.save-confirm-button:hover {
+    background-color: var(--success-color);
+}
+
+.save-dialog-content {
+    justify-content: center;
+}

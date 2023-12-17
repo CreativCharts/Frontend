@@ -1,0 +1,21 @@
+
+P
+ frontend/src/pages/Dashboard.jsx,c/6/c61a4d7150e92b0868c1d9859118cabf448ded98
+J
+frontend/package-lock.json,7/5/75b3b81cff849b08343553e269c3327a04ab22e0
+_
+/frontend/src/components/charts/ChartDisplay.jsx,b/7/b7d7e80ffe526b4a0462da813e3bb1ca857e98b5
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8/8/88a9255124c95bdc913197c120a8d560edc59c8e
+E
+frontend/package.json,3/7/37083060967a471c011a16651e22bdc2ade41759
+S
+#.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
+m
+=frontend/src/components/charts/pie/settings/pieTransformer.js,e/b/eb98a86f0668150152d80ed54a9ca18320c7b10d
+c
+3frontend/src/components/charts/DashboardDisplay.jsx,5/2/52327a40b430711ba8d8bd60f42061319a31a76a
+E
+frontend/src/main.jsx,9/b/9b052d142f6592002016e71918483fea775227d4
+k
+;frontend/src/components/charts/pie/settings/chartSetting.js,1/4/14b0f251c5417b8f9e6f2ec3f29bafe982ef5c5f

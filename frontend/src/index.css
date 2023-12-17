@@ -1,0 +1,382 @@
+:root {
+    /* Farb-Variablen */
+    --primary-color: #0275d8;
+    --secondary-color: #9c27b0;
+    --accent-color: #f50057;
+    --error-color: #f44336;
+    --warning-color: #ff9800;
+    --info-color: #2196f3;
+    --success-color: rgba(18, 211, 26, 0.56);
+
+    /* Allgemeine Variablen */
+    --z-index-appbar: 1000;
+    --button-padding: 10px 20px;
+    --button-border: none;
+    --transform-button-active: scale(0.98);
+    --outline-button-focus: 2px solid var(--accent-color);
+    --outline-offset: 2px;
+    --box-shadow-focus: 0 0 0 2px rgba(0, 0, 0, 0.2);
+
+    /* Light Mode spezifische Variablen */
+    --primary-color-light: #0275d8;
+    --background-color-light: #ffffff;
+    --text-color-light: #1c1c1c;
+    --input-border-light: 1px solid #cccccc;
+    --input-padding-light: 10px;
+    --navbar-bg-color-light: #ffffff;
+    --sidebar-bg-color-light: #ffffff;
+
+
+    /* Dark Mode spezifische Variablen */
+    --primary-color-dark: #025aa5;
+    --background-color-dark: #333333;
+    --text-color-dark: #ffffff;
+    --input-border-dark: 1px solid #888888;
+    --input-padding-dark: 10px;
+    --navbar-bg-color-dark: #333333;
+    --sidebar-bg-color-dark: #333333;
+
+
+    /* Default Werte */
+    --default-color: var(--primary-color-light);
+    --background-color: var(--background-color-light);
+    --text-color: var(--text-color-light);
+    --navbar-bg-color: var(--navbar-bg-color-light);
+    --sidebar-bg-color: var(--sidebar-bg-color-light);
+
+    /* Schrift */
+    --font-family: 'Hack', monospace;
+    --font-family-fallback: 'Hack', Arial, Helvetica, sans-serif;
+
+    /* Schriftgrößen */
+    --font-size-small: 0.8rem;
+    --font-size-medium: 1rem;
+    --font-size-large: 1.2rem;
+    --font-size-xlarge: 1.5rem;
+
+    /* Navbar */
+    --appbar-height: 64px;
+
+    /* Sidebar */
+    --side-drawer-width: 250px;
+    --side-drawer-height: 100vh;
+
+    /* Buttons */
+    --button-height: 50px;
+    --button-width: 100px;
+    --button-border-radius: 50%;
+
+    /* Light Mode */
+    --button-bg-color: var(--primary-color);
+    --button-text-color: var(--text-color);
+    --button-hover-bg-color: var(--hover-bg-color);
+    --button-hover-text-color: var(--text-color);
+
+    /* Dark Mode */
+    --button-bg-color-dark: var(--primary-color-dark);
+    --button-text-color-dark: var(--text-color-dark);
+    --button-hover-bg-color-dark: var(--hover-bg-color-dark);
+    --button-hover-text-color-dark: var(--hover-text-color-dark);
+
+    /* create-button-fab */
+    --create-button-fab-bg-color: var(--primary-color);
+    --create-button-fab-text-color: var(--text-color);
+    --create-button-fab-hover-bg-color: var(--hover-bg-color);
+    --create-button-fab-hover-text-color: var(--hover-text-color);
+
+    /* Light Mode */
+    --create-button-fab-bg-color-light: var(--primary-color);
+    --create-button-fab-text-color-light: var(--text-color);
+    --create-button-fab-hover-bg-color-light: var(--hover-bg-color);
+    --create-button-fab-hover-text-color-light: var(--hover-text-color);
+
+    /* Dark Mode */
+    --create-button-fab-bg-color-dark: var(--primary-color-dark);
+    --create-button-fab-text-color-dark: var(--text-color-dark);
+    --create-button-fab-hover-bg-color-dark: var(--hover-bg-color-dark);
+    --create-button-fab-hover-text-color-dark: var(--hover-text-color-dark);
+
+    /* Input light */
+    --input-bg-color-light: var(--background-color-light);
+    --input-text-color-light: var(--text-color-light);
+    --input-border-color-light: var(--border-color-light);
+    --input-border-radius-light: var(--border-radius);
+
+    /* Input dark */
+    --input-bg-color-dark: var(--background-color-dark);
+    --input-text-color-dark: var(--text-color-dark);
+    --input-border-color-dark: var(--border-color-dark);
+    --input-border-radius-dark: var(--border-radius);
+
+    /* Margin */
+    --margin-small: 0.5rem;
+    --margin-medium: 1rem;
+    --margin-large: 2rem;
+    --margin-xlarge: 2.5rem;
+
+    /* Padding */
+    --padding-small: 0.5rem;
+    --padding-medium: 1rem;
+    --padding-large: 1.5rem;
+    --padding-xlarge: 2rem;
+
+    /* Container Padding */
+    --container-padding-small: 5px;
+    --container-padding-medium: 10px;
+    --container-padding-large: 20px;
+    --container-padding-xlarge: 40px;
+
+    /* Chart Card Padding */
+    --chart-card-padding: 10px;
+    --chart-card-padding-small: 5px;
+    --chart-card-padding-medium: 10px;
+    --chart-card-padding-large: 20px;
+    --chart-card-padding-xlarge: 40px;
+
+    /* padding-horizontal und padding-vertical */
+    --padding-horizontal-small: 2%;
+    --padding-horizontal-medium: 3%;
+    --padding-horizontal-large: 5%;
+    --padding-horizontal-xlarge: 10%;
+
+    --padding-vertical-small: 2%;
+    --padding-vertical-medium: 3%;
+    --padding-vertical-large: 5%;
+    --padding-vertical-xlarge: 10%;
+
+    /* Responsive Design */
+    --max-width: 100%;
+    --max-height: 100%;
+    --min-width: 0;
+    --min-height: 0;
+
+    --max-container-width: 100%;
+    --max-container-height: 100%;
+
+    /* Transition */
+    --transition: all 0.3s ease-in-out;
+    --transition-duration: 0.3s;
+    --transition-timing-function: ease-in-out;
+
+    /* Card */
+    --card-padding: 10px;
+    --card-padding-small: 5px;
+    --card-padding-medium: 10px;
+    --card-padding-large: 20px;
+    --card-padding-xlarge: 40px;
+
+    /* Card Content */
+    --card-content-padding-small: 5px;
+    --card-content-padding-medium: 10px;
+    --card-content-padding-large: 20px;
+    --card-content-padding-xlarge: 40px;
+
+    /* Border */
+    --border-width: 2px;
+    --border-style: solid;
+    --border-radius: 5px;
+
+    /* Border Dark & Light */
+    --border-color-dark: var(--text-color-dark);
+    --border-color-light: var(--text-color-light);
+
+    /* Table */
+    /* Table Dark Mode*/
+    --table-bg-color-dark: var(--background-color-dark);
+    --table-text-color-dark: var(--text-color-dark);
+    --table-border-color-dark: var(--border-color-dark);
+    --table-input-text-color-dark: var(--text-color-dark);
+
+    /* Table Light Mode*/
+    --table-bg-color-light: var(--background-color-light);
+    --table-text-color-light: var(--text-color-light);
+    --table-border-color-light: var(--border-color-light);
+    --table-input-text-color-light: var(--text-color-light);
+
+    /* Global Hover Effect */
+    .global-hover-effect {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: var(--border-radius);
+    }
+
+    .global-hover-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    .dark-mode .global-hover-effect:hover {
+        box-shadow: 0 10px 30px -5px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Box Shadow */
+    --box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.5);
+    --box-shadow-light: 0 0 5px 0 rgba(255, 255, 255, 0.5);
+    --box-shadow-dark: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+
+    /* Box Shadow Hover */
+    --box-shadow-hover: 0 0 10px 0 rgba(255, 255, 255, 0.5);
+    --box-shadow-hover-light: 0 0 10px 0 rgba(255, 255, 255, 0.5);
+    --box-shadow-hover-dark: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+
+    /* Hover Color */
+    --hover-bg-color: rgba(42, 59, 70, 0.1);
+    --hover-text-color: rgba(255, 255, 255, 0.1);
+    --hover-bg-color-dark: rgba(255, 255, 255, 0.1);
+    --hover-text-color-dark: #ffffff;
+    --hover-bg-color-light: rgba(4, 29, 47, 0.1);
+    --hover-text-color-light: rgba(255, 255, 255, 0.1);
+    --hover-error-color: rgba(244, 67, 54, 0.1);
+    --hover-success-color: rgba(18, 211, 26, 0.1);
+}
+
+/* Globale Stile */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-family), var(--font-family-fallback);
+}
+
+.main-content {
+    padding-top: var(--appbar-height);
+}
+
+.appbar {
+    z-index: var(--z-index-appbar);
+}
+
+.dark-mode {
+    --background-color: var(--background-color-dark);
+    --text-color: var(--text-color-dark);
+    --input-bg-color: var(--input-bg-color-dark);
+    --input-text-color: var(--input-text-color-dark);
+    --input-border: var(--input-border-dark);
+    --input-border-radius: var(--input-border-radius-dark);
+    --input-padding: var(--input-padding-dark);
+}
+
+.light-mode {
+    --background-color: var(--background-color-light);
+    --text-color: var(--text-color-light);
+    --input-bg-color: var(--input-bg-color-light);
+    --input-text-color: var(--input-text-color-light);
+    --input-border: var(--input-border-light);
+    --input-border-radius: var(--input-border-radius-light);
+    --input-padding: var(--input-padding-light);
+}
+
+.confirm-button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    height: var(--button-height);
+    width: var(--button-width);
+    border-radius: var(--button-border-radius);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.confirm-button:hover {
+    background-color: var(--success-color);
+    color: var(--button-hover-text-color);
+}
+
+@media (min-width: 0px) and (max-width: 480px) {
+    :root {
+        --font-size-large: 0.9rem;
+        --font-size-xlarge: 1.2rem;
+    }
+
+    .settings-page-root {
+        padding: var(--padding-small);
+    }
+
+    .user-profile-settings-container,
+    .notification-settings,
+    .security-settings {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    :root {
+        --button-width: 130px;
+        --font-size-large: 1.1rem;
+        --font-size-xlarge: 1.3rem;
+        --padding-horizontal: 2%;
+        --padding-vertical: 2%;
+    }
+
+    .settings-page-root {
+        padding: var(--padding-medium);
+    }
+
+    .user-profile-settings-container,
+    .notification-settings,
+    .security-settings {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    :root {
+        --padding-horizontal: 3%;
+        --padding-vertical: 3%;
+    }
+
+    .settings-page-root {
+        padding: var(--padding-large);
+    }
+
+    .user-profile-settings-container,
+    .notification-settings,
+    .security-settings {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    :root {
+        --button-width: 160px;
+        --font-size-large: 1.4rem;
+        --font-size-xlarge: 1.8rem;
+        --padding-horizontal: 5%;
+        --padding-vertical: 5%;
+    }
+
+    .settings-page-root {
+        padding: var(--padding-xlarge);
+    }
+
+    .user-profile-settings-container,
+    .notification-settings,
+    .security-settings {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
+
+@media (min-width: 1281px) and (max-width: 1920px) {
+    :root {
+        --button-width: 200px;
+        --font-size-large: 1.6rem;
+        --font-size-xlarge: 2rem;
+        --padding-horizontal: 10%;
+        --padding-vertical: 10%;
+    }
+
+    .settings-page-root {
+        margin: var(--margin-xlarge) auto;
+    }
+
+    .user-profile-settings-container,
+    .notification-settings,
+    .security-settings {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+}

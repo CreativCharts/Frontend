@@ -1,0 +1,155 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: var(--min-height);
+    max-width: var(--max-width);
+    margin-bottom: var(--margin-large);
+    padding: var(--padding-medium);
+    background-color: var(--background-color);
+    font-family: var(--font-family-fallback);
+}
+
+.appbar {
+    z-index: var(--z-index-appbar); /* Angepasste Z-Index-Variable */
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--padding-medium);
+    background-color: var(--navbar-bg-color);
+    box-shadow: var(--box-shadow);
+    width: var(--max-width);
+}
+
+.app-title {
+    font-size: var(--font-size-large);
+    font-weight: bold;
+}
+
+.app-menu-item {
+    padding: var(--padding-small);
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-duration) var(--transition-timing-function);
+}
+
+.app-menu-item:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color-light);
+    transform: scale(1.05);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.app-content {
+    padding: var(--padding-large);
+    text-align: center;
+}
+
+.app-button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    padding: var(--button-padding);
+    border: var(--button-border);
+    border-radius: var(--button-border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow-light);
+    width: var(--button-width);
+    height: var(--button-height);
+}
+
+.app-button:active {
+    transform: var(--transform-button-active);
+}
+
+.app-button:focus {
+    outline: var(--outline-button-focus);
+    outline-offset: var(--outline-offset);
+    border-color: var(--accent-color);
+    box-shadow: var(--box-shadow);
+}
+
+.app-button:hover {
+    background-color: var(--button-hover-bg-color);
+    color: var(--button-hover-text-color);
+}
+
+
+.app-input {
+    background-color: var(--input-bg-color);
+    color: var(--input-text-color);
+    border: var(--input-border);
+    border-radius: var(--input-border-radius);
+    padding: var(--input-padding);
+    transition: var(--transition);
+}
+
+.app-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: var(--box-shadow);
+}
+
+.pagination-root {
+    padding: var(--padding-small);
+    background-color: var(--background-color);
+    box-shadow: var(--box-shadow);
+}
+
+/* Responsive Menü */
+@media (max-width: 480px) {
+    .app-menu-item {
+        margin-bottom: var(--margin-small);
+    }
+}
+
+@media (max-width: 768px) {
+    .app-menu {
+        flex-direction: column;
+    }
+
+    .app-menu-item {
+        flex-grow: 1;
+        text-align: center;
+        margin-bottom: var(--margin-small);
+    }
+}
+
+/* Zusätzliche Media Queries */
+@media (max-width: 1024px) {
+    .app-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .app-title {
+        margin-bottom: var(--margin-small);
+    }
+}
+
+@media (min-width: 1025px) {
+    .app-content {
+        padding: var(--padding-large);
+    }
+}
+
+@media (max-width: 1280px) {
+    .app-container {
+        padding: var(--padding-large);
+    }
+}
+
+@media (min-width: 1440px) {
+    .app-container {
+        padding: var(--padding-large);
+    }
+}
+
+@media (max-width: 1920px) {
+    .app-container {
+        padding: var(--padding-large);
+    }
+}

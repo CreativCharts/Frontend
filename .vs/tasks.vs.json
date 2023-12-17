@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "Task-App",
+      "appliesTo": "frontend/src/App.jsx",
+      "type": "launch"
+    }
+  ]
+}
